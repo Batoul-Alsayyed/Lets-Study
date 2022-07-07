@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
+
 *{
   padding: 0;
   margin: 0;
@@ -21,6 +23,9 @@
 }
 .right-side{
   justify-content: right;
+  display: flex;
+}
+.components{
   display: flex;
 }
 .left-side-components{
@@ -47,4 +52,64 @@
 }
 .right-side-components p{
   margin-left: 20px;
+}
+/*styling the header*/
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 80px;
+  letter-spacing: 2px;
+}
+.header-left-side-components{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.header-left-side-components .header-p{
+  font-size: 35px;
+  font-family: 'IM Fell Great Primer SC', serif;
+  letter-spacing: 20%;
+}
+.header-left-side-components .start-p{
+  font-size: 29px;
+   margin-top: 40px;
+   color: #413737;
+   font-weight: 00;
+   letter-spacing: 3px;
+}
+
+.header-right-side-components{
+  display: flex;
+  justify-content: column;
+  align-items: center;
+  margin-right: 90px;
+}
+.header-right-side-components img{
+  width: 600px;
+  padding-left: 55px;
+}
+.buttons-styling{
+  margin-top: 30px;
+  display: flex;
+}
+.buttons-styling button{
+  margin-top: 10px;
+  margin-right: 50px;
+  width: 230px;
+  height: 50px;
+  font-family: 'IM Fell Great Primer SC', serif;
+  box-shadow: 3px 5px 7px 1px #807e7e;
+}
+.button1{
+  background-color: #186485;
+  border: none;
+  color: white;
+  letter-spacing: 2px;
+}
+.button2{
+  border: 4px solid #186485;
+  background-color: white;
+  color: #186485;
+  font-family: 'IM Fell Great Primer SC', serif;
+  letter-spacing: 2px;
 }
