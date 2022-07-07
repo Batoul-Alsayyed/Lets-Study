@@ -132,3 +132,30 @@
   width: 170px;
   margin-top: 30px;
 }
+.p-style{
+ margin-left: 70px; 
+ letter-spacing: 3px;
+ font-family: 'IM Fell Great Primer SC', serif;
+ font-size: 30px;
+ color: #565252;
+}
+.white-btn{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.right-display{
+  margin-top: 140px;
+  display: flex;
+  flex-direction: column;
+}
+.white-btn{
+  margin-top: 50px;
+  margin-right: 1px;
+  margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+}
+.white-btn .button2{
+  padding: 20px;
+  font-size: 35px;
+}
