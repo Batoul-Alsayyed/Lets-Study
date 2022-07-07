@@ -112,3 +112,23 @@
   font-family: 'IM Fell Great Primer SC', serif;
   letter-spacing: 2px;
 }
+.students-section{
+  background-color: #F4F3F3;
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+}
+.students-section div{
+  font-size: 25px;
+  text-align: center;
+  font-family: 'IM Fell Great Primer SC', serif;
+  letter-spacing: 3px;
+}
+.students-imgs {
+  display: flex;
+  gap: 190px;
+}
+.students-imgs img{
+  width: 170px;
+  margin-top: 30px;
+}
