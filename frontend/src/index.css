@@ -1,13 +1,50 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
+.navbar{
+  background-color: #186485;
+  padding: 20px;
+  color: white;
+  align-items: center;
+  font-family: 'IM Fell Great Primer SC', serif;
+  letter-spacing: 3px;
+  font-size: large;
+}
+.navbar-container{
+  display: flex;
+  justify-content:space-between;
+}
+.left-side{
+  justify-content: start;
+}
+.right-side{
+  justify-content: right;
+  display: flex;
+}
+.left-side-components{
+  display: flex;
+  justify-content: column;
+  align-items: center;
+  margin-left: 50px;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+}
+.left-side-components img{
+  width: 50px;
+}
+.left-side-components p{
+  margin-left: 20px;
+}
+.right-side-components{
+  display: flex;
+  justify-content: column;
+  align-items: center;
+  margin-right: 50px;
+}
+.right-side-components img{
+  width: 50px;
+}
+.right-side-components p{
+  margin-left: 20px;
 }
