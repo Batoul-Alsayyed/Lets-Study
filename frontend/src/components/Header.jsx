@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar';
 import "../index.css";
 import header from  '../images/header.png'
-
+import WhiteButton from './WhiteButton';
 export default function Header() {
   return (
     <div>
@@ -15,7 +15,7 @@ export default function Header() {
                         <br/> just like you or with a professional<br/> tutor.</p>
                     <div className="buttons-styling">
                     <button className='button1'>Join as a pro member</button>
-                    <button className='button2'>Study for free</button>
+                    <WhiteButton content={"Study For Free"}></WhiteButton>
                     </div>
 
                 </div>
