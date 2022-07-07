@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Batoul-Alsayyed/Lets-Study/issues"
   },
-  "homepage": "https://github.com/Batoul-Alsayyed/Lets-Study#readme"
+  "homepage": "https://github.com/Batoul-Alsayyed/Lets-Study#readme",
+  "dependencies": {
+    "react-icons": "^4.4.0"
+  }
 }

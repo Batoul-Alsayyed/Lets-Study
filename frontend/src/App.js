@@ -6,6 +6,7 @@ import Header from './components/Header';
 import StudentsSection from './components/StudentsSection';
 import Homepage from './components/Homepage';
 import BookNow from './components/BookNow';
+import Footer from './components/Footer';
 function App() {
   return (
       <div>
@@ -16,6 +17,7 @@ function App() {
           <Route path='/students-section' element={<StudentsSection/>}></Route>
           <Route path='/home' element={<Homepage/>}></Route>
           <Route path='/book' element={<BookNow/>}></Route>
+          <Route path='/footer' element={<Footer/>}></Route>
         </Routes>
         </BrowserRouter>
       </div>
