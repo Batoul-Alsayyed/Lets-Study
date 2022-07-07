@@ -159,3 +159,12 @@
   padding: 20px;
   font-size: 35px;
 }
+.footer-items div{
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.footer-icons{
+  gap: 20px;
+  display: flex;
+  margin-left: 110px;
+}
