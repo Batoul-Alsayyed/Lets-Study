@@ -173,16 +173,16 @@
   letter-spacing: 3px;
   font-family: 'IM Fell Great Primer SC', serif;
 }
-.left-display{
+.signup-left-display{
   background-color: #186485;
   height: 100vh;
 }
-.left-display .signup-text{
+.signup-left-display .signup-text{
   color: white;
   margin-left: 135px;
   margin-top: 25px;
 }
-.left-display img{
+.signup-img{
   width: 350px;
   height: 350px;
   padding-left: 50px;
@@ -195,20 +195,21 @@
   margin-left: 120px;
   padding: 10px;
 }
-.right-display .welcome{
+.signup-welcome{
   font-size: 30px;
 }
-.right-display label{
+.signup-label{
   padding: 20px;
   margin-top: 30px;
 }
-.right-display input{
+.signup-input{
   padding: 8px;
   border: none;
   border-bottom: 1px solid #807e7e;
   font-size: large;
+  margin-left: 21px;
 }
-.right-display input:focus{
+.signup-input:focus{
   outline: none;
   border-bottom: 1px solid #186485;
 }
