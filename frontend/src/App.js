@@ -8,6 +8,7 @@ import Homepage from './components/Homepage';
 import BookNow from './components/BookNow';
 import Footer from './components/Footer';
 import Signup from './components/Signup';
+import Signin from './components/Signin';
 function App() {
   return (
       <div>
@@ -20,6 +21,7 @@ function App() {
           <Route path='/book' element={<BookNow/>}></Route>
           <Route path='/footer' element={<Footer/>}></Route>
           <Route path='/Signup' element={<Signup/>}></Route>
+          <Route path='/Signin' element={<Signin/>}></Route>
         </Routes>
         </BrowserRouter>
       </div>
