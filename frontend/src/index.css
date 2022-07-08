@@ -7,6 +7,7 @@
 }
 .navbar{
   background-color: #186485;
+  width: 100%;
   padding: 20px;
   color: white;
   align-items: center;
@@ -33,7 +34,6 @@
   justify-content: column;
   align-items: center;
   margin-left: 50px;
-
 }
 .left-side-components img{
   width: 50px;
@@ -45,7 +45,7 @@
   display: flex;
   justify-content: column;
   align-items: center;
-  margin-right: 50px;
+  margin-right: 80px;
 }
 .right-side-components img{
   width: 50px;
@@ -167,4 +167,13 @@
   gap: 20px;
   display: flex;
   margin-left: 110px;
+}
+@media(max-width: 500px){
+  .navbar {
+    background-color: #186485;
+    font-family: 'IM Fell Great Primer SC', serif;
+    letter-spacing: 2px;
+    font-size: small;
+}
+
 }
