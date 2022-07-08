@@ -4,19 +4,18 @@ import SignupButton from './SignupButton'
 export default function Signup() {
   return (
     <div className='signup-layout'>
-      <div className='left-display'>
-        <img src={img6} alt="" />
+      <div className='signup-left-display'>
+        <img className='signup-img' src={img6} alt="" />
         <p className='signup-text'>Not a member? Register now</p>
       </div>
       <div className='right-display'>
-        <p className='welcome'>Welcome to Lets Study</p>
-        <label>Email</label>
-        <input type="text" />
-        <label htmlFor="">Password</label>
-        <input type="password" />
+        <p className='signup-welcome'>Welcome to Lets Study</p>
+        <label className='signup-label'>Email</label>
+        <input className='signup-input' type="text" />
+        <label className='signup-label'>Password</label>
+        <input className='signup-input' type="password" />
         <SignupButton content={'Sign up'}></SignupButton>
       </div>
-
     </div>
   )
 }
