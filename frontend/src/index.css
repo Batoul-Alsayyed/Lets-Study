@@ -189,11 +189,14 @@
   padding-top: 130px;
   padding-right: 80px;
 }
-.right-display{
+.signup-right-display{
   background-color: none;
   height: 70vh;
   margin-left: 120px;
   padding: 10px;
+  margin-top: 140px;
+  display: flex;
+  flex-direction: column;
 }
 .signup-welcome{
   font-size: 30px;
@@ -224,6 +227,72 @@
   color: white;
   font-size: 15px;
 }
+/*Signin */
+.signin-layout{
+  display: flex;
+  letter-spacing: 3px;
+  font-family: 'IM Fell Great Primer SC', serif;
+}
+.signin-left-display{
+  background-color: #186485;
+  height: 100vh;
+}
+.signin-left-display .signup-text{
+  color: white;
+  margin-left: 135px;
+  margin-top: 25px;
+}
+.signin-img{
+  width: 350px;
+  height: 350px;
+  padding-left: 50px;
+  padding-top: 130px;
+  padding-right: 80px;
+}
+.signin-right-display {
+  background-color: none;
+  height: 80vh;
+  margin-left: 128px;
+  padding: 12px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+.signin-welcome{
+  font-size: 30px;
+  margin-bottom: 35px;
+}
+.signin-label {
+  padding: 4px;
+  margin-top: 1px;
+  margin-left: 18px;
+}
+.signin-input {
+  padding: 12px;
+  border: none;
+  border-bottom: 1px solid #807e7e;
+  font-size: large;
+  margin-left: 21px;
+}
+.signin-input:focus{
+  outline: none;
+  border-bottom: 1px solid #186485;
+}
+.signup-btn{
+  margin-top: 50px;
+  margin-left: 120px;
+  margin-right: 120px;
+  padding: 15px;
+  background-color: #6A6464;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 15px;
+  font-family: 'IM Fell Great Primer SC', serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+/**/
 @media(max-width: 500px){
   .navbar {
     background-color: #186485;
