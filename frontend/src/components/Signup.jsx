@@ -8,7 +8,7 @@ export default function Signup() {
         <img className='signup-img' src={img6} alt="" />
         <p className='signup-text'>Not a member? Register now</p>
       </div>
-      <div className='right-display'>
+      <div className='signup-right-display'>
         <p className='signup-welcome'>Welcome to Lets Study</p>
         <label className='signup-label'>Email</label>
         <input className='signup-input' type="text" />
