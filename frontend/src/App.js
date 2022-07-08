@@ -7,6 +7,7 @@ import StudentsSection from './components/StudentsSection';
 import Homepage from './components/Homepage';
 import BookNow from './components/BookNow';
 import Footer from './components/Footer';
+import Signup from './components/Signup';
 function App() {
   return (
       <div>
@@ -18,6 +19,7 @@ function App() {
           <Route path='/home' element={<Homepage/>}></Route>
           <Route path='/book' element={<BookNow/>}></Route>
           <Route path='/footer' element={<Footer/>}></Route>
+          <Route path='/Signup' element={<Signup/>}></Route>
         </Routes>
         </BrowserRouter>
       </div>
