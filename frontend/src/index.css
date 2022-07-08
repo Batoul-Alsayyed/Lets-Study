@@ -168,6 +168,61 @@
   display: flex;
   margin-left: 110px;
 }
+.signup-layout{
+  display: flex;
+  letter-spacing: 3px;
+  font-family: 'IM Fell Great Primer SC', serif;
+}
+.left-display{
+  background-color: #186485;
+  height: 100vh;
+}
+.left-display .signup-text{
+  color: white;
+  margin-left: 135px;
+  margin-top: 25px;
+}
+.left-display img{
+  width: 350px;
+  height: 350px;
+  padding-left: 50px;
+  padding-top: 130px;
+  padding-right: 80px;
+}
+.right-display{
+  background-color: none;
+  height: 70vh;
+  margin-left: 120px;
+  padding: 10px;
+}
+.right-display .welcome{
+  font-size: 30px;
+}
+.right-display label{
+  padding: 20px;
+  margin-top: 30px;
+}
+.right-display input{
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid #807e7e;
+  font-size: large;
+}
+.right-display input:focus{
+  outline: none;
+  border-bottom: 1px solid #186485;
+}
+.signup-btn{
+  margin-top: 50px;
+  margin-left: 120px;
+  margin-right: 120px;
+  padding: 15px;
+  background-color: #6A6464;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 15px;
+}
 @media(max-width: 500px){
   .navbar {
     background-color: #186485;
