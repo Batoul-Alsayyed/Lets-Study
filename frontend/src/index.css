@@ -1,196 +1,196 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap");
 
-*{
+* {
   padding: 0;
   margin: 0;
 }
-.navbar{
+.navbar {
   background-color: #186485;
-  width: 100%;
+  width: 97.1%;
   padding: 20px;
   color: white;
   align-items: center;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
   letter-spacing: 3px;
   font-size: large;
 }
-.navbar-container{
+.navbar-container {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.left-side{
+.left-side {
   justify-content: start;
 }
-.right-side{
+.right-side {
   justify-content: right;
   display: flex;
 }
-.components{
+.components {
   display: flex;
 }
-.left-side-components{
+.left-side-components {
   display: flex;
   justify-content: column;
   align-items: center;
   margin-left: 50px;
   margin-top: 6px;
 }
-.left-side-components img{
+.left-side-components img {
   width: 50px;
 }
-.left-side-components p{
+.left-side-components p {
   margin-left: 20px;
 }
-.right-side-components{
+.right-side-components {
   display: flex;
   justify-content: column;
   align-items: center;
   margin-right: 80px;
 }
-.right-side-components img{
+.right-side-components img {
   width: 65px;
 }
-.right-side-components p{
+.right-side-components p {
   margin-left: 20px;
 }
 /*styling the header*/
-.header-container{
+.header-container {
   display: flex;
   justify-content: space-between;
   margin: 80px;
   letter-spacing: 2px;
 }
-.header-left-side-components{
+.header-left-side-components {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
 }
-.header-left-side-components .header-p{
+.header-left-side-components .header-p {
   font-size: 35px;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
   letter-spacing: 20%;
 }
-.header-left-side-components .start-p{
+.header-left-side-components .start-p {
   font-size: 27px;
-   margin-top: 40px;
-   color: #413737;
-   letter-spacing: 3px;
+  margin-top: 40px;
+  color: #413737;
+  letter-spacing: 3px;
 }
 
-.header-right-side-components{
+.header-right-side-components {
   display: flex;
   justify-content: column;
   align-items: center;
   margin-right: 90px;
 }
-.header-right-side-components img{
+.header-right-side-components img {
   width: 600px;
   padding-left: 55px;
 }
-.buttons-styling{
+.buttons-styling {
   margin-top: 30px;
   display: flex;
 }
-.buttons-styling button{
+.buttons-styling button {
   margin-top: 10px;
   margin-right: 50px;
   width: 230px;
   height: 50px;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
   box-shadow: 3px 5px 7px 1px #807e7e;
 }
-.button1{
+.button1 {
   background-color: #186485;
   border: none;
   color: white;
   letter-spacing: 2px;
 }
-.button2{
+.button2 {
   border: 4px solid #186485;
   background-color: white;
   color: #186485;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
   letter-spacing: 2px;
 }
-.students-section{
-  background-color: #F4F3F3;
+.students-section {
+  background-color: #f4f3f3;
   display: flex;
   padding: 50px;
   justify-content: center;
 }
-.students-section div{
+.students-section div {
   font-size: 25px;
   text-align: center;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
   letter-spacing: 3px;
 }
 .students-imgs {
   display: flex;
   gap: 190px;
 }
-.students-imgs img{
+.students-imgs img {
   width: 170px;
   margin-top: 30px;
 }
-.p-style{
- margin-left: 70px; 
- letter-spacing: 3px;
- font-family: 'IM Fell Great Primer SC', serif;
- font-size: 30px;
- color: #565252;
+.p-style {
+  margin-left: 70px;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+  font-size: 30px;
+  color: #565252;
 }
-.white-btn{
+.white-btn {
   display: flex;
   flex-direction: row-reverse;
 }
-.right-display{
+.right-display {
   margin-top: 140px;
   display: flex;
   flex-direction: column;
 }
-.white-btn{
+.white-btn {
   margin-top: 50px;
   margin-right: 1px;
   margin-left: 70px;
   display: flex;
   flex-direction: column;
 }
-.white-btn .button2{
+.white-btn .button2 {
   padding: 20px;
   font-size: 35px;
 }
-.footer-items div{
+.footer-items div {
   margin-bottom: 20px;
   font-size: 20px;
 }
-.footer-icons{
+.footer-icons {
   gap: 20px;
   display: flex;
   margin-left: 110px;
 }
-.signup-layout{
+.signup-layout {
   display: flex;
   letter-spacing: 3px;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
 }
-.signup-left-display{
+.signup-left-display {
   background-color: #186485;
   height: 100vh;
 }
-.signup-left-display .signup-text{
+.signup-left-display .signup-text {
   color: white;
   margin-left: 135px;
   margin-top: 25px;
 }
-.signup-img{
+.signup-img {
   width: 350px;
   height: 350px;
   padding-left: 50px;
   padding-top: 130px;
   padding-right: 80px;
 }
-.signup-right-display{
+.signup-right-display {
   background-color: none;
   height: 70vh;
   margin-left: 120px;
@@ -199,51 +199,51 @@
   display: flex;
   flex-direction: column;
 }
-.signup-welcome{
+.signup-welcome {
   font-size: 30px;
 }
-.signup-label{
+.signup-label {
   padding: 20px;
   margin-top: 30px;
 }
-.signup-input{
+.signup-input {
   padding: 8px;
   border: none;
   border-bottom: 1px solid #807e7e;
   font-size: large;
   margin-left: 21px;
 }
-.signup-input:focus{
+.signup-input:focus {
   outline: none;
   border-bottom: 1px solid #186485;
 }
-.signup-btn{
+.signup-btn {
   margin-top: 50px;
   margin-left: 120px;
   margin-right: 120px;
   padding: 15px;
-  background-color: #6A6464;
+  background-color: #6a6464;
   border: none;
   border-radius: 25px;
   color: white;
   font-size: 15px;
 }
 /*Signin */
-.signin-layout{
+.signin-layout {
   display: flex;
   letter-spacing: 3px;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
 }
-.signin-left-display{
+.signin-left-display {
   background-color: #186485;
   height: 100vh;
 }
-.signin-left-display .signup-text{
+.signin-left-display .signup-text {
   color: white;
   margin-left: 135px;
   margin-top: 25px;
 }
-.signin-img{
+.signin-img {
   width: 350px;
   height: 350px;
   padding-left: 50px;
@@ -259,7 +259,7 @@
   display: flex;
   flex-direction: column;
 }
-.signin-welcome{
+.signin-welcome {
   font-size: 30px;
   margin-bottom: 35px;
 }
@@ -275,31 +275,88 @@
   font-size: large;
   margin-left: 21px;
 }
-.signin-input:focus{
+.signin-input:focus {
   outline: none;
   border-bottom: 1px solid #186485;
 }
-.signup-btn{
+.signup-btn {
   margin-top: 50px;
   margin-left: 120px;
   margin-right: 120px;
   padding: 15px;
-  background-color: #6A6464;
+  background-color: #6a6464;
   border: none;
   border-radius: 25px;
   color: white;
   font-size: 15px;
-  font-family: 'IM Fell Great Primer SC', serif;
+  font-family: "IM Fell Great Primer SC", serif;
   font-size: 20px;
   letter-spacing: 3px;
 }
-/**/
-@media(max-width: 500px){
+.students-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.students-text {
+  text-align: center;
+  font-family: "IM Fell Great Primer SC", serif;
+  letter-spacing: 3px;
+  font-size: 30px;
+  padding: 35px;
+}
+.cards {
+  display: flex;
+  justify-content:center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.card {
+  align-items: center;
+  position: relative;
+  border: 1.5px solid #ccbaba;
+  border-radius: 15px;
+  width: fit-content;
+  height: fit-content;
+}
+.card img {
+  width: 200px;
+  margin: 30px;
+  border-radius: 15px;
+}
+.cards .card .rate {
+  float: right;
+  margin-top: -1px;
+  margin-left: 75px;
+}
+svg.star-icon{
+  margin-top: -1px;
+  margin-right: 35px;
+}
+.cards .card .location-icon {
+  position: absolute;
+  right: 130px;
+  top: 230.5px;
+}
+.cards .card div {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 25px;
+}
+.cards .card div p {
+  margin: 2px;
+  justify-content: space-around;
+  font-size: small;
+  flex-basis: 50%;
+}
+@media (max-width: 500px) {
   .navbar {
     background-color: #186485;
-    font-family: 'IM Fell Great Primer SC', serif;
+    font-family: "IM Fell Great Primer SC", serif;
     letter-spacing: 2px;
     font-size: small;
-}
-
+  }
 }
