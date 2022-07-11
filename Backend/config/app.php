@@ -230,6 +230,14 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'providers' => [
+            Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        ],
+        'aliases' => [
+            'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+            'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        ],
+
     ],
 
 ];
