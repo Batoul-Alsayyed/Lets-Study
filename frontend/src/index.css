@@ -252,10 +252,10 @@
 }
 .signin-right-display {
   background-color: none;
-  height: 80vh;
+  height: 90vh;
   margin-left: 128px;
   padding: 12px;
-  margin-top: 80px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
 }
@@ -265,11 +265,11 @@
 }
 .signin-label {
   padding: 4px;
-  margin-top: 1px;
-  margin-left: 18px;
+  margin-top: 8px;
+  margin-left: 20px;
 }
 .signin-input {
-  padding: 12px;
+  padding: 8px;
   border: none;
   border-bottom: 1px solid #807e7e;
   font-size: large;
@@ -283,7 +283,7 @@
   margin-top: 50px;
   margin-left: 120px;
   margin-right: 120px;
-  padding: 15px;
+  padding: 13px;
   background-color: #6a6464;
   border: none;
   border-radius: 25px;
