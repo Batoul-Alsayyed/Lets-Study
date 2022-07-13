@@ -35,7 +35,7 @@ export default function Signin() {
             password: details.password, 
             date_of_birth: details.date_of_birth,
           });
-          navigate('/students')
+          navigate('/student')
     }).catch(err => {  //if error occured when adding new user to the database 
       console.log(err);
       alert('Error occured: user already exits!')
