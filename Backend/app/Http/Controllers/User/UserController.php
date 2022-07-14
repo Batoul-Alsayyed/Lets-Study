@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\UserType;
 use App\Http\Controllers\Controller;
 use Validator;
 
@@ -15,7 +16,7 @@ class UserController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register','addUserType']]);
     }
     /**
      * Get a JWT via given credentials.
@@ -91,5 +92,22 @@ class UserController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => auth()->user()
         ]);
+    }
+    //Adding user type API
+
+    public function addUserType(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'type' => 'required|string',
+        ]);
+        if($validator->fails()){
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+        $user_type = UserType::create(array_merge(
+                    $validator->validated()
+                ));
+        return response()->json([
+            'message' => 'User type successfully added',
+            'user_type' => $user_type
+        ], 201);
     }
 }

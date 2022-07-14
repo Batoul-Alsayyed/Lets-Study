@@ -20,4 +20,5 @@ Route::group([
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/refresh', [UserController::class, 'refresh']);
     Route::get('/user-profile', [UserController::class, 'userProfile']);    
+    Route::post('/addUserType', [UserController::class, 'addUserType']);    
 });
