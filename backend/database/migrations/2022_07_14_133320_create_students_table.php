@@ -17,13 +17,13 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('account_type');
-            $table->decimal('image_link');
+            $table->string('image_link');
             $table->decimal('rate_number');
             $table->decimal('longitude');
             $table->decimal('latitude');
             $table->integer('degrees_id');
             $table->integer('study_fields_id');
-            $table->integer('interested_field_id');
+            $table->integer('interested_fields_id');
             $table->timestamps();
         });
     }
