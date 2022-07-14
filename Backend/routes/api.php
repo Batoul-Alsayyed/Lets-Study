@@ -2,6 +2,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Teacher\TeacherController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,4 +23,10 @@ Route::group([
     Route::post('/refresh', [UserController::class, 'refresh']);
     Route::get('/user-profile', [UserController::class, 'userProfile']);    
     Route::post('/addUserType', [UserController::class, 'addUserType']);    
+});
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'teacher'
+], function ($router) {
+    Route::post('/add_teacher', [TeacherController::class, 'addTeacher']);  
 });
