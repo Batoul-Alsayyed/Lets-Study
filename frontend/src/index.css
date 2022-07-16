@@ -54,6 +54,7 @@
 .right-side-components p {
   margin-left: 20px;
 }
+
 /*styling the header*/
 .header-container {
   display: flex;
@@ -127,10 +128,10 @@
 }
 .students-imgs {
   display: flex;
-  gap: 190px;
+  gap: 20%;
 }
 .students-imgs img {
-  width: 170px;
+  width: 20%;
   margin-top: 30px;
 }
 .p-style {
@@ -361,12 +362,22 @@ svg.star-icon{
   top: 0;
   left: 0;
 }
- 
+.submit-popup-form{
+  margin-top: 30%;
+  margin-left: 43%;
+  padding: 20px;
+  width: 150px;
+  background-color: #186485;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  letter-spacing: 3px;
+} 
 .box {
   position: relative;
   width: 70%;
   margin: 0 auto;
-  height: auto;
+  height: 90%;
   max-height: 70vh;
   margin-top: calc(100vh - 85vh - 20px);
   background: #fff;
@@ -414,6 +425,9 @@ svg.star-icon{
   margin: 10px;
   padding-bottom: 15px;
 }
+.col-file{
+  margin-right: 200px;
+}
 .row2{
   display: flex;
   justify-content: center;
@@ -429,15 +443,197 @@ svg.star-icon{
   padding: 8px;
   width: 172px;
   text-align: center;
+  border: 1px solid rgb(95, 92, 92);
+  background-color: white;
+  border-radius: 2px;
+}
+.col-btn:hover{
+  background-color: #186485;
+  color: white;
 }
 .btn2{
   margin-right: 14px;
 }
-@media (max-width: 500px) {
+.row3{
+  margin-left: 190px;
+  margin-top: 25px;
+}
+@media (max-width: 1300px){
+  .navbar{
+    width: 95.5%;
+  }
+  .header-right-side-components img {
+    width: 290px;
+  }
+  .header-left-side-components {
+    margin-right: -50px;
+  }
+  .header-left-side-components img{
+    width: 80%;
+    margin-left: -20px;
+  }
+  .p-style {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  .right-display {
+    margin-top: 40px;
+}
+  .header-container{
+    flex-direction: row;
+  }
+  .white-btn .button2 {
+    padding: 2px;
+    font-size: 15px;
+    width: 120px;
+}
+  .white-btn {
+    margin-top: 5px;
+    margin-right: 1px;
+    margin-left: 7px;
+  }
+
+  .students-section div {
+    font-size: 20px;
+  }
+  .header-right-side-components {
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    margin-right: 90px;
+  }
+  .header-right-side-components img {
+    display: none;
+  }
+}
+/*For ipad air*/
+@media (max-width: 900px){
+  .navbar{
+    width: 91%;
+  }
+  .header-container {
+    margin: 30px;
+  }
+  .header-left-side-components {
+    margin-top: 30px;
+    margin-left: 3px;
+}
+  .header-left-side-components .header-p {
+    font-size: 20px;
+  }
+  .header-left-side-components .start-p {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .header-right-side-components {
+    margin-right: 10px;
+  }
+  .header-right-side-components img {
+    width: 280px;
+  }
+  .buttons-styling button {
+    margin-top: -3px;
+    margin-right: 15px;
+    font-size: 12px;
+    width: 180px;
+  }
+  .students-section div {
+    font-size: 15px;
+  }
+} 
+@media (max-width: 700px) {
   .navbar {
-    background-color: #186485;
-    font-family: "IM Fell Great Primer SC", serif;
     letter-spacing: 2px;
     font-size: small;
   }
+  .left-side-components img {
+    width: 40px;
+  }
+  .left-side-components {
+    margin-left: 10px;
+  }
+  .right-side-components {
+    margin-right: 30px;
+  }
 }
+@media (max-width: 450px){
+  .navbar{
+    width: 91%;
+  }
+  .left-side-components img {
+    width: 30px;
+  }
+  /*header*/
+
+  .header-container {
+    margin: 30px;
+    flex-direction: column;
+  }
+  .header-left-side-components {
+    margin-top: 30px;
+  }
+  .header-left-side-components .header-p {
+    font-size: 20px;
+  }
+  .header-left-side-components .start-p {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  .header-right-side-components {
+    margin-right: 10px;
+  }
+
+  .buttons-styling button {
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 12px;
+    width: 280px;
+    height: 50px;
+  }
+  .students-section div {
+    font-size: 11px;
+  }
+} 
+
+/*For very small screens such as Galaxy Fold*/
+@media (max-width: 400px){
+  .navbar{
+    width: 89.5%;
+  }
+  .left-side-components img {
+    width: 30px;
+  }
+  .right-side-components{
+    font-size: 10px;
+  }
+  /*header*/
+
+  .header-container {
+    margin: 30px;
+    flex-direction: column;
+  }
+  .header-left-side-components {
+    margin-top: 30px;
+  }
+  .header-left-side-components .header-p {
+    font-size: 18px;
+  }
+  .header-left-side-components .start-p {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .header-right-side-components {
+    margin-right: 10px;
+  }
+  .header-right-side-components img {
+    display: none;
+  }
+  .buttons-styling button {
+    margin-top: 10px;
+    margin-right: 14px;
+    font-size: 10px;
+    width: 300px;
+    height: 40px;
+  }
+
+} 
