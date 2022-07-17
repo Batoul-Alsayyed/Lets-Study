@@ -2,12 +2,21 @@ import React, { useState } from "react";
 import Popup from "./Popup";
 import LoginNavbar from "./LoginNavbar";
 import "../index.css";
+import MapComponent from "./MapComponent";
 
 export default function Student() {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("clicked");
+    alert("submit clicked");
+  };
+  const doNothing = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -26,31 +35,65 @@ export default function Student() {
                 <form className="form">
                   <div className="row">
                     <div className="column">
-                      <label htmlFor="">Interested Field</label>
-                      <input type="text" />
-                    </div>
-
-                    <div className="column">
-                      <label htmlFor="">Study Field</label>
-                      <input type="text" />
+                      <label htmlFor="">Profile Picture</label>
+                      <input type="file" className="col-file" />
                     </div>
 
                     <div className="column">
                       <label htmlFor="">Type of Degree</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div className="row2">
-                      <label htmlFor="" className="location-text">Location</label>
-
-                    <div className="column">
-                      <button className="col-btn">Current position </button>
+                      <select className="select-style">
+                        <option value="masters">Masters Degree</option>
+                        <option value="bachelor">Bachelor Degree</option>
+                        <option defaultValue="high-school">High School</option>
+                      </select>
                     </div>
 
                     <div className="column">
-                      <button className="col-btn btn2">Find on the map</button>
+                      <label htmlFor="">Study Field</label>
+                      <select className="select-style">
+                        <option value="">Computer Science</option>
+                        <option value="">Public Health</option>
+                        <option value="">Life Sciences</option>
+                        <option defaultValue="">General Sciences</option>
+                        <option value="">Human Sciences</option>
+                        <option value="">Economics</option>
+                      </select>
                     </div>
                   </div>
+
+                  <div className="row">
+                    <div className="column">
+                      <button
+                        className="select-style location"
+                        onClick={doNothing}
+                      >
+                        Location
+                      </button>
+                    </div>
+
+                    <div className="column">
+                      <button className="select-style" onClick={doNothing}>
+                        Current position
+                      </button>
+                    </div>
+
+                    <div className="column">
+                      <button className="select-style" onClick={doNothing}>
+                        Find on the map
+                      </button>
+                    </div>
+                  </div>
+                  <div className="row3">
+                    <MapComponent />
+                  </div>
+                  <br />
+                  <button
+                    type="submit"
+                    className="submit-popup-form"
+                    onClick={submitHandler}
+                  >
+                    Submit
+                  </button>
                 </form>
               </div>
             </>
