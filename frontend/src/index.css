@@ -308,7 +308,7 @@
 }
 .cards {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   gap: 50px;
   flex-wrap: wrap;
   margin-left: 70px;
@@ -332,7 +332,7 @@
   margin-top: -1px;
   margin-left: 75px;
 }
-svg.star-icon{
+svg.star-icon {
   margin-top: -1px;
   margin-right: 35px;
 }
@@ -355,6 +355,7 @@ svg.star-icon{
 }
 /*Styling popup component*/
 .popup-box {
+  display: flex;
   position: fixed;
   background: #00000050;
   width: 100%;
@@ -362,17 +363,21 @@ svg.star-icon{
   top: 0;
   left: 0;
 }
-.submit-popup-form{
-  margin-top: 30%;
-  margin-left: 43%;
-  padding: 20px;
+.form {
+  justify-content: center;
+  align-items: center;
+}
+.submit-popup-form {
+  padding: 10px;
+  margin-top: 250px;
   width: 150px;
   background-color: #186485;
   color: white;
   border: none;
   border-radius: 15px;
   letter-spacing: 3px;
-} 
+  z-index: 99999;
+}
 .box {
   position: relative;
   width: 70%;
@@ -386,7 +391,7 @@ svg.star-icon{
   border: 1px solid black;
   overflow: auto;
 }
- 
+
 .close-icon {
   cursor: pointer;
   position: fixed;
@@ -400,66 +405,67 @@ svg.star-icon{
   text-align: center;
   border: 2px solid black;
 }
-.popup-div{
-  justify-content: center;
+.popup-div {
+  text-align: center;
   letter-spacing: 3px;
   font-family: "IM Fell Great Primer SC", serif;
 }
-.popup-div p{
-  margin-left: 30%;
+.popup-div p {
   font-size: 40px;
-  margin-bottom: 30px;
 }
-.row{
+.row {
   display: flex;
   justify-content: center;
 }
-.column{
+.column {
   display: flex;
   flex-direction: column;
 }
-.column label{
+.column label {
   text-align: center;
 }
-.column input{
+.column input {
+  width: 140px;
   margin: 10px;
   padding-bottom: 15px;
 }
-.col-file{
-  margin-right: 200px;
+.col-file {
+  padding: 15px;
+  border: 1px solid black;
 }
-.row2{
+.select-style {
+  padding: 17px;
+  margin-top: 10px;
+  border: 1px solid black;
+  background-color: transparent;
+  margin-right: 15px;
+  margin-left: 15px;
+  height: 53px;
+  width: 165px;
+}
+
+.location {
+  border: none;
+  text-align: left;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+  color: black;
+  font-size: 15px;
+}
+.row2 {
   display: flex;
   justify-content: center;
 }
-.location-text{
-  margin-right: 80px;
-  margin-left: 14px;
-  margin-top: 20px;
-}
-.col-btn{
-  margin-top: 15px;
-  margin-left: 22px;
-  padding: 8px;
-  width: 172px;
-  text-align: center;
-  border: 1px solid rgb(95, 92, 92);
-  background-color: white;
-  border-radius: 2px;
-}
-.col-btn:hover{
-  background-color: #186485;
-  color: white;
-}
-.btn2{
-  margin-right: 14px;
-}
-.row3{
-  margin-left: 190px;
+
+.row3 {
+  margin-left: 20%;
   margin-top: 25px;
+  width: fit-content;
+  height: fit-content;
 }
-@media (max-width: 1300px){
-  .navbar{
+
+@media (max-width: 1300px) {
+  .navbar {
     width: 95.5%;
   }
   .header-right-side-components img {
@@ -468,7 +474,7 @@ svg.star-icon{
   .header-left-side-components {
     margin-right: -50px;
   }
-  .header-left-side-components img{
+  .header-left-side-components img {
     width: 80%;
     margin-left: -20px;
   }
@@ -478,15 +484,15 @@ svg.star-icon{
   }
   .right-display {
     margin-top: 40px;
-}
-  .header-container{
+  }
+  .header-container {
     flex-direction: row;
   }
   .white-btn .button2 {
     padding: 2px;
     font-size: 15px;
     width: 120px;
-}
+  }
   .white-btn {
     margin-top: 5px;
     margin-right: 1px;
@@ -507,8 +513,8 @@ svg.star-icon{
   }
 }
 /*For ipad air*/
-@media (max-width: 900px){
-  .navbar{
+@media (max-width: 900px) {
+  .navbar {
     width: 91%;
   }
   .header-container {
@@ -517,7 +523,7 @@ svg.star-icon{
   .header-left-side-components {
     margin-top: 30px;
     margin-left: 3px;
-}
+  }
   .header-left-side-components .header-p {
     font-size: 20px;
   }
@@ -540,8 +546,43 @@ svg.star-icon{
   .students-section div {
     font-size: 15px;
   }
-} 
+}
+@media (max-width: 800px) {
+  .submit-popup-form {
+    width: 110px;
+  }
+  .select-style {
+    height: 50px;
+    width: 130px;
+    font-size: 10px;
+    margin-left: 1px;
+  }
+
+  .location {
+    font-size: 12px;
+  }
+  .column label {
+    text-align: center;
+    font-size: 12px;
+  }
+  .column input {
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    padding-bottom: 5%;
+  }
+  .col-file {
+    padding: 10px;
+  }
+}
 @media (max-width: 700px) {
+  .box {
+    width: 70%;
+    height: 65%;
+  }
+  .popup-div p {
+    font-size: 25px;
+  }
   .navbar {
     letter-spacing: 2px;
     font-size: small;
@@ -556,8 +597,8 @@ svg.star-icon{
     margin-right: 30px;
   }
 }
-@media (max-width: 450px){
-  .navbar{
+@media (max-width: 450px) {
+  .navbar {
     width: 91%;
   }
   .left-side-components img {
@@ -593,17 +634,20 @@ svg.star-icon{
   .students-section div {
     font-size: 11px;
   }
-} 
+}
 
 /*For very small screens such as Galaxy Fold*/
-@media (max-width: 400px){
-  .navbar{
+@media (max-width: 400px) {
+  .popup-div p {
+    font-size: 20px;
+  }
+  .navbar {
     width: 89.5%;
   }
   .left-side-components img {
     width: 30px;
   }
-  .right-side-components{
+  .right-side-components {
     font-size: 10px;
   }
   /*header*/
@@ -635,5 +679,4 @@ svg.star-icon{
     width: 300px;
     height: 40px;
   }
-
-} 
+}
