@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Popup from "./Popup";
 import LoginNavbar from "./LoginNavbar";
 import "../index.css";
 import MapComponent from "./MapComponent";
+import lamp from "../images/StudyLamp.png";
 
 export default function Student() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,13 +19,38 @@ export default function Student() {
   const doNothing = (e) => {
     e.preventDefault();
   };
-
+  useEffect(() => {
+    document.getElementById("popup_button").click();
+  }, []);
   return (
     <div>
       <LoginNavbar />
       {/* Now adding the popup that will let the student to finish his/her profile */}
 
-      <input type="button" value="Click to Open Popup" onClick={togglePopup} />
+      <div className="student-container">
+        <div>
+          <input
+            type="button"
+            id="popup_button"
+            className="hide-btn"
+            value="Click to Open Popup"
+            onClick={togglePopup}
+          />
+          <p className="header-text">Start your studying journey!</p>
+          <p className="header-sub-text">
+            Choose either to study with another student or with a professional
+            tutor.
+          </p>
+          <div className="buttons-styling student-buttons">
+            <button className="button1">Study with tutor</button>
+            <button className="button2">Study with student</button>
+          </div>
+        </div>
+        <div>
+          <img src={lamp} className="study-lamp" />
+        </div>
+      </div>
+
       {isOpen && (
         <Popup
           content={
