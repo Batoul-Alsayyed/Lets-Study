@@ -16,7 +16,7 @@ class UserController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register','addUserType']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register','addUserType','getUserById']]);
     }
     /**
      * Get a JWT via given credentials.
@@ -109,5 +109,15 @@ class UserController extends Controller
             'message' => 'User type successfully added',
             'user_type' => $user_type
         ], 201);
+    }
+        public function getUserById(Request $request){
+        $user = User::orderBy('created_at','desc')->get();
+        $user = User::where('id', $request->id)->get();
+
+            return response()->json([
+                "status" => "Success",
+                "user" => $user
+            ], 200);
+
     }
 }
