@@ -15,9 +15,9 @@ class StudentController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['addStudent','getStudentById']]);
+        $this->middleware('auth:api', ['except' => ['addStudent','getStudentById','getAllStudents']]);
     }
-//Adding new student (a student is a user but with extra attributes)
+    //Adding new student (a student is a user but with extra attributes)
     //Students will  be able to register their own accounts first as a normal user
     //then when they fill those extra attributes they are going to be added to students table
     
@@ -32,7 +32,6 @@ class StudentController extends Controller
             'latitude'=>'required',
             'degrees_id'=>'required|integer',
             'study_fields_id'=>'required|integer',
-            'interested_fields_id'=>'required|integer',
         ]);
         if($validator->fails()){
             return response()->json($validator->errors()->toJson(), 400);
@@ -54,5 +53,13 @@ class StudentController extends Controller
                 "student" => $student
             ], 200);
 
+    }
+        public function getAllStudents(){
+        $students = Student::all();
+        
+        return response()->json([
+            "status" => "Success",
+            "students" => $students
+        ], 200);
     }
 }
