@@ -15,7 +15,7 @@ class StudentController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['addStudent']]);
+        $this->middleware('auth:api', ['except' => ['addStudent','getStudentById']]);
     }
 //Adding new student (a student is a user but with extra attributes)
     //Students will  be able to register their own accounts first as a normal user
@@ -44,5 +44,15 @@ class StudentController extends Controller
             'message' => 'Student successfully added',
             'student' => $student
         ], 201);
+    }
+        public function getStudentById(Request $request){
+        $student = Student::orderBy('created_at','desc')->get();
+        $student = Student::where('user_id', $request->user_id)->get();
+
+            return response()->json([
+                "status" => "Success",
+                "student" => $student
+            ], 200);
+
     }
 }
