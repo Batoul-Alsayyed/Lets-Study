@@ -24,7 +24,6 @@ class Student extends Authenticatable implements JWTSubject
         'latitude',
         'degrees_id',
         'study_fields_id',
-        'interested_fields_id',
     ];
 
 

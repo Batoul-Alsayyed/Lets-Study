@@ -23,7 +23,6 @@ class CreateStudentsTable extends Migration
             $table->decimal('latitude');
             $table->integer('degrees_id');
             $table->integer('study_fields_id');
-            $table->integer('interested_fields_id');
             $table->timestamps();
         });
     }
