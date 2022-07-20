@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('date_of_birth');
             $table->string('user_type_id');
+            $table->foreign('user_type_id')
+                  ->references('type')->on('user_types')
+                  ->onDelete('cascade');   
             $table->rememberToken();
             $table->timestamps();
         });
