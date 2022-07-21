@@ -47,14 +47,14 @@ export default function Signin() {
           user_type_id: "2",
         })
         .then((res) => {
-          console.log(res);
+          console.log(res.data.user.id);
           setUser({
             name: details.name,
             email: details.email,
             password: details.password,
             date_of_birth: details.date_of_birth,
           });
-          navigate("/student");
+          navigate("/student/" + res.data.user.id);
         })
         .catch((err) => {
           //if error occured when adding new user to the database
