@@ -4,10 +4,18 @@ import LoginNavbar from "./LoginNavbar";
 import "../index.css";
 import MapComponent from "./MapComponent";
 import lamp from "../images/StudyLamp.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Student() {
   const [isOpen, setIsOpen] = useState(false);
+  let navigate = useNavigate();
 
+  const studyWithStudents = (e) => {
+    navigate("/students");
+  };
+  const studyWithTeachers = (e) => {
+    navigate("/teachers");
+  };
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
@@ -22,6 +30,17 @@ export default function Student() {
   useEffect(() => {
     document.getElementById("popup_button").click();
   }, []);
+
+  const componentDidMount = (e) => {
+    e.preventDefault();
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log("Latitude is :", position.coords.latitude);
+      alert("Latitude is :" + position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+      alert("Longitude is :" + position.coords.longitude);
+    });
+  };
+
   return (
     <div>
       <LoginNavbar />
@@ -42,8 +61,12 @@ export default function Student() {
             tutor.
           </p>
           <div className="buttons-styling student-buttons">
-            <button className="button1">Study with tutor</button>
-            <button className="button2">Study with student</button>
+            <button className="button1" onClick={studyWithTeachers}>
+              Study with tutor
+            </button>
+            <button className="button2" onClick={studyWithStudents}>
+              Study with student
+            </button>
           </div>
         </div>
         <div>
@@ -98,7 +121,10 @@ export default function Student() {
                     </div>
 
                     <div className="column">
-                      <button className="select-style" onClick={doNothing}>
+                      <button
+                        className="select-style"
+                        onClick={componentDidMount}
+                      >
                         Current position
                       </button>
                     </div>
