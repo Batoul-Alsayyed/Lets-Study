@@ -14,10 +14,7 @@ class TeacherController extends Controller
      *
      * @return void
      */
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['editProfile']]);
-    }
-    //Teachers can edit their profile when they log in 
+
     
 
 
