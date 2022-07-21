@@ -40,6 +40,9 @@ Route::group([
     Route::post('/add_teacher', [AdminController::class, 'addTeacher']);  
     Route::post('/add_studyfield', [AdminController::class, 'addStudyField']);  
     Route::post('/add_degree', [AdminController::class, 'addDegree']);  
+    Route::get('/degrees', [AdminController::class, 'getAllDegrees']);      
+    Route::get('/fields', [AdminController::class, 'getAllStudyFields']);    
+
 });
 Route::group([
     'middleware' => 'api',
@@ -47,6 +50,9 @@ Route::group([
 ], function ($router) {
     Route::post('/add_student', [StudentController::class, 'addStudent']); 
     Route::post('/getStudentById', [StudentController::class, 'getStudentById']);  
-    Route::get('/students', [StudentController::class, 'getAllStudents']);  
+    Route::get('/students', [StudentController::class, 'getAllStudents']);
+    Route::get('/degrees', [AdminController::class, 'getAllDegrees']);    
+    Route::get('/fields', [AdminController::class, 'getAllStudyFields']);    
+      
 });
 

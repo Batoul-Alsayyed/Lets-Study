@@ -72,4 +72,20 @@ class AdminController extends Controller{
             'Study_field' => $study_field
         ], 201);
     }
+    public function getAllDegrees(){
+        $degrees = Degree::all();
+        
+        return response()->json([
+            "status" => "Success",
+            "degrees" => $degrees
+        ], 200);
+    }
+    public function getAllStudyFields(){
+        $study_field = StudyField::all();
+        
+        return response()->json([
+            "status" => "Success",
+            "study_field" => $study_field
+        ], 200);
+    }
 }
