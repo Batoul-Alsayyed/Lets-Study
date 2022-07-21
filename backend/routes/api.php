@@ -29,6 +29,7 @@ Route::group([
     Route::post('/getUserById', [UserController::class, 'getUserById']);    
     Route::post('/add_rating', [RatingController::class, 'addRating']); 
     Route::post('/updateRateNumberByUserId', [RatingController::class, 'updateRateNumberByUserId']); 
+    Route::post('/getUserType', [UserController::class, 'getUserType']); 
     
 
 });
