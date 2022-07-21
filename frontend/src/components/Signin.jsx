@@ -8,6 +8,7 @@ export default function Signup() {
   let navigate = useNavigate();
 
   const [user, setUser] = useState({ email: "", password: "" });
+  const [user_type, setUserType] = useState({ user_type: "" });
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
 
   const submitHandler = (e) => {
@@ -21,11 +22,26 @@ export default function Signup() {
         password: details.password,
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data.user.user_type_id);
         setUser({
           email: details.email,
         });
-        navigate("/student");
+
+        //get user type using getusertype API
+        axios
+          .post(`http://127.0.0.1:8000/api/user/getUserType`, {
+            id: res.data.user.user_type_id,
+          })
+          .then((res) => {
+            console.log(res.data.user[0].type);
+            if (res.data.user[0].type === "teacher") {
+              navigate("/teachers");
+            } else if (res.data.user[0].type === "student") {
+              navigate("/students");
+            } else if (res.data.user[0].type === "admin") {
+              navigate("/admin-panel");
+            }
+          });
       })
       .catch((err) => {
         console.log(err);
