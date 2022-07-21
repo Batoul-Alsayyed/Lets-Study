@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Popup from "./Popup";
 import LoginNavbar from "./LoginNavbar";
 import "../index.css";
+import axios from "axios";
 import MapComponent from "./MapComponent";
 import lamp from "../images/StudyLamp.png";
 import { useNavigate } from "react-router-dom";
@@ -29,6 +30,8 @@ export default function Student() {
   };
   useEffect(() => {
     document.getElementById("popup_button").click();
+    getDegrees();
+    getStudyFields();
   }, []);
 
   const componentDidMount = (e) => {
@@ -41,6 +44,40 @@ export default function Student() {
     });
   };
 
+  function getDegrees() {
+    axios
+      .get(`http://127.0.0.1:8000/api/admin/degrees`)
+      .then((res) => {
+        // console.log("length = ", res.data.degrees.length);
+        for (var i = 0; i < res.data.degrees.length; i++) {
+          // console.log(res.data.degrees[i].name);
+          var d = res.data.degrees[i].name;
+          document.getElementById("degree_dropdown").innerHTML +=
+            "<option>" + d + " Degree </option>";
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error occured:" + err);
+      });
+  }
+  function getStudyFields() {
+    axios
+      .get(`http://127.0.0.1:8000/api/student/fields`)
+      .then((res) => {
+        // console.log("length = ", res.data.study_field.length);
+        for (var i = 0; i < res.data.study_field.length; i++) {
+          // console.log(res.data.study_field[i].name);
+          var d = res.data.study_field[i].name;
+          document.getElementById("study_fields_dropdown").innerHTML +=
+            "<option>" + d + "</option>";
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error occured:" + err);
+      });
+  }
   return (
     <div>
       <LoginNavbar />
@@ -90,23 +127,18 @@ export default function Student() {
 
                     <div className="column">
                       <label htmlFor="">Type of Degree</label>
-                      <select className="select-style">
-                        <option value="masters">Masters Degree</option>
-                        <option value="bachelor">Bachelor Degree</option>
-                        <option defaultValue="high-school">High School</option>
-                      </select>
+                      <select
+                        className="select-style"
+                        id="degree_dropdown"
+                      ></select>
                     </div>
 
                     <div className="column">
                       <label htmlFor="">Study Field</label>
-                      <select className="select-style">
-                        <option value="">Computer Science</option>
-                        <option value="">Public Health</option>
-                        <option value="">Life Sciences</option>
-                        <option defaultValue="">General Sciences</option>
-                        <option value="">Human Sciences</option>
-                        <option value="">Economics</option>
-                      </select>
+                      <select
+                        className="select-style"
+                        id="study_fields_dropdown"
+                      ></select>
                     </div>
                   </div>
 
