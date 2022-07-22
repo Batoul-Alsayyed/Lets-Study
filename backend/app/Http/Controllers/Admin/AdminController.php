@@ -88,4 +88,15 @@ class AdminController extends Controller{
             "study_field" => $study_field
         ], 200);
     }
+    public function getStudyfieldByName(Request $request){
+        $studyfield = StudyField::orderBy('created_at','desc')->get();
+        $studyfield = StudyField::where('name', $request->name)->get();
+
+            return response()->json([
+                "status" => "Success",
+                "studyfield" => $studyfield
+            ], 200);
+
+    }
+
 }
