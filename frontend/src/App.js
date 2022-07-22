@@ -23,6 +23,7 @@ import Popup from "./components/Popup";
 import MapComponent from "./components/MapComponent";
 import TeacherProfile from "./components/TeacherProfile";
 import StudentProfile from "./components/StudentProfile";
+import PersonalProfile from "./components/PersonalProfile";
 function App() {
   return (
     <div>
@@ -37,12 +38,16 @@ function App() {
           <Route path="/Signin" element={<Signup />}></Route>
           <Route path="/Signup" element={<Signin />}></Route>
           <Route path="/students" element={<Students />}></Route>
-          <Route path="/student/:id" element={<Student />}></Route>
+          <Route path="/students/:id" element={<Student />}></Route>
           <Route path="/login-navbar" element={<LoginNavbar />}></Route>
           <Route path="/popup" element={<Popup />}></Route>
           <Route path="/map" element={<MapComponent />}></Route>
           <Route path="/teacher-profile" element={<TeacherProfile />}></Route>
           <Route path="/student/:id" element={<StudentProfile />}></Route>
+          <Route
+            path="/PersonalProfile/:id"
+            element={<PersonalProfile />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
