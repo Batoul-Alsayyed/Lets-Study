@@ -653,6 +653,67 @@ svg.star-icon {
   color: white;
   font-size: 20px;
 }
+.user-account {
+  display: flex;
+  gap: 13.5%;
+  justify-content: flex-start;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+  font-weight: 500;
+}
+.user-profile {
+  margin-left: 5%;
+}
+.user-profile-img {
+  width: 185px;
+}
+.user-settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-info {
+  padding: 15px;
+}
+.user-label {
+  font-weight: 600;
+}
+.user-input {
+  padding: 10px;
+  width: 450px;
+  margin-top: 2.5%;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+}
+.user-profile-links {
+  list-style: none;
+  border: 1px solid black;
+  margin-top: 25px;
+}
+.user-profile-link {
+  padding: 8px;
+  border-bottom: 1px solid black;
+  text-align: center;
+  color: #186485;
+}
+.user-profile-links li.active {
+  background-color: #186485;
+  color: white;
+}
+.user-profile-links li:hover {
+  background-color: #186485;
+  color: white;
+}
+.payment {
+  margin-top: 12%;
+}
+.payment-text {
+  margin-left: 5%;
+}
+.payment-img {
+  width: 250px;
+}
+
 @media (max-width: 1300px) {
   .navbar {
     width: 95.5%;
@@ -812,7 +873,6 @@ svg.star-icon {
   .header-right-side-components {
     margin-right: 10px;
   }
-
   .buttons-styling button {
     margin-top: 10px;
     margin-right: 15px;
