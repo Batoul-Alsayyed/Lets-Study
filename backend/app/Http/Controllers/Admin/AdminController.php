@@ -98,5 +98,16 @@ class AdminController extends Controller{
             ], 200);
 
     }
+        public function getDegreeByName(Request $request){
+        $degree = Degree::orderBy('created_at','desc')->get();
+        $degree = Degree::where('name', $request->name)->get();
+
+            return response()->json([
+                "status" => "Success",
+                "degree" => $degree
+            ], 200);
+
+    }
+    
 
 }
