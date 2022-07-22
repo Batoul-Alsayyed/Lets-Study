@@ -32,6 +32,16 @@ function AdminNavbar() {
                 <FaIcons.FaBars />
               </Link>
             </li>
+            {SidebarData.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  <Link to="#">
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </IconContext.Provider>
