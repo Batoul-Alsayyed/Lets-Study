@@ -42,6 +42,12 @@ Route::group([
     Route::post('/add_degree', [AdminController::class, 'addDegree']);  
     Route::get('/degrees', [AdminController::class, 'getAllDegrees']);      
     Route::get('/fields', [AdminController::class, 'getAllStudyFields']);    
+    Route::post('/getStudyfieldByName', [AdminController::class, 'getStudyfieldByName']);    
+    Route::post('/getDegreeByName', [AdminController::class, 'getDegreeByName']);  
+    
+      
+    Route::post('/getStudyFieldById', [AdminController::class, 'getStudyFieldById']);  
+    Route::post('/getDegreeById', [AdminController::class, 'getDegreeById']);  
 
 });
 Route::group([
@@ -53,6 +59,9 @@ Route::group([
     Route::get('/students', [StudentController::class, 'getAllStudents']);
     Route::get('/degrees', [AdminController::class, 'getAllDegrees']);    
     Route::get('/fields', [AdminController::class, 'getAllStudyFields']);    
-      
+    Route::post('/getStudyfieldByName', [AdminController::class, 'getStudyfieldByName']);    
+    Route::post('/getDegreeByName', [AdminController::class, 'getDegreeByName']);     
+    Route::post('/getStudyFieldById', [AdminController::class, 'getStudyFieldById']);  
+    Route::post('/getDegreeById', [AdminController::class, 'getDegreeById']);   
 });
 
