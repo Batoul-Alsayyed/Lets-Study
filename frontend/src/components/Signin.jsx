@@ -10,7 +10,7 @@ export default function Signup() {
   const [user, setUser] = useState({ email: "", password: "" });
   const [user_type, setUserType] = useState({ user_type: "" });
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
-
+  const [user_id, setUserId] = useState(0);
   const submitHandler = (e) => {
     e.preventDefault();
     Login(details);
@@ -22,7 +22,8 @@ export default function Signup() {
         password: details.password,
       })
       .then((res) => {
-        console.log(res.data.user.user_type_id);
+        console.log("user id = ", res.data.user.id);
+        setUserId(res.data.user.user_type_id);
         setUser({
           email: details.email,
         });
@@ -35,7 +36,8 @@ export default function Signup() {
           .then((res) => {
             console.log(res.data.user[0].type);
             if (res.data.user[0].type === "teacher") {
-              navigate("/teachers");
+              console.log("user_id", user_id);
+              navigate("/PersonalProfile/" + res.data.user.id);
             } else if (res.data.user[0].type === "student") {
               navigate("/students");
             } else if (res.data.user[0].type === "admin") {
