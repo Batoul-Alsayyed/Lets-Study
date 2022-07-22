@@ -54,7 +54,7 @@ export default function Signin() {
             password: details.password,
             date_of_birth: details.date_of_birth,
           });
-          navigate("/student/" + res.data.user.id);
+          navigate("/students/" + res.data.user.id);
         })
         .catch((err) => {
           //if error occured when adding new user to the database
