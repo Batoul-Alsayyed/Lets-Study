@@ -24,6 +24,7 @@ import MapComponent from "./components/MapComponent";
 import TeacherProfile from "./components/TeacherProfile";
 import StudentProfile from "./components/StudentProfile";
 import PersonalProfile from "./components/PersonalProfile";
+import PaymentForm from "./components/PaymentForm";
 function App() {
   return (
     <div>
@@ -48,6 +49,7 @@ function App() {
             path="/PersonalProfile/:id"
             element={<PersonalProfile />}
           ></Route>
+          <Route path="/payment" element={<PaymentForm />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
