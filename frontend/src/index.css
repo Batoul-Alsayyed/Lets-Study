@@ -812,6 +812,16 @@ span {
 .admin-icons {
   width: 25px;
 }
+.adminpanel-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.adminpanel-container .text {
+  font-size: 30px;
+  text-align: center;
+  justify-content: center;
+}
 @media (max-width: 1300px) {
   .navbar {
     width: 95.5%;
