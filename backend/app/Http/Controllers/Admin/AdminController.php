@@ -108,6 +108,16 @@ class AdminController extends Controller{
             ], 200);
 
     }
-    
+    public function getDegreeById(Request $request){
+        $degree = Degree::orderBy('created_at','desc')->get();
+        $degree = Degree::where('id', $request->id)->get();
+
+            return response()->json([
+                "status" => "Success",
+                "degree" => $degree
+            ], 200);
+
+    }
+
 
 }
