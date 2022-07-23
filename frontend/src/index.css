@@ -720,8 +720,10 @@ svg.star-icon {
   align-items: center;
 }
 .admin-text {
+  text-align: center;
+  font-size: large;
   margin-left: 35%;
-  margin-top: 2%;
+  margin-top: 3%;
   color: #1a83ff;
   letter-spacing: 3px;
   font-family: "IM Fell Great Primer SC", serif;
@@ -816,11 +818,42 @@ span {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 15px;
+}
+.admin-table {
+  margin: 65px;
 }
 .adminpanel-container .text {
   font-size: 30px;
   text-align: center;
   justify-content: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.teacher-text {
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+  color: #1a83ff;
+  font-weight: 900;
 }
 @media (max-width: 1300px) {
   .navbar {
@@ -902,6 +935,11 @@ span {
     width: 180px;
   }
   .students-section div {
+    font-size: 15px;
+  }
+  .teacher-text {
+    text-align: left;
+    margin-top: 5%;
     font-size: 15px;
   }
 }
@@ -1035,5 +1073,16 @@ span {
     font-size: 10px;
     width: 300px;
     height: 40px;
+  }
+  .admin-table {
+    margin: 25px;
+  }
+  .admin-text {
+    margin-left: 10%;
+    margin-top: 2%;
+    font-size: 15px;
+  }
+  .menu-bars {
+    font-size: 1.5rem;
   }
 }
