@@ -59,6 +59,10 @@ export default function AdminTeachers() {
               );
             })}
         </table>
+        <div className="admin-buttons">
+          <button className="admin-btn">Add</button>
+          <button className="admin-btn">Delete</button>
+        </div>
       </div>
     </div>
   );
