@@ -855,6 +855,23 @@ tr:nth-child(even) {
   color: #1a83ff;
   font-weight: 900;
 }
+.admin-buttons {
+  display: flex;
+  margin-top: 10%;
+  gap: 10px;
+  justify-content: end;
+}
+.admin-btn {
+  border-radius: 15px;
+  background-color: #1a83ff;
+  border: 1px #1a83ff;
+  padding: 10px;
+  width: 100px;
+  font-size: large;
+  color: white;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+}
 @media (max-width: 1300px) {
   .navbar {
     width: 95.5%;
