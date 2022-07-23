@@ -9,7 +9,6 @@ import { IconContext } from "react-icons";
 
 function AdminNavbar() {
   const [sidebar, setSidebar] = useState(false);
-
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
@@ -35,7 +34,7 @@ function AdminNavbar() {
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
-                  <Link to="#">
+                  <Link to={item.path}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>
