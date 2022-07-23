@@ -6,12 +6,6 @@ import Student from "../images/Vector.png";
 import Teacher from "../images/Teaching.png";
 export const SidebarData = [
   {
-    title: "Dashboard",
-    icon: <AiIcons.AiOutlineHome className="admin-icons" size={25} />,
-    cName: "nav-text",
-  },
-
-  {
     title: "Students",
     icon: <img src={Student} alt="" className="admin-icons" />,
     cName: "nav-text",
