@@ -45,10 +45,13 @@ Route::group([
     Route::post('/getStudyfieldByName', [AdminController::class, 'getStudyfieldByName']);    
     Route::post('/getDegreeByName', [AdminController::class, 'getDegreeByName']);  
     
+    Route::get('/students', [StudentController::class, 'getAllStudents']);
       
     Route::post('/getStudyFieldById', [AdminController::class, 'getStudyFieldById']);  
     Route::post('/getDegreeById', [AdminController::class, 'getDegreeById']);  
+    Route::get('/teachers', [AdminController::class, 'getAllTeachers']);  
 
+    
 });
 Route::group([
     'middleware' => 'api',
