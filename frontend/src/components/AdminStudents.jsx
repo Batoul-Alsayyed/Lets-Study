@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
 import "../index.css";
 import AdminNavbar from "./AdminNavbar";
@@ -59,10 +58,6 @@ export default function AdminStudents() {
               );
             })}
         </table>
-        <div className="admin-buttons">
-          <button className="admin-btn">Add</button>
-          <button className="admin-btn">Delete</button>
-        </div>
       </div>
     </div>
   );
