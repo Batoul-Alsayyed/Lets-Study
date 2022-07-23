@@ -4,10 +4,27 @@ import LoginNavbar from "./LoginNavbar";
 import "../index.css";
 import axios from "axios";
 import MapComponent from "./MapComponent";
+import { useParams } from "react-router-dom";
 import lamp from "../images/StudyLamp.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Student() {
+  let { id } = useParams();
+  console.log({ id });
+  const [student, setStudent] = useState({
+    image_link: "",
+    lat: 0,
+    long: 0,
+    degrees_id: 0,
+    study_fields_id: 0,
+  });
+  const [studentInfo, setStudentInfo] = useState({
+    degrees: "Bachelor",
+    study_fields: "Computer Science",
+  });
+  const [long, setLong] = useState({
+    long: 0,
+  });
   const [isOpen, setIsOpen] = useState(false);
   let navigate = useNavigate();
 
@@ -22,8 +39,60 @@ export default function Student() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("clicked");
     alert("submit clicked");
+
+    //submit all user info and add them as a new student to the database
+    // first lets get the chosen degree id and study field id using getDegreeByName and getStudyfieldByName
+    axios
+      .post(`http://127.0.0.1:8000/api/student/getDegreeByName`, {
+        name: studentInfo.degrees,
+      })
+      .then((res) => {
+        console.log("degree id = ", res.data.degree[0].id);
+        setStudent({ ...student, degrees_id: res.data.degree[0].id });
+        // console.log("student degree id", student.degrees_id);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error occured:" + err);
+      });
+
+    axios
+      .post(`http://127.0.0.1:8000/api/student/getStudyfieldByName`, {
+        name: studentInfo.study_fields,
+      })
+      .then((res) => {
+        console.log("study field id = ", res.data.studyfield[0].id);
+        setStudent({ ...student, degrees_id: res.data.studyfield[0].id });
+        // console.log("student degree id", student.degrees_id);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error occured:" + err);
+      });
+
+    console.log("study field id in use state", student.study_fields_id);
+    console.log("degree id in use state", student.degrees_id);
+
+    //now just post those info and link them with create student API
+    axios
+      .post(`http://127.0.0.1:8000/api/student/add_student`, {
+        user_id: { id },
+        account_type: 0,
+        image_link: student.image_link,
+        rate_number: 5, //rating for a student initially will be 5 before somebody rate him/her
+        longitude: long.long,
+        latitude: student.lat,
+        study_fields_id: student.study_fields_id,
+        degrees_id: student.degrees_id,
+      })
+      .then((res) => {
+        console.log("Student successfully created ", res);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error occured:" + err);
+      });
   };
   const doNothing = (e) => {
     e.preventDefault();
@@ -34,13 +103,30 @@ export default function Student() {
     getStudyFields();
   }, []);
 
-  const componentDidMount = (e) => {
+  const handleLocationClick = (e) => {
     e.preventDefault();
-    navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitude is :", position.coords.latitude);
-      alert("Latitude is :" + position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
-      alert("Longitude is :" + position.coords.longitude);
+    console.log("anything");
+
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      setStudent({ ...student, lat: position.coords.latitude });
+      console.log("Latitude", position.coords.latitude);
+
+      console.log(student);
+
+      if (student.lat != 0) {
+        console.log("lat", student.lat);
+      }
+      setLong({ ...student, long: position.coords.longitude });
+      if (student.long != 0) {
+        console.log("long", student.long);
+      }
+
+      console.log("img link", student.image_link);
+      if ((long.long != 0) & (student.lat != 0)) {
+        alert("Your coordinates have been recorded");
+      }
+      console.log(studentInfo.degrees);
+      console.log(studentInfo.study_fields);
     });
   };
 
@@ -53,7 +139,7 @@ export default function Student() {
           // console.log(res.data.degrees[i].name);
           var d = res.data.degrees[i].name;
           document.getElementById("degree_dropdown").innerHTML +=
-            "<option>" + d + " Degree </option>";
+            "<option>" + d + "</option>";
         }
       })
       .catch((err) => {
@@ -122,7 +208,13 @@ export default function Student() {
                   <div className="row">
                     <div className="column">
                       <label htmlFor="">Profile Picture</label>
-                      <input type="file" className="col-file" />
+                      <input
+                        type="file"
+                        className="col-file"
+                        onChange={(e) =>
+                          setStudent({ ...student, image_link: e.target.value })
+                        }
+                      />
                     </div>
 
                     <div className="column">
@@ -130,6 +222,12 @@ export default function Student() {
                       <select
                         className="select-style"
                         id="degree_dropdown"
+                        onChange={(e) =>
+                          setStudentInfo({
+                            ...studentInfo,
+                            degrees: e.target.value,
+                          })
+                        }
                       ></select>
                     </div>
 
@@ -138,6 +236,12 @@ export default function Student() {
                       <select
                         className="select-style"
                         id="study_fields_dropdown"
+                        onChange={(e) =>
+                          setStudentInfo({
+                            ...studentInfo,
+                            study_fields: e.target.value,
+                          })
+                        }
                       ></select>
                     </div>
                   </div>
@@ -155,7 +259,7 @@ export default function Student() {
                     <div className="column">
                       <button
                         className="select-style"
-                        onClick={componentDidMount}
+                        onClick={handleLocationClick}
                       >
                         Current position
                       </button>
