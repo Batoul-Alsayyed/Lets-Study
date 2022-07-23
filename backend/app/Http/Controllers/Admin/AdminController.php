@@ -129,4 +129,13 @@ class AdminController extends Controller{
             ], 200);
 
     }
+
+    public function getAllTeachers(){
+        $teachers = Teacher::all();
+        
+        return response()->json([
+            "status" => "Success",
+            "teachers" => $teachers
+        ], 200);
+    }
 }
