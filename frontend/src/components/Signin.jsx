@@ -41,7 +41,7 @@ export default function Signup() {
             } else if (res.data.user[0].type === "student") {
               navigate("/students");
             } else if (res.data.user[0].type === "admin") {
-              navigate("/admin-panel");
+              navigate("/admin");
             }
           });
       })
