@@ -81,6 +81,14 @@ class AdminController extends Controller{
             "degrees" => $degrees
         ], 200);
     }
+    public function getAllUsers(){
+        $users = User::all();
+        
+        return response()->json([
+            "status" => "Success",
+            "users" => $users
+        ], 200);
+    }
     public function getAllStudyFields(){
         $study_fields = StudyField::all();
         
