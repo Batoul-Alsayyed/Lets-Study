@@ -50,6 +50,7 @@ Route::group([
     Route::post('/getStudyFieldById', [AdminController::class, 'getStudyFieldById']);  
     Route::post('/getDegreeById', [AdminController::class, 'getDegreeById']);  
     Route::get('/teachers', [AdminController::class, 'getAllTeachers']);  
+    Route::post('/addTeacherAndUser', [AdminController::class, 'addTeacherAndUser']);  
 
     
 });
