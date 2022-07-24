@@ -7,6 +7,7 @@ import ReactStars from "react-rating-stars-component";
 
 export default function AdminTeachers() {
   const [data, setData] = useState(null);
+  const [degrees, setDegrees] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -28,12 +29,30 @@ export default function AdminTeachers() {
       .catch((err) => {
         console.log(err);
       });
+
+    //getting all degrees
+    axios
+      .get(`http://127.0.0.1:8000/api/admin/degrees`)
+      .then((res) => {
+        console.log("staus = > ", res.status);
+        if (res.status + "" === "200") {
+          console.log("sucesssss");
+          //console.log(res.data.degrees);
+          setDegrees(res.data.degrees);
+        }
+        throw res;
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   const HandleAddTeacher = (e) => {
     e.preventDefault();
     console.log("Clicked");
     togglePopup();
   };
+
   return (
     <div className="adminpanel-container">
       <AdminNavbar />
@@ -154,8 +173,11 @@ export default function AdminTeachers() {
                     <br />
 
                     <select name="" id="" className="teacher-div-input select">
-                      <option value="">Bachelor</option>
-                      <option value="">Masters</option>
+                      {degrees &&
+                        degrees.map((i) => {
+                          console.log(i);
+                          return <option value="">{i.name} Degree</option>;
+                        })}
                     </select>
                   </div>
 
