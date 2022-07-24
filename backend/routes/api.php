@@ -50,6 +50,7 @@ Route::group([
     Route::get('/teachers', [AdminController::class, 'getAllTeachers']);  
     Route::post('/addTeacherAndUser', [AdminController::class, 'addTeacherAndUser']);  
     Route::post('/teacher', [AdminController::class, 'deleteTeacherById']);   
+    Route::get('/users', [AdminController::class, 'getAllUsers']);   
 });
 Route::group([
     'middleware' => 'api',
