@@ -51,6 +51,8 @@ Route::group([
     Route::post('/addTeacherAndUser', [AdminController::class, 'addTeacherAndUser']);  
     Route::post('/teacher', [AdminController::class, 'deleteTeacherById']);   
     Route::get('/users', [AdminController::class, 'getAllUsers']);   
+    Route::post('/degree', [AdminController::class, 'deleteDegreeById']);   
+    Route::post('/study_field', [AdminController::class, 'deleteStudyfieldById']);   
 });
 Route::group([
     'middleware' => 'api',
