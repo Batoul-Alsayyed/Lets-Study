@@ -11,6 +11,7 @@ export default function AdminTeachers() {
   const [studyfields, setStudyfields] = useState(null);
   const [degree_id, setDegreeId] = useState(null);
   const [study_field_id, setStudyFieldId] = useState(null);
+  const [teacher_id, setTeacherID] = useState(null);
   const [img, setImg] = useState(null);
   const [teacher, setTeacher] = useState({
     name: "",
@@ -162,6 +163,18 @@ export default function AdminTeachers() {
   };
   const submitHandler2 = (e) => {
     e.preventDefault();
+    axios
+      .post(`http://127.0.0.1:8000/api/admin/teacher`, {
+        id: teacher_id,
+      })
+      .then((res) => {
+        console.log(res);
+        togglePopup2();
+      })
+      .catch((err) => {
+        togglePopup2();
+        console.log(err);
+      });
   };
   const saveFile = (e) => {
     var s;
@@ -379,7 +392,7 @@ export default function AdminTeachers() {
           handleClose={togglePopup}
         />
       )}
-      //delete popup
+
       {isOpen2 && (
         <StudentPopup
           className="popup-size"
@@ -396,7 +409,11 @@ export default function AdminTeachers() {
                       Teacher ID:{" "}
                     </label>
                     <br />
-                    <input type="text" className="teacher-div-input" />
+                    <input
+                      type="text"
+                      className="teacher-div-input"
+                      onChange={(e) => setTeacherID(e.target.value)}
+                    />
                   </div>
                   <button
                     className="teacher-form-item-button delete"
