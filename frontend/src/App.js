@@ -29,6 +29,7 @@ import AdminPanel from "./components/AdminPanel";
 import AdminStudents from "./components/AdminStudents";
 import AdminTeachers from "./components/AdminTeachers";
 import AdminUsers from "./components/AdminUsers";
+import AdminDegrees from "./components/AdminDegrees";
 function App() {
   return (
     <div>
@@ -58,6 +59,7 @@ function App() {
           <Route path="/admin-students" element={<AdminStudents />}></Route>
           <Route path="/admin-teachers" element={<AdminTeachers />}></Route>
           <Route path="/admin-users" element={<AdminUsers />}></Route>
+          <Route path="/admin-degrees" element={<AdminDegrees />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
