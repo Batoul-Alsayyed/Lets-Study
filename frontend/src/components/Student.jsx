@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 export default function Student() {
   let { id } = useParams();
   console.log({ id });
+  const [degrees, setDegrees] = useState(null);
+
   const [student, setStudent] = useState({
     image_link: "",
     lat: 0,
@@ -134,17 +136,10 @@ export default function Student() {
     axios
       .get(`http://127.0.0.1:8000/api/admin/degrees`)
       .then((res) => {
-        // console.log("length = ", res.data.degrees.length);
-        for (var i = 0; i < res.data.degrees.length; i++) {
-          // console.log(res.data.degrees[i].name);
-          var d = res.data.degrees[i].name;
-          document.getElementById("degree_dropdown").innerHTML +=
-            "<option>" + d + "</option>";
-        }
+        setDegrees(res.data.degrees);
       })
       .catch((err) => {
         console.log(err);
-        alert("Error occured:" + err);
       });
   }
   function getStudyFields() {
@@ -228,7 +223,15 @@ export default function Student() {
                             degrees: e.target.value,
                           })
                         }
-                      ></select>
+                      >
+                        {degrees &&
+                          degrees.map((i, index) => {
+                            //console.log(i);
+                            return (
+                              <option value={i.name}>{i.name} Degree</option>
+                            );
+                          })}
+                      </select>
                     </div>
 
                     <div className="column">
