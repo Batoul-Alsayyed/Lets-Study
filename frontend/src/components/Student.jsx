@@ -12,6 +12,7 @@ export default function Student() {
   let { id } = useParams();
   console.log({ id });
   const [degrees, setDegrees] = useState(null);
+  const [fields, setFields] = useState(null);
 
   const [student, setStudent] = useState({
     image_link: "",
@@ -146,17 +147,10 @@ export default function Student() {
     axios
       .get(`http://127.0.0.1:8000/api/student/fields`)
       .then((res) => {
-        // console.log("length = ", res.data.study_field.length);
-        for (var i = 0; i < res.data.study_field.length; i++) {
-          // console.log(res.data.study_field[i].name);
-          var d = res.data.study_field[i].name;
-          document.getElementById("study_fields_dropdown").innerHTML +=
-            "<option>" + d + "</option>";
-        }
+        setFields(res.data.study_fields);
       })
       .catch((err) => {
         console.log(err);
-        alert("Error occured:" + err);
       });
   }
   return (
@@ -225,8 +219,7 @@ export default function Student() {
                         }
                       >
                         {degrees &&
-                          degrees.map((i, index) => {
-                            //console.log(i);
+                          degrees.map((i) => {
                             return (
                               <option value={i.name}>{i.name} Degree</option>
                             );
@@ -245,7 +238,12 @@ export default function Student() {
                             study_fields: e.target.value,
                           })
                         }
-                      ></select>
+                      >
+                        {fields &&
+                          fields.map((i) => {
+                            return <option value={i.name}>{i.name}</option>;
+                          })}
+                      </select>
                     </div>
                   </div>
 
