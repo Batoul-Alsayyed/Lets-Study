@@ -54,7 +54,6 @@ function App() {
           ></Route>
           <Route path="/payment" element={<PaymentForm />}></Route>
           <Route path="/admin" element={<AdminPanel />}></Route>
-
           <Route path="/admin-students" element={<AdminStudents />}></Route>
           <Route path="/admin-teachers" element={<AdminTeachers />}></Route>
         </Routes>

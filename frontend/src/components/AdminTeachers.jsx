@@ -8,6 +8,7 @@ import ReactStars from "react-rating-stars-component";
 export default function AdminTeachers() {
   const [data, setData] = useState(null);
   const [degrees, setDegrees] = useState(null);
+  const [studyfields, setStudyfields] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -19,8 +20,6 @@ export default function AdminTeachers() {
       .then((res) => {
         console.log("staus = > ", res.status);
         if (res.status + "" === "200") {
-          console.log("sucesssss");
-          console.log(res.data.students[0].id);
           setData(res.data.students);
         }
         throw res;
@@ -37,8 +36,22 @@ export default function AdminTeachers() {
         console.log("staus = > ", res.status);
         if (res.status + "" === "200") {
           console.log("sucesssss");
-          //console.log(res.data.degrees);
           setDegrees(res.data.degrees);
+        }
+        throw res;
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+
+    //getting all study fields
+    axios
+      .get(`http://127.0.0.1:8000/api/admin/fields`)
+      .then((res) => {
+        console.log("staus = > ", res.status);
+        if (res.status + "" === "200") {
+          setStudyfields(res.data.study_fields);
         }
         throw res;
       })
@@ -187,8 +200,11 @@ export default function AdminTeachers() {
                     </label>
                     <br />
                     <select name="" id="" className="teacher-div-input select">
-                      <option value="">computer Science</option>
-                      <option value="">Biology</option>
+                      {studyfields &&
+                        studyfields.map((i) => {
+                          console.log(i);
+                          return <option value="">{i.name}</option>;
+                        })}
                     </select>
                   </div>
                   <div className="teacher-div">
