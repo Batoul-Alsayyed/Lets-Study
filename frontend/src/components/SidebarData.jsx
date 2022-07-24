@@ -1,6 +1,7 @@
 import React from "react";
 import * as FiIcons from "react-icons/fi";
 import * as AiIcons from "react-icons/ai";
+import * as BiIcons from "react-icons/bi";
 import * as RiIcons from "react-icons/ri";
 import Student from "../images/Vector.png";
 import Teacher from "../images/Teaching.png";
@@ -27,6 +28,12 @@ export const SidebarData = [
     title: "Degrees",
     path: "/admin-degrees",
     icon: <RiIcons.RiBookMarkLine size={25} />,
+    cName: "nav-text",
+  },
+  {
+    title: "Study Fields",
+    path: "/admin-studyfields",
+    icon: <BiIcons.BiBrain size={25} />,
     cName: "nav-text",
   },
   {
