@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function Student() {
   let { id } = useParams();
-  console.log({ id });
   const [degrees, setDegrees] = useState(null);
   const [fields, setFields] = useState(null);
 
@@ -53,11 +52,9 @@ export default function Student() {
       .then((res) => {
         console.log("degree id = ", res.data.degree[0].id);
         setStudent({ ...student, degrees_id: res.data.degree[0].id });
-        // console.log("student degree id", student.degrees_id);
       })
       .catch((err) => {
         console.log(err);
-        alert("Error occured:" + err);
       });
 
     axios
@@ -66,36 +63,31 @@ export default function Student() {
       })
       .then((res) => {
         console.log("study field id = ", res.data.studyfield[0].id);
-        setStudent({ ...student, degrees_id: res.data.studyfield[0].id });
-        // console.log("student degree id", student.degrees_id);
+        setStudent({ ...student, study_fields_id: res.data.studyfield[0].id });
       })
       .catch((err) => {
         console.log(err);
-        alert("Error occured:" + err);
       });
 
-    console.log("study field id in use state", student.study_fields_id);
-    console.log("degree id in use state", student.degrees_id);
-
-    //now just post those info and link them with create student API
-    axios
-      .post(`http://127.0.0.1:8000/api/student/add_student`, {
-        user_id: { id },
-        account_type: 0,
-        image_link: student.image_link,
-        rate_number: 5, //rating for a student initially will be 5 before somebody rate him/her
-        longitude: long.long,
-        latitude: student.lat,
-        study_fields_id: student.study_fields_id,
-        degrees_id: student.degrees_id,
-      })
-      .then((res) => {
-        console.log("Student successfully created ", res);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Error occured:" + err);
-      });
+    // //now just post those info and link them with create student API
+    // axios
+    //   .post(`http://127.0.0.1:8000/api/student/add_student`, {
+    //     user_id: { id },
+    //     account_type: 0,
+    //     image_link: student.image_link,
+    //     rate_number: 5, //rating for a student initially will be 5 before somebody rate him/her
+    //     longitude: long.long,
+    //     latitude: student.lat,
+    //     study_fields_id: student.study_fields_id,
+    //     degrees_id: student.degrees_id,
+    //   })
+    //   .then((res) => {
+    //     console.log("Student successfully created ", res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     alert("Error occured:" + err);
+    //   });
   };
   const doNothing = (e) => {
     e.preventDefault();
@@ -104,6 +96,8 @@ export default function Student() {
     document.getElementById("popup_button").click();
     getDegrees();
     getStudyFields();
+    console.log(student.degrees_id);
+    console.log(student.study_fields_id);
   }, []);
 
   const handleLocationClick = (e) => {
@@ -272,9 +266,7 @@ export default function Student() {
                       </button>
                     </div>
                   </div>
-                  <div className="row3">
-                    <MapComponent />
-                  </div>
+                  <div className="row3">{/* <MapComponent /> */}</div>
                   <br />
                   <button
                     type="submit"
