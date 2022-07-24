@@ -9,6 +9,7 @@ export default function AdminTeachers() {
   const [data, setData] = useState(null);
   const [degrees, setDegrees] = useState(null);
   const [studyfields, setStudyfields] = useState(null);
+  const [degree_id, setDegreeId] = useState(null);
   const [teacher, setTeacher] = useState({
     name: "",
     password: "",
@@ -70,15 +71,30 @@ export default function AdminTeachers() {
       .catch((err) => {
         //console.log(err);
       });
-  }, []);
+    if (degree_id) {
+      console.log("degree id here => ", degree_id);
+    }
+  }, [degree_id]);
   const HandleAddTeacher = (e) => {
     e.preventDefault();
     //console.log("Clicked");
     togglePopup();
   };
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(teacher);
+    // get selected degree id
+    //using get degree by name
+    axios
+      .post(`http://127.0.0.1:8000/api/admin/getDegreeByName`, {
+        name: teacher.degree,
+      })
+      .then((res) => {
+        setDegreeId(res.data.degree[0].id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="adminpanel-container">
