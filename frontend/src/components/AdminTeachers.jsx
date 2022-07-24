@@ -21,7 +21,6 @@ export default function AdminTeachers() {
     degree: "Bachelor",
     study_field: "Computer Science",
   });
-
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -33,7 +32,7 @@ export default function AdminTeachers() {
       .then((res) => {
         //console.log("staus = > ", res.status);
         if (res.status + "" === "200") {
-          setData(res.data.students);
+          setData(res.data.teachers);
         }
         throw res;
       })
@@ -87,8 +86,35 @@ export default function AdminTeachers() {
       degree_id &&
       study_field_id
     ) {
-      alert(" all teacher values are assigned now");
-      togglePopup();
+      //alert(" all teacher values are assigned now");
+      //adding new teacher to the database
+      axios
+        .post(`http://127.0.0.1:8000/api/admin/addTeacherAndUser`, {
+          name: teacher.name,
+          email: teacher.email,
+          password: teacher.password,
+          user_type_id: 2,
+          date_of_birth: teacher.date_of_birth,
+          image_link: teacher.image_link,
+          rate_number: 5,
+          longitude: teacher.longitude,
+          latitude: teacher.latitude,
+          degrees_id: degree_id,
+          study_fields_id: study_field_id,
+        })
+        .then((res) => {
+          alert("Teacher added successfully");
+          console.log(res);
+          togglePopup();
+        })
+        .catch((err) => {
+          alert("Error occured", err);
+          console.log(err);
+          console.log(teacher);
+          console.log(degree_id);
+          console.log(study_field_id);
+          togglePopup();
+        });
     }
   }, [degree_id, study_field_id]);
 
