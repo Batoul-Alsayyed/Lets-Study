@@ -82,11 +82,11 @@ class AdminController extends Controller{
         ], 200);
     }
     public function getAllStudyFields(){
-        $study_field = StudyField::all();
+        $study_fields = StudyField::all();
         
         return response()->json([
             "status" => "Success",
-            "study_field" => $study_field
+            "study_fields" => $study_fields
         ], 200);
     }
     public function getStudyfieldByName(Request $request){
