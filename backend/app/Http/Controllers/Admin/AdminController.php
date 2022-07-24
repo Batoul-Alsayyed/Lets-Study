@@ -27,6 +27,7 @@ class AdminController extends Controller{
             'study_fields_id'=>'required|integer',
 
         ]);
+        
         if($validator->fails()){
             return response()->json($validator->errors()->toJson(), 400);
         }
@@ -138,4 +139,49 @@ class AdminController extends Controller{
             "teachers" => $teachers
         ], 200);
     }
+    public function addTeacherAndUser(Request $request) {
+        $user_validator = Validator::make($request->all(), [
+            'name' => 'required|string|between:2,100',
+            'email' => 'required|string|email|max:100|unique:users',
+            'password' => 'required|string|min:6',
+            'user_type_id' => 'required|integer',
+            'date_of_birth'=> 'required',
+        ]);
+                
+        $validator = Validator::make($request->all(), [
+            'image_link'=>'required|string',
+            'rate_number'=>'required',
+            'longitude'=>'required',
+            'latitude'=>'required',
+            'degrees_id'=>'required|integer',
+            'study_fields_id'=>'required|integer',
+
+        ]);
+        if($user_validator->fails()){
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+        $user = User::create(array_merge(
+                    $user_validator->validated(),
+                    ['password' => bcrypt($request->password)]
+                )); 
+        echo $user["id"];
+        //At this point a new user is been added to the database 
+        //so we have to use the id for the newly added user and fill it in user_id attribute in teacher's user_id 
+                
+        if($validator->fails()){
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+        
+        $teacher = Teacher::create(array_merge(
+                    $validator->validated(),
+                    ['user_id' => $user["id"]] 
+                ));
+
+
+        return response()->json([
+            'message' => 'USer has been successfully added as a teacher and a user successfully added'
+            
+        ], 201);
+    }
+
 }
