@@ -10,6 +10,7 @@ export default function AdminTeachers() {
   const [degrees, setDegrees] = useState(null);
   const [studyfields, setStudyfields] = useState(null);
   const [degree_id, setDegreeId] = useState(null);
+  const [study_field_id, setStudyFieldId] = useState(null);
   const [teacher, setTeacher] = useState({
     name: "",
     password: "",
@@ -71,13 +72,16 @@ export default function AdminTeachers() {
       .catch((err) => {
         //console.log(err);
       });
-    if (degree_id) {
-      console.log("degree id here => ", degree_id);
+    if (degree_id && study_field_id) {
+      console.log(
+        "degree + study field ids here => ",
+        degree_id,
+        study_field_id
+      );
     }
-  }, [degree_id]);
+  }, [degree_id, study_field_id]);
   const HandleAddTeacher = (e) => {
     e.preventDefault();
-    //console.log("Clicked");
     togglePopup();
   };
 
@@ -91,6 +95,19 @@ export default function AdminTeachers() {
       })
       .then((res) => {
         setDegreeId(res.data.degree[0].id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // get selected study field id
+    //using get study field by name
+    axios
+      .post(`http://127.0.0.1:8000/api/admin/getStudyfieldByName`, {
+        name: teacher.study_field,
+      })
+      .then((res) => {
+        setStudyFieldId(res.data.studyfield[0].id);
       })
       .catch((err) => {
         console.log(err);
