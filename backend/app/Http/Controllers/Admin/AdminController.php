@@ -214,5 +214,16 @@ class AdminController extends Controller{
             "degree" => $degree
         ], 200);
     }
- 
+    
+     //deleting study field by id 
+
+    public function deleteStudyfieldById(Request $request){
+        $study_field = Studyfield::orderBy('created_at','desc')->get();
+        $study_field = StudyField::where('id', $request->id)->delete();
+        
+        return response()->json([
+            "status" => "Studyfield successfully deleted",
+            "study_field" => $study_field
+        ], 200);
+    }
 }
