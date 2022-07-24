@@ -23,8 +23,12 @@ export default function AdminTeachers() {
     study_field: "Computer Science",
   });
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
+  };
+  const togglePopup2 = () => {
+    setIsOpen2(!isOpen2);
   };
 
   useEffect(() => {
@@ -123,6 +127,10 @@ export default function AdminTeachers() {
     e.preventDefault();
     togglePopup();
   };
+  const HandleDeleteTeacher = (e) => {
+    e.preventDefault();
+    togglePopup2();
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -152,7 +160,9 @@ export default function AdminTeachers() {
         console.log(err);
       });
   };
-
+  const submitHandler2 = (e) => {
+    e.preventDefault();
+  };
   const saveFile = (e) => {
     var s;
     var file = e.target.files[0];
@@ -203,7 +213,9 @@ export default function AdminTeachers() {
           <button className="admin-btn" onClick={HandleAddTeacher}>
             Add
           </button>
-          <button className="admin-btn">Delete</button>
+          <button className="admin-btn" onClick={HandleDeleteTeacher}>
+            Delete
+          </button>
         </div>
       </div>
       {isOpen && (
@@ -365,6 +377,38 @@ export default function AdminTeachers() {
             </>
           }
           handleClose={togglePopup}
+        />
+      )}
+      //delete popup
+      {isOpen2 && (
+        <StudentPopup
+          className="popup-size"
+          content={
+            <>
+              <form className="teacher-form" onSubmit={submitHandler2}>
+                <div className="teacher-form-item">
+                  <h1>Delete a Teacher</h1>
+                  <br />
+                  <br />
+
+                  <div className="teacher-div">
+                    <label htmlFor="" className="teacher-div-label">
+                      Teacher ID:{" "}
+                    </label>
+                    <br />
+                    <input type="text" className="teacher-div-input" />
+                  </div>
+                  <button
+                    className="teacher-form-item-button delete"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </>
+          }
+          handleClose={togglePopup2}
         />
       )}
     </div>
