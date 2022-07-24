@@ -11,6 +11,7 @@ export default function AdminTeachers() {
   const [studyfields, setStudyfields] = useState(null);
   const [degree_id, setDegreeId] = useState(null);
   const [study_field_id, setStudyFieldId] = useState(null);
+  const [img, setImg] = useState(null);
   const [teacher, setTeacher] = useState({
     name: "",
     password: "",
@@ -74,7 +75,7 @@ export default function AdminTeachers() {
     //Checking if all values are set
     //Then post these values to add teacher API
     // console.log(teacher);
-
+    console.log(teacher.image_link);
     if (
       teacher.name != "" &&
       teacher.password != "" &&
@@ -116,7 +117,7 @@ export default function AdminTeachers() {
           togglePopup();
         });
     }
-  }, [degree_id, study_field_id]);
+  }, [degree_id, study_field_id, teacher.image_link]);
 
   const HandleAddTeacher = (e) => {
     e.preventDefault();
@@ -151,6 +152,18 @@ export default function AdminTeachers() {
         console.log(err);
       });
   };
+
+  const saveFile = (e) => {
+    var s;
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      s = reader.result;
+      setTeacher({ ...teacher, image_link: s });
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
     <div className="adminpanel-container">
       <AdminNavbar />
@@ -162,12 +175,12 @@ export default function AdminTeachers() {
           <tr>
             <th>id</th>
             <th>user_id</th>
-            <th>image_link</th>
             <th>rate_number</th>
             <th>longitude</th>
             <th>latitude</th>
             <th>degrees_id</th>
             <th>study_fields_id</th>
+            <th>image_link</th>
           </tr>
           {data &&
             data.map((i, index) => {
@@ -176,12 +189,12 @@ export default function AdminTeachers() {
                 <tr>
                   <td>{i.id}</td>
                   <td>{i.user_id}</td>
-                  <td>{i.image_link}</td>
                   <td>{i.rate_number}</td>
                   <td>{i.longitude}</td>
                   <td>{i.latitude}</td>
                   <td>{i.degrees_id}</td>
                   <td>{i.study_fields_id}</td>
+                  <td>{i.image_link}</td>
                 </tr>
               );
             })}
@@ -341,9 +354,7 @@ export default function AdminTeachers() {
                     <input
                       type="file"
                       className="teacher-div-input"
-                      onChange={(e) =>
-                        setTeacher({ ...teacher, image_link: e.target.value })
-                      }
+                      onChange={saveFile}
                     />
                   </div>
                   <button className="teacher-form-item-button" type="submit">
