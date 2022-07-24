@@ -183,5 +183,15 @@ class AdminController extends Controller{
             
         ], 201);
     }
+    //deleting teacher by id 
 
+    public function deleteTeacherById(Request $request){
+        $t = Teacher::orderBy('created_at','desc')->get();
+        $t = Teacher::where('id', $request->id)->delete();
+        
+        return response()->json([
+            "status" => "Teacher successfully deleted",
+            "teachers" => $t
+        ], 200);
+    }
 }
