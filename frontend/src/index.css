@@ -906,6 +906,62 @@ tr:nth-child(even) {
   letter-spacing: 3px;
   font-family: "IM Fell Great Primer SC", serif;
 }
+.teacher-form {
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+}
+.teacher-form-item > h1 {
+  color: #1a83ff;
+  text-align: center;
+  font-size: 35px;
+  padding: 15px;
+  border-bottom: 1px solid black;
+}
+.teacher-form-item {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.teacher-form-item.btn {
+  margin-top: 280px;
+  margin-right: 7%;
+}
+.teacher-form-item-button {
+  border-radius: 15px;
+  background-color: #1a83ff;
+  border: 1px #1a83ff;
+  padding: 10px;
+  width: 150px;
+  font-size: large;
+  color: white;
+  letter-spacing: 3px;
+  margin-top: 15px;
+  margin-left: 130px;
+  font-family: "IM Fell Great Primer SC", serif;
+}
+.teacher-div {
+  padding: 5px;
+}
+
+.teacher-div-label {
+  margin-bottom: 150px;
+}
+.teacher-div-input {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-top: 15px;
+  padding: 8px;
+  width: 380px;
+}
+.select {
+  width: 400px;
+}
+.popup-size {
+  width: 100px;
+}
+
 @media (max-width: 1300px) {
   .navbar {
     width: 95.5%;
