@@ -44,15 +44,12 @@ Route::group([
     Route::get('/fields', [AdminController::class, 'getAllStudyFields']);    
     Route::post('/getStudyfieldByName', [AdminController::class, 'getStudyfieldByName']);    
     Route::post('/getDegreeByName', [AdminController::class, 'getDegreeByName']);  
-    
     Route::get('/students', [StudentController::class, 'getAllStudents']);
-      
     Route::post('/getStudyFieldById', [AdminController::class, 'getStudyFieldById']);  
     Route::post('/getDegreeById', [AdminController::class, 'getDegreeById']);  
     Route::get('/teachers', [AdminController::class, 'getAllTeachers']);  
     Route::post('/addTeacherAndUser', [AdminController::class, 'addTeacherAndUser']);  
-
-    
+    Route::post('/teacher', [AdminController::class, 'deleteTeacherById']);   
 });
 Route::group([
     'middleware' => 'api',
