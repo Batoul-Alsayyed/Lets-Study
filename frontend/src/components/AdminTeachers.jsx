@@ -9,6 +9,17 @@ export default function AdminTeachers() {
   const [data, setData] = useState(null);
   const [degrees, setDegrees] = useState(null);
   const [studyfields, setStudyfields] = useState(null);
+  const [teacher, setTeacher] = useState({
+    name: "",
+    password: "",
+    date_of_birth: "",
+    image_link: "",
+    longitude: "",
+    latitude: "",
+    degree: "Bachelor",
+    study_field: "Computer Science",
+  });
+
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -18,7 +29,7 @@ export default function AdminTeachers() {
     axios
       .get(`http://127.0.0.1:8000/api/admin/teachers`)
       .then((res) => {
-        console.log("staus = > ", res.status);
+        //console.log("staus = > ", res.status);
         if (res.status + "" === "200") {
           setData(res.data.students);
         }
@@ -26,30 +37,30 @@ export default function AdminTeachers() {
       })
 
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
 
     //getting all degrees
     axios
       .get(`http://127.0.0.1:8000/api/admin/degrees`)
       .then((res) => {
-        console.log("staus = > ", res.status);
+        //console.log("staus = > ", res.status);
         if (res.status + "" === "200") {
-          console.log("sucesssss");
+          //console.log("sucesssss");
           setDegrees(res.data.degrees);
         }
         throw res;
       })
 
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
 
     //getting all study fields
     axios
       .get(`http://127.0.0.1:8000/api/admin/fields`)
       .then((res) => {
-        console.log("staus = > ", res.status);
+        //console.log("staus = > ", res.status);
         if (res.status + "" === "200") {
           setStudyfields(res.data.study_fields);
         }
@@ -57,15 +68,18 @@ export default function AdminTeachers() {
       })
 
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
   }, []);
   const HandleAddTeacher = (e) => {
     e.preventDefault();
-    console.log("Clicked");
+    //console.log("Clicked");
     togglePopup();
   };
-
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(teacher);
+  };
   return (
     <div className="adminpanel-container">
       <AdminNavbar />
@@ -86,7 +100,7 @@ export default function AdminTeachers() {
           </tr>
           {data &&
             data.map((i, index) => {
-              console.log(i);
+              //console.log(i);
               return (
                 <tr>
                   <td>{i.id}</td>
@@ -113,7 +127,7 @@ export default function AdminTeachers() {
           className="popup-size"
           content={
             <>
-              <form action="" className="teacher-form">
+              <form className="teacher-form" onSubmit={submitHandler}>
                 <div className="teacher-form-item">
                   <h1>Add a Teacher</h1>
                   <br />
@@ -124,7 +138,13 @@ export default function AdminTeachers() {
                       Full Name:{" "}
                     </label>
                     <br />
-                    <input type="text" className="teacher-div-input" />
+                    <input
+                      type="text"
+                      className="teacher-div-input"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, name: e.target.value })
+                      }
+                    />
                   </div>
 
                   <div className="teacher-div">
@@ -133,7 +153,13 @@ export default function AdminTeachers() {
                     </label>
                     <br />
 
-                    <input type="email" className="teacher-div-input" />
+                    <input
+                      type="email"
+                      className="teacher-div-input"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, email: e.target.value })
+                      }
+                    />
                   </div>
 
                   <div className="teacher-div">
@@ -142,7 +168,13 @@ export default function AdminTeachers() {
                     </label>
                     <br />
 
-                    <input type="password" className="teacher-div-input" />
+                    <input
+                      type="password"
+                      className="teacher-div-input"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, password: e.target.value })
+                      }
+                    />
                   </div>
 
                   <div className="teacher-div">
@@ -151,7 +183,16 @@ export default function AdminTeachers() {
                     </label>
                     <br />
 
-                    <input type="date" className="teacher-div-input" />
+                    <input
+                      type="date"
+                      className="teacher-div-input"
+                      onChange={(e) =>
+                        setTeacher({
+                          ...teacher,
+                          date_of_birth: e.target.value,
+                        })
+                      }
+                    />
                   </div>
 
                   <div className="teacher-div">
@@ -160,7 +201,13 @@ export default function AdminTeachers() {
                     </label>
                     <br />
 
-                    <input type="text" className="teacher-div-input" />
+                    <input
+                      type="text"
+                      className="teacher-div-input"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, longitude: e.target.value })
+                      }
+                    />
                   </div>
                   <div className="teacher-div">
                     <label htmlFor="" className="teacher-div-label">
@@ -168,15 +215,13 @@ export default function AdminTeachers() {
                     </label>
                     <br />
 
-                    <input type="text" className="teacher-div-input" />
-                  </div>
-                  <div className="teacher-div">
-                    <label htmlFor="" className="teacher-div-label">
-                      latitude:{" "}
-                    </label>
-                    <br />
-
-                    <input type="text" className="teacher-div-input" />
+                    <input
+                      type="text"
+                      className="teacher-div-input"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, latitude: e.target.value })
+                      }
+                    />
                   </div>
 
                   <div className="teacher-div">
@@ -185,11 +230,17 @@ export default function AdminTeachers() {
                     </label>
                     <br />
 
-                    <select name="" id="" className="teacher-div-input select">
+                    <select
+                      className="teacher-div-input select"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, degree: e.target.value })
+                      }
+                    >
                       {degrees &&
                         degrees.map((i) => {
-                          console.log(i);
-                          return <option value="">{i.name} Degree</option>;
+                          return (
+                            <option value={i.name}>{i.name} Degree</option>
+                          );
                         })}
                     </select>
                   </div>
@@ -199,11 +250,15 @@ export default function AdminTeachers() {
                       Study field:{" "}
                     </label>
                     <br />
-                    <select name="" id="" className="teacher-div-input select">
+                    <select
+                      className="teacher-div-input select"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, study_field: e.target.value })
+                      }
+                    >
                       {studyfields &&
                         studyfields.map((i) => {
-                          console.log(i);
-                          return <option value="">{i.name}</option>;
+                          return <option value={i.name}>{i.name}</option>;
                         })}
                     </select>
                   </div>
@@ -212,9 +267,17 @@ export default function AdminTeachers() {
                       Image Link:{" "}
                     </label>
                     <br />
-                    <input type="file" className="teacher-div-input" />
+                    <input
+                      type="file"
+                      className="teacher-div-input"
+                      onChange={(e) =>
+                        setTeacher({ ...teacher, image_link: e.target.value })
+                      }
+                    />
                   </div>
-                  <button className="teacher-form-item-button">Submit</button>
+                  <button className="teacher-form-item-button" type="submit">
+                    Submit
+                  </button>
                 </div>
               </form>
             </>
