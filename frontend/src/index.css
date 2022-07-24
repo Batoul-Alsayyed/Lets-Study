@@ -961,7 +961,9 @@ tr:nth-child(even) {
 .popup-size {
   width: 100px;
 }
-
+.delete {
+  margin-top: 100px;
+}
 @media (max-width: 1300px) {
   .navbar {
     width: 95.5%;
