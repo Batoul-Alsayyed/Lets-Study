@@ -1,8 +1,15 @@
 import React from "react";
 import * as FiIcons from "react-icons/fi";
+import * as AiIcons from "react-icons/ai";
 import Student from "../images/Vector.png";
 import Teacher from "../images/Teaching.png";
 export const SidebarData = [
+  {
+    title: "Users",
+    path: "/admin-users",
+    icon: <AiIcons.AiOutlineUsergroupDelete size={25} />,
+    cName: "nav-text",
+  },
   {
     title: "Students",
     path: "/admin-students",
