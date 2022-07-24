@@ -72,14 +72,26 @@ export default function AdminTeachers() {
       .catch((err) => {
         //console.log(err);
       });
-    if (degree_id && study_field_id) {
-      console.log(
-        "degree + study field ids here => ",
-        degree_id,
-        study_field_id
-      );
+    //Checking if all values are set
+    //Then post these values to add teacher API
+    // console.log(teacher);
+
+    if (
+      teacher.name != "" &&
+      teacher.password != "" &&
+      teacher.date_of_birth != "" &&
+      teacher.longitude != "" &&
+      teacher.latitude != "" &&
+      teacher.email != "" &&
+      teacher.image_link != "" &&
+      degree_id &&
+      study_field_id
+    ) {
+      alert(" all teacher values are assigned now");
+      togglePopup();
     }
   }, [degree_id, study_field_id]);
+
   const HandleAddTeacher = (e) => {
     e.preventDefault();
     togglePopup();
