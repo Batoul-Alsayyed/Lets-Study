@@ -28,6 +28,7 @@ import PaymentForm from "./components/PaymentForm";
 import AdminPanel from "./components/AdminPanel";
 import AdminStudents from "./components/AdminStudents";
 import AdminTeachers from "./components/AdminTeachers";
+import AdminUsers from "./components/AdminUsers";
 function App() {
   return (
     <div>
@@ -56,6 +57,7 @@ function App() {
           <Route path="/admin" element={<AdminPanel />}></Route>
           <Route path="/admin-students" element={<AdminStudents />}></Route>
           <Route path="/admin-teachers" element={<AdminTeachers />}></Route>
+          <Route path="/admin-users" element={<AdminUsers />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
