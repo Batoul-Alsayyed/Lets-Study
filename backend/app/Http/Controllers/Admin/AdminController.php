@@ -202,4 +202,17 @@ class AdminController extends Controller{
             "teachers" => $t
         ], 200);
     }
+
+    //deleting degree by id 
+
+    public function deleteDegreeById(Request $request){
+        $degree = Degree::orderBy('created_at','desc')->get();
+        $degree = Degree::where('id', $request->id)->delete();
+        
+        return response()->json([
+            "status" => "Degree successfully deleted",
+            "degree" => $degree
+        ], 200);
+    }
+ 
 }
