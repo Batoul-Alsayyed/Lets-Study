@@ -9,6 +9,17 @@ import lamp from "../images/StudyLamp.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Student() {
+  const saveFile = (e) => {
+    var s;
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      s = reader.result;
+      setStudent({ ...student, image_link: s });
+    };
+    reader.readAsDataURL(file);
+  };
+
   let { id } = useParams();
   const [degrees, setDegrees] = useState(null);
   const [fields, setFields] = useState(null);
@@ -252,9 +263,7 @@ export default function Student() {
                       <input
                         type="file"
                         className="col-file"
-                        onChange={(e) =>
-                          setStudent({ ...student, image_link: e.target.value })
-                        }
+                        onChange={saveFile}
                       />
                     </div>
 
