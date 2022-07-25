@@ -24,7 +24,7 @@ class StudentController extends Controller
 
     public function addStudent(Request $request) {
         $validator = Validator::make($request->all(), [
-            'user_id'=>'required|integer',
+            'user_id'=>'required|integer|unique:students',
             'account_type'=>'required|integer', //if 0-> free member, 1->pro member
             'image_link'=>'required|string',
             'rate_number'=>'required',
