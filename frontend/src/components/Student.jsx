@@ -13,6 +13,7 @@ export default function Student() {
   const [degrees, setDegrees] = useState(null);
   const [fields, setFields] = useState(null);
   const [d, setd] = useState(null);
+  const [clicked_button, setClickedButton] = useState(null);
 
   const [student, setStudent] = useState({
     image_link: "",
@@ -32,10 +33,51 @@ export default function Student() {
   let navigate = useNavigate();
 
   const studyWithStudents = (e) => {
-    navigate("/students");
+    //Since both logged in users or recently registered users will be directed to this page
+    //then we have to check
+    //if the current user id is already found in students table
+    //then this user is a student
+    //then he/she will have access to students and/or teachers
+    //if not then toggle the popup to let the user finish his/her profile so that they will have access to students/teachers page
+
+    axios
+      .post(`http://127.0.0.1:8000/api/student/ifStudent`, {
+        user_id: parseInt({ id }.id),
+      })
+      .then((res) => {
+        console.log(res.data.response);
+        if (res.data.response === true) {
+          navigate("/students");
+          return;
+        }
+        //otherwise alert the user
+        setClickedButton("/students");
+        togglePopup();
+        //navigate("/students");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const studyWithTeachers = (e) => {
-    navigate("/teachers");
+    axios
+      .post(`http://127.0.0.1:8000/api/student/ifStudent`, {
+        user_id: parseInt({ id }.id),
+      })
+      .then((res) => {
+        console.log(res.data.response);
+        if (res.data.response === true) {
+          navigate("/teachers");
+          return;
+        }
+        //otherwise alert the user
+        setClickedButton("/teachers");
+        togglePopup();
+        //navigate("/teachers");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -116,10 +158,16 @@ export default function Student() {
         .catch((err) => {
           console.log(err);
           alert("Error occured please refresh your page");
-          togglePopup();
         });
+
+      if (clicked_button === "/students") {
+        //navigate to students
+        navigate("/students");
+      } else if (clicked_button === "/teachers") {
+        navigate("/teachers");
+      }
     }
-  }, [student]);
+  }, [student, clicked_button]);
 
   useEffect(() => {
     getDegrees();
@@ -166,7 +214,7 @@ export default function Student() {
           <input
             type="button"
             id="popup_button"
-            // className="hide-btn"
+            className="hide-btn"
             value="Complete your profile"
             onClick={togglePopup}
           />
