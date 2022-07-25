@@ -50,7 +50,7 @@ export default function Student() {
         name: studentInfo.degrees,
       })
       .then((res) => {
-        console.log("degree id = ", res.data.degree[0].id);
+        // console.log("degree id = ", res.data.degree[0].id);
         setStudent({ ...student, degrees_id: res.data.degree[0].id });
       })
       .catch((err) => {
@@ -62,7 +62,7 @@ export default function Student() {
         name: studentInfo.study_fields,
       })
       .then((res) => {
-        console.log("study field id = ", res.data.studyfield[0].id);
+        // console.log("study field id = ", res.data.studyfield[0].id);
         setStudent({ ...student, study_fields_id: res.data.studyfield[0].id });
       })
       .catch((err) => {
@@ -93,37 +93,22 @@ export default function Student() {
     e.preventDefault();
   };
   useEffect(() => {
-    document.getElementById("popup_button").click();
     getDegrees();
     getStudyFields();
+    console.log("lat->", student.lat);
+    console.log("long->", student.long);
     console.log(student.degrees_id);
     console.log(student.study_fields_id);
-  }, []);
+  }, [student]);
 
   const handleLocationClick = (e) => {
     e.preventDefault();
-    console.log("anything");
-
     navigator.geolocation.getCurrentPosition(async function (position) {
-      setStudent({ ...student, lat: position.coords.latitude });
-      console.log("Latitude", position.coords.latitude);
-
-      console.log(student);
-
-      if (student.lat != 0) {
-        console.log("lat", student.lat);
-      }
-      setLong({ ...student, long: position.coords.longitude });
-      if (student.long != 0) {
-        console.log("long", student.long);
-      }
-
-      console.log("img link", student.image_link);
-      if ((long.long != 0) & (student.lat != 0)) {
-        alert("Your coordinates have been recorded");
-      }
-      console.log(studentInfo.degrees);
-      console.log(studentInfo.study_fields);
+      setStudent({
+        ...student,
+        lat: position.coords.latitude,
+        long: position.coords.longitude,
+      });
     });
   };
 
@@ -157,7 +142,7 @@ export default function Student() {
           <input
             type="button"
             id="popup_button"
-            className="hide-btn"
+            // className="hide-btn"
             value="Click to Open Popup"
             onClick={togglePopup}
           />
