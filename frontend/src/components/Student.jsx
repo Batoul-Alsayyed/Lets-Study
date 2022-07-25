@@ -12,6 +12,7 @@ export default function Student() {
   let { id } = useParams();
   const [degrees, setDegrees] = useState(null);
   const [fields, setFields] = useState(null);
+  const [d, setd] = useState(null);
 
   const [student, setStudent] = useState({
     image_link: "",
@@ -39,68 +40,91 @@ export default function Student() {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    alert("submit clicked");
 
     //submit all user info and add them as a new student to the database
     // first lets get the chosen degree id and study field id using getDegreeByName and getStudyfieldByName
-    axios
+    let temp = { ...student };
+    await axios
       .post(`http://127.0.0.1:8000/api/student/getDegreeByName`, {
         name: studentInfo.degrees,
       })
       .then((res) => {
-        // console.log("degree id = ", res.data.degree[0].id);
-        setStudent({ ...student, degrees_id: res.data.degree[0].id });
+        console.log("degree id = ", res.data.degree[0].id);
+        // setStudent({ ...student, degrees_id: res.data.degree[0].id });
+        temp["degrees_id"] = res.data.degree[0].id;
       })
       .catch((err) => {
         console.log(err);
       });
 
-    axios
+    await axios
       .post(`http://127.0.0.1:8000/api/student/getStudyfieldByName`, {
         name: studentInfo.study_fields,
       })
       .then((res) => {
         // console.log("study field id = ", res.data.studyfield[0].id);
-        setStudent({ ...student, study_fields_id: res.data.studyfield[0].id });
+        // setStudent({ ...student, study_fields_id: res.data.studyfield[0].id });
+        temp["study_fields_id"] = res.data.studyfield[0].id;
       })
       .catch((err) => {
         console.log(err);
       });
-
-    // //now just post those info and link them with create student API
-    // axios
-    //   .post(`http://127.0.0.1:8000/api/student/add_student`, {
-    //     user_id: { id },
-    //     account_type: 0,
-    //     image_link: student.image_link,
-    //     rate_number: 5, //rating for a student initially will be 5 before somebody rate him/her
-    //     longitude: long.long,
-    //     latitude: student.lat,
-    //     study_fields_id: student.study_fields_id,
-    //     degrees_id: student.degrees_id,
-    //   })
-    //   .then((res) => {
-    //     console.log("Student successfully created ", res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     alert("Error occured:" + err);
-    //   });
+    console.log("anything");
+    setStudent({ ...temp });
   };
   const doNothing = (e) => {
     e.preventDefault();
   };
   useEffect(() => {
-    getDegrees();
-    getStudyFields();
     console.log("lat->", student.lat);
     console.log("long->", student.long);
-    console.log(student.degrees_id);
-    console.log(student.study_fields_id);
+    console.log("selected image link", student.image_link);
+    console.log("Get student degree id", student.degrees_id);
+    console.log("student study field", student.study_fields_id);
+    //now checking if all of these values are set=> add a new student to the database with user_id = { id }
+    if (
+      student.lat != "" &&
+      student.long != "" &&
+      student.image_link != "" &&
+      student.study_fields_id != "" &&
+      student.degrees_id != ""
+    ) {
+      //now just post those info and link them with create student API
+      // console.log({ id });
+      var i = { id }.id;
+      i = parseInt(i);
+      console.log(i);
+
+      axios
+        .post(`http://127.0.0.1:8000/api/student/add_student`, {
+          user_id: parseInt({ id }.id),
+          account_type: 0, //since this student will start as a free member then if he/she fill payment form then we will update this value to be 1
+          image_link: student.image_link,
+          rate_number: 5, //rating for a student initially will be 5 before somebody rate him/her
+          longitude: student.long,
+          latitude: student.lat,
+          study_fields_id: student.study_fields_id,
+          degrees_id: student.degrees_id,
+        })
+        .then((res) => {
+          console.log("Student successfully created ", res);
+          alert("You are a student now!");
+          togglePopup();
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("Error occured please refresh your page");
+          togglePopup();
+        });
+    }
   }, [student]);
 
+  useEffect(() => {
+    getDegrees();
+    getStudyFields();
+  }, []);
   const handleLocationClick = (e) => {
     e.preventDefault();
     navigator.geolocation.getCurrentPosition(async function (position) {
