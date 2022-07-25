@@ -331,17 +331,27 @@
 }
 .cards .card .rate {
   float: right;
-  margin-top: -1px;
+  margin-top: -0.5px;
   margin-left: 75px;
 }
 svg.star-icon {
-  margin-top: -1px;
+  margin-top: 1px;
   margin-right: 35px;
 }
 .cards .card .location-icon {
   position: absolute;
-  right: 130px;
-  top: 230.5px;
+  right: 120px;
+  top: 235.5px;
+}
+.swiper-class {
+  justify-content: space-between;
+  gap: 20px;
+}
+.location-div {
+  margin-right: 30px;
+}
+.age-div {
+  margin-right: 70px;
 }
 .cards .card div {
   flex-direction: row;
@@ -355,6 +365,7 @@ svg.star-icon {
   font-size: small;
   flex-basis: 50%;
 }
+
 /*Styling popup component*/
 .popup-box {
   display: flex;
@@ -964,6 +975,37 @@ tr:nth-child(even) {
 .delete {
   margin-top: 100px;
 }
+.swiper {
+  width: 90%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 1300px) {
   .navbar {
     width: 95.5%;
