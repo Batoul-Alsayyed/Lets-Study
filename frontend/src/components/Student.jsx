@@ -143,7 +143,7 @@ export default function Student() {
             type="button"
             id="popup_button"
             // className="hide-btn"
-            value="Click to Open Popup"
+            value="Complete your profile"
             onClick={togglePopup}
           />
           <p className="header-text">Start your studying journey!</p>
@@ -171,6 +171,7 @@ export default function Student() {
             <>
               <div className="popup-div">
                 <p>Finish Your Profile</p>
+                <br />
                 <br />
                 <form className="form">
                   <div className="row">
@@ -205,7 +206,8 @@ export default function Student() {
                           })}
                       </select>
                     </div>
-
+                  </div>
+                  <div className="row">
                     <div className="column">
                       <label htmlFor="">Study Field</label>
                       <select
@@ -224,19 +226,10 @@ export default function Student() {
                           })}
                       </select>
                     </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="column">
-                      <button
-                        className="select-style location"
-                        onClick={doNothing}
-                      >
-                        Location
-                      </button>
-                    </div>
 
                     <div className="column">
+                      <label htmlFor="">Location</label>
+
                       <button
                         className="select-style"
                         onClick={handleLocationClick}
@@ -244,15 +237,8 @@ export default function Student() {
                         Current position
                       </button>
                     </div>
-
-                    <div className="column">
-                      <button className="select-style" onClick={doNothing}>
-                        Find on the map
-                      </button>
-                    </div>
                   </div>
-                  <div className="row3">{/* <MapComponent /> */}</div>
-                  <br />
+
                   <button
                     type="submit"
                     className="submit-popup-form"

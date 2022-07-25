@@ -401,7 +401,7 @@ svg.star-icon {
 }
 .submit-popup-form {
   padding: 10px;
-  margin-top: 250px;
+  margin-top: 50px;
   width: 150px;
   background-color: #186485;
   color: white;
@@ -412,11 +412,11 @@ svg.star-icon {
 }
 .box {
   position: relative;
-  width: 70%;
+  width: 45%;
   margin: 0 auto;
-  height: 90%;
+  height: 50%;
   max-height: 70vh;
-  margin-top: calc(100vh - 85vh - 20px);
+  margin-top: calc(110vh - 85vh - 20px);
   background: #fff;
   border-radius: 4px;
   padding: 20px;
@@ -439,8 +439,8 @@ svg.star-icon {
 .close-icon {
   cursor: pointer;
   position: fixed;
-  right: calc(15% - 30px);
-  top: calc(100vh - 85vh - 33px);
+  right: calc(15% - -9%);
+  top: calc(100vh - 85vh - -28px);
   background: white;
   width: 30px;
   height: 30px;
@@ -535,6 +535,9 @@ svg.star-icon {
   font-family: "IM Fell Great Primer SC", serif;
   color: black;
   font-size: 15px;
+}
+.p {
+  margin-right: 195px;
 }
 .row2 {
   display: flex;
@@ -1142,6 +1145,10 @@ tr:nth-child(even) {
   }
   .right-side-components {
     margin-right: 30px;
+  }
+  .close-icon {
+    right: calc(15% - 5%);
+    top: calc(100vh - 85vh - -28px);
   }
 }
 @media (max-width: 450px) {
