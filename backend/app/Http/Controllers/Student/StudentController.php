@@ -15,7 +15,7 @@ class StudentController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['addStudent','getStudentById','getAllStudents']]);
+        $this->middleware('auth:api', ['except' => ['addStudent','getStudentById','getAllStudents','ifStudent']]);
     }
     //Adding new student (a student is a user but with extra attributes)
     //Students will  be able to register their own accounts first as a normal user
@@ -60,6 +60,27 @@ class StudentController extends Controller
         return response()->json([
             "status" => "Success",
             "students" => $students
+        ], 200);
+    }
+
+    //an api that will check if user_id is a student or not 
+    public function ifStudent(Request $request){
+        //checking if the user is set 
+        //if yes => return true
+        //if no => return false 
+        $student = Student::where('user_id', '=', $request->user_id)->first();
+        
+        if ($student === null) {
+        // user doesn't exist
+        return response()->json([
+            "status" => "Success",
+            "response" => false
+        ], 200);
+        }
+        
+        return response()->json([
+            "status" => "Success",
+            "response" => true
         ], 200);
     }
 }
