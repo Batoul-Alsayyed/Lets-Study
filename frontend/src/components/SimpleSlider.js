@@ -1,97 +1,58 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useRef, useState, useEffect } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 import Card from "../components/Card";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
 import "../index.css";
-import { useNavigate } from "react-router-dom";
 
 export default function SimpleSlider() {
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-  let navigate = useNavigate();
-
-  const onCardClick = (e) => {
-    e.preventDefault();
-    navigate("/student/:" + "id");
-  };
+  useEffect(() => {
+    console.log(window.innerWidth);
+  }, [window.innerWidth]);
   return (
-    <Slider {...settings}>
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-
-      <div className="cards" onClick={onCardClick}>
-        <Card />
-      </div>
-    </Slider>
+    <>
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        spaceBetween={0}
+        slidesPerView={3}
+        speed={500}
+        loop={true}
+        touchRatio={1.5}
+        effect={"flip"}
+        pagination={{ clickable: true }}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <div className="cards">
+            <Card />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="cards">
+            <Card />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="cards">
+            <Card />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="cards">
+            <Card />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="cards">
+            <Card />
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 }
