@@ -3,23 +3,29 @@ import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import Card from "../components/Card";
-
+import axios from "axios";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "../index.css";
 
-export default function SimpleSlider() {
+export default function SimpleSlider({ studentsarray }) {
+  // useEffect(() => {
+  //   console.log(window.innerWidth);
+  // }, [window.innerWidth]);
   useEffect(() => {
-    console.log(window.innerWidth);
-  }, [window.innerWidth]);
+    if (studentsarray) {
+      console.log("students inside simple slider", { studentsarray });
+    }
+  }, []);
+
   return (
     <>
       <Swiper
         navigation={true}
         modules={[Navigation]}
         spaceBetween={0}
-        slidesPerView={3}
+        slidesPerView={1}
         speed={500}
         loop={true}
         touchRatio={1.5}
@@ -27,31 +33,24 @@ export default function SimpleSlider() {
         pagination={{ clickable: true }}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className="cards">
-            <Card />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="cards">
-            <Card />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="cards">
-            <Card />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="cards">
-            <Card />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="cards">
-            <Card />
-          </div>
-        </SwiperSlide>
+        {studentsarray &&
+          studentsarray.map((i, index) => {
+            return (
+              <div>
+                <SwiperSlide key={index}>
+                  <div className="cards">
+                    <Card
+                      student={studentsarray[index]}
+                      student_rate_number={studentsarray[index].rate_number}
+                      student_latitude={studentsarray[index].latitude}
+                      student_longitude={studentsarray[index].longitude}
+                      student_image_link={studentsarray[index].image_link}
+                    />
+                  </div>
+                </SwiperSlide>
+              </div>
+            );
+          })}
       </Swiper>
     </>
   );
