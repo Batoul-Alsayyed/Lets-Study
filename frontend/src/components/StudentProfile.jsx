@@ -9,8 +9,11 @@ import { BsChatQuote } from "react-icons/bs";
 import axios from "axios";
 
 export default function StudentProfile() {
+  const [rating, setRating] = useState(false);
+
   const ratingChanged = (newRating) => {
-    console.log(newRating);
+    console.log("new rating", newRating);
+    setRating(newRating);
   };
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
@@ -36,6 +39,25 @@ export default function StudentProfile() {
   };
   const submit_rate = (e) => {
     e.preventDefault();
+    //save rated stars to updateRateNumberByUserId API
+    axios
+      .post(`http://127.0.0.1:8000/api/user/add_rating`, {
+        user_id: { id }.id,
+        rate_number: rating,
+      })
+      .then((res) => {
+        axios
+          .post(`http://127.0.0.1:8000/api/user/updateRateNumberByUserId`, {
+            user_id: { id }.id,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     togglePopup();
   };
   function getName() {
@@ -99,10 +121,6 @@ export default function StudentProfile() {
     getAge();
     getInfo();
   }, [user.date_of_birth]);
-
-  // useEffect(() => {
-  //   getInfo();
-  // }, []);
 
   return (
     <div>
