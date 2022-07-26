@@ -44,7 +44,7 @@ export default function Signin() {
           email: details.email,
           password: details.password,
           date_of_birth: details.date_of_birth,
-          user_type_id: "2",
+          user_type_id: "0",
         })
         .then((res) => {
           console.log(res.data.user.id);
@@ -54,12 +54,7 @@ export default function Signin() {
             password: details.password,
             date_of_birth: details.date_of_birth,
           });
-          navigate("/students/" + res.data.user.id);
-        })
-        .catch((err) => {
-          //if error occured when adding new user to the database
-          console.log(err);
-          alert("Error occured: user already exits!");
+          navigate("/Signin");
         });
     }
   };
