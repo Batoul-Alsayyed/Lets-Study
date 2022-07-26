@@ -332,10 +332,14 @@
 .cards .card .rate {
   float: right;
   margin-top: -0.5px;
-  margin-left: 75px;
+  margin-left: 150px;
+}
+.user-name {
+  font-family: "IM Fell Great Primer SC", serif;
+  letter-spacing: 2px;
 }
 svg.star-icon {
-  margin-top: 1px;
+  margin-top: -1px;
   margin-right: 35px;
 }
 .cards .card .location-icon {
@@ -351,19 +355,19 @@ svg.star-icon {
   margin-right: 30px;
 }
 .age-div {
-  margin-right: 70px;
+  margin-left: 25px;
+  padding-bottom: 1px;
 }
 .cards .card div {
   flex-direction: row;
   display: flex;
   justify-content: space-between;
-  padding-left: 25px;
+  padding-left: 5px;
 }
 .cards .card div p {
   margin: 2px;
   justify-content: space-around;
-  font-size: small;
-  flex-basis: 50%;
+  font-size: 15px;
 }
 
 /*Styling popup component*/
@@ -1004,8 +1008,8 @@ tr:nth-child(even) {
 
 .swiper-slide img {
   display: block;
-  width: 80%;
-  height: 100%;
+  width: 85%;
+  height: 250px;
   object-fit: cover;
 }
 
