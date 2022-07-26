@@ -774,6 +774,13 @@ svg.star-icon {
   text-align: center;
   color: #186485;
 }
+.admin-teacher-img > img {
+  width: 130px;
+}
+.admin-teacher-img {
+  display: flex;
+  justify-content: center;
+}
 .user-profile-links li.active {
   background-color: #186485;
   color: white;
@@ -935,7 +942,7 @@ tr:nth-child(even) {
 }
 .admin-buttons {
   display: flex;
-  margin-top: 10%;
+  margin-top: 2%;
   gap: 10px;
   justify-content: end;
 }
