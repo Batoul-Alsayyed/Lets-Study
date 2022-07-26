@@ -3,6 +3,7 @@ import "../index.css";
 import student2 from "../images/asian-college-student-400x400 2.png";
 import { FaStar } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function Card({
   student_rate_number,
@@ -11,11 +12,16 @@ export default function Card({
   student_image_link,
   student_user_id,
 }) {
+  let navigate = useNavigate();
+
   const [user, setUser] = useState({
     name: "",
     age: 0,
     date_of_birth: "",
   });
+  const OnClickHandler = () => {
+    navigate("/student/" + student_user_id);
+  };
   // const [user, setUser] = useState(null);
   function getName() {
     console.log(student_user_id);
@@ -59,7 +65,7 @@ export default function Card({
   }, [user.date_of_birth]);
 
   return (
-    <div className="card">
+    <div className="card" onClick={OnClickHandler}>
       <img src={student_image_link} className="card-img" />
       <div className="age-div">
         <p className="user-name">{user.name}</p>
