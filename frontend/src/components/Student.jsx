@@ -105,7 +105,6 @@ export default function Student() {
       })
       .then((res) => {
         console.log("degree id = ", res.data.degree[0].id);
-        // setStudent({ ...student, degrees_id: res.data.degree[0].id });
         temp["degrees_id"] = res.data.degree[0].id;
       })
       .catch((err) => {
@@ -117,8 +116,6 @@ export default function Student() {
         name: studentInfo.study_fields,
       })
       .then((res) => {
-        // console.log("study field id = ", res.data.studyfield[0].id);
-        // setStudent({ ...student, study_fields_id: res.data.studyfield[0].id });
         temp["study_fields_id"] = res.data.studyfield[0].id;
       })
       .catch((err) => {
@@ -131,11 +128,6 @@ export default function Student() {
     e.preventDefault();
   };
   useEffect(() => {
-    console.log("lat->", student.lat);
-    console.log("long->", student.long);
-    console.log("selected image link", student.image_link);
-    console.log("Get student degree id", student.degrees_id);
-    console.log("student study field", student.study_fields_id);
     //now checking if all of these values are set=> add a new student to the database with user_id = { id }
     if (
       student.lat != "" &&
@@ -169,6 +161,7 @@ export default function Student() {
         .catch((err) => {
           console.log(err);
           alert("Error occured please refresh your page");
+          setClickedButton("");
         });
 
       if (clicked_button === "/students") {
