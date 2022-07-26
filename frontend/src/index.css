@@ -697,6 +697,20 @@ svg.star-icon {
   letter-spacing: 3px;
   font-family: "IM Fell Great Primer SC", serif;
 }
+.register-btn {
+  color: white;
+  font-style: italic;
+  text-decoration: none;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  transform: scaleX(0);
+}
+.register-btn:hover {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  text-decoration: solid;
+  border-bottom: 1px solid white;
+}
 .pop-up {
   display: flex;
   align-items: center;
@@ -729,6 +743,7 @@ svg.star-icon {
 }
 .user-profile-img {
   width: 185px;
+  margin-top: 50px;
 }
 .user-settings {
   display: flex;
