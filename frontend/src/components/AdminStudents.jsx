@@ -48,7 +48,9 @@ export default function AdminStudents() {
                 <tr>
                   <td>{i.id}</td>
                   <td>{i.user_id}</td>
-                  <td>{i.image_link}</td>
+                  <td className="admin-teacher-img">
+                    <img src={i.image_link} />
+                  </td>
                   <td>{i.rate_number}</td>
                   <td>{i.longitude}</td>
                   <td>{i.latitude}</td>
