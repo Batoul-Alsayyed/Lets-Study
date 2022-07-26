@@ -13,7 +13,7 @@ export default function Card({
 }) {
   const [user, setUser] = useState({
     name: "",
-    age: "",
+    age: 0,
     date_of_birth: "",
   });
   // const [user, setUser] = useState(null);
@@ -26,16 +26,38 @@ export default function Card({
       })
       .then((res) => {
         console.log(res.data.user);
-        setUser({ ...user, name: res.data.user[0].name });
+        setUser({
+          ...user,
+          name: res.data.user[0].name,
+          date_of_birth: res.data.user[0].date_of_birth,
+        });
       })
       .catch((err) => {
         console.log(err);
       });
   }
-
+  function getAge() {
+    if (user.date_of_birth) {
+      console.log(user.date_of_birth);
+      var currentDate = new Date();
+      console.log(currentDate);
+      var currentYear = currentDate.getFullYear();
+      console.log(currentYear);
+      const year_born = user.date_of_birth.split("-")[0];
+      console.log("year born ", year_born);
+      var age = currentYear - year_born;
+      console.log("age: ", age);
+      setUser({ ...user, age: age });
+    }
+  }
   useEffect(() => {
     getName();
   }, []);
+
+  useEffect(() => {
+    getAge();
+  }, [user.date_of_birth]);
+
   return (
     <div className="card">
       <img src={student_image_link} className="card-img" />
@@ -54,7 +76,7 @@ export default function Card({
         </span>
       </div> */}
       <div className="age-div">
-        <p>23 years old</p>
+        <p>{user.age} years old</p>
       </div>
       <br />
     </div>
