@@ -18,7 +18,7 @@ export default function Signup() {
   useEffect(() => {
     if (user_typeId != null) {
       if (user_typeId === "2") {
-        navigate("/PersonalProfile/" + user_id);
+        navigate("/PersonalProfile");
       } else if (user_typeId === "0") {
         navigate("/students/" + user_id);
       } else if (user_typeId === "1") {
@@ -50,7 +50,12 @@ export default function Signup() {
     <div className="signup-layout">
       <div className="signup-left-display">
         <img className="signup-img" src={img6} alt="" />
-        <p className="signup-text">Not a member? Register now</p>
+        <p className="signup-text">
+          Not a member?{" "}
+          <a href="/Signup" className="register-btn">
+            Register now
+          </a>
+        </p>
       </div>
       <form className="signup-right-display" onSubmit={submitHandler}>
         <p className="signup-welcome">Welcome to Lets Study</p>
