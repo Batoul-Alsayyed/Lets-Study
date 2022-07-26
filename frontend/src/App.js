@@ -31,10 +31,12 @@ import AdminTeachers from "./components/AdminTeachers";
 import AdminUsers from "./components/AdminUsers";
 import AdminDegrees from "./components/AdminDegrees";
 import AdminStudyFields from "./components/AdminStudyFields";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <Toaster position="top-center" reverseOrder={false} />
         <Routes>
           <Route path="/navbar" element={<Navbar />}></Route>
           <Route path="/header" element={<Header />}></Route>
