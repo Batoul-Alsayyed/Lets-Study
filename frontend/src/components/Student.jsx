@@ -1,29 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Popup from "./Popup";
-import LoginNavbar from "./LoginNavbar";
+import LoginNavbar from "./UserNavbar";
 import "../index.css";
 import axios from "axios";
 import MapComponent from "./MapComponent";
 import { useParams } from "react-router-dom";
 import lamp from "../images/StudyLamp.png";
 import { useNavigate } from "react-router-dom";
-
+import toast from "react-hot-toast";
 export default function Student() {
-  const saveFile = (e) => {
-    var s;
-    var file = e.target.files[0];
-    var reader = new FileReader();
-    reader.onloadend = function () {
-      s = reader.result;
-      setStudent({ ...student, image_link: s });
-    };
-    reader.readAsDataURL(file);
-  };
-
-  let { id } = useParams();
+  var access_token = localStorage.getItem("access_token");
+  const [user_id, setUserId] = useState(null);
   const [degrees, setDegrees] = useState(null);
   const [fields, setFields] = useState(null);
-  const [d, setd] = useState(null);
   const [clicked_button, setClickedButton] = useState(null);
 
   const [student, setStudent] = useState({
@@ -37,23 +26,82 @@ export default function Student() {
     degrees: "Bachelor",
     study_fields: "Computer Science",
   });
-  const [long, setLong] = useState({
-    long: 0,
-  });
+
   const [isOpen, setIsOpen] = useState(false);
+
   let navigate = useNavigate();
 
-  const studyWithStudents = (e) => {
-    //Since both logged in users or recently registered users will be directed to this page
-    //then we have to check
-    //if the current user id is already found in students table
-    //then this user is a student
-    //then he/she will have access to students and/or teachers
-    //if not then toggle the popup to let the user finish his/her profile so that they will have access to students/teachers page
+  //Getting user id using the token
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/api/user/user-profile`, {
+        headers: { Authorization: `Bearer ${access_token}` },
+      })
+      .then(
+        (res) => {
+          setUserId(res.data.id);
+        },
+        [access_token]
+      );
+  });
+  useEffect(() => {
+    //now checking if all of these values are set=> add a new student to the database with user_id = { id }
+    if (
+      student.lat != "" &&
+      student.long != "" &&
+      student.image_link != "" &&
+      student.study_fields_id != "" &&
+      student.degrees_id != "" &&
+      user_id
+    ) {
+      //now just post those info and link them with create student API
+      axios
+        .post(`http://127.0.0.1:8000/api/student/add_student`, {
+          user_id: user_id,
+          account_type: 0, //since this student will start as a free member then if he/she fill payment form then we will update this value to be 1
+          image_link: student.image_link,
+          rate_number: 5, //rating for a student initially will be 5 before somebody rate him/her
+          longitude: student.long,
+          latitude: student.lat,
+          study_fields_id: student.study_fields_id,
+          degrees_id: student.degrees_id,
+        })
+        .then((res) => {
+          toast.success("Your profile is complete now!");
+          togglePopup();
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error(
+            "Error occured while completing your profile please refresh your page"
+          );
+        });
+    }
+  }, [student, user_id]);
+  // useEffect(() => {
+  //   if (user_id != null && student != null) {
+  //     if (clicked_button === "/students" || clicked_button === "/teachers") {
+  //       navigate(clicked_button);
+  //     }
+  //   }
+  // }, [clicked_button]);
 
+  const saveFile = (e) => {
+    var s;
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      s = reader.result;
+      setStudent({ ...student, image_link: s });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const studyWithStudents = (e) => {
+    console.log("user_id in study with students", user_id);
     axios
       .post(`http://127.0.0.1:8000/api/student/ifStudent`, {
-        user_id: parseInt({ id }.id),
+        user_id: user_id,
       })
       .then((res) => {
         console.log(res.data.response);
@@ -61,30 +109,32 @@ export default function Student() {
           navigate("/students");
           return;
         }
-        //otherwise alert the user
-        setClickedButton("/students");
+        toast.error("Complete your profile");
+        //setClickedButton("/students");
         togglePopup();
-        //navigate("/students");
       })
       .catch((err) => {
         console.log(err);
       });
   };
   const studyWithTeachers = (e) => {
+    console.log("user_id in study with teachers", user_id);
+
     axios
       .post(`http://127.0.0.1:8000/api/student/ifStudent`, {
-        user_id: parseInt({ id }.id),
+        user_id: user_id,
       })
       .then((res) => {
-        console.log(res.data.response);
+        console.log("user id study with teachers", res.data.response);
         if (res.data.response === true) {
           navigate("/teachers");
           return;
         }
         //otherwise alert the user
-        setClickedButton("/teachers");
+        // setClickedButton("/teachers");
+        toast.error("Complete your profile");
+        //setClickedButton("/teachers");
         togglePopup();
-        //navigate("/teachers");
       })
       .catch((err) => {
         console.log(err);
@@ -124,59 +174,12 @@ export default function Student() {
     console.log("anything");
     setStudent({ ...temp });
   };
-  const doNothing = (e) => {
-    e.preventDefault();
-  };
-  useEffect(() => {
-    //now checking if all of these values are set=> add a new student to the database with user_id = { id }
-    if (
-      student.lat != "" &&
-      student.long != "" &&
-      student.image_link != "" &&
-      student.study_fields_id != "" &&
-      student.degrees_id != ""
-    ) {
-      //now just post those info and link them with create student API
-      // console.log({ id });
-      var i = { id }.id;
-      i = parseInt(i);
-      console.log(i);
-
-      axios
-        .post(`http://127.0.0.1:8000/api/student/add_student`, {
-          user_id: parseInt({ id }.id),
-          account_type: 0, //since this student will start as a free member then if he/she fill payment form then we will update this value to be 1
-          image_link: student.image_link,
-          rate_number: 5, //rating for a student initially will be 5 before somebody rate him/her
-          longitude: student.long,
-          latitude: student.lat,
-          study_fields_id: student.study_fields_id,
-          degrees_id: student.degrees_id,
-        })
-        .then((res) => {
-          console.log("Student successfully created ", res);
-          alert("You are a student now!");
-          togglePopup();
-        })
-        .catch((err) => {
-          console.log(err);
-          alert("Error occured please refresh your page");
-          setClickedButton("");
-        });
-
-      if (clicked_button === "/students") {
-        //navigate to students
-        navigate("/students");
-      } else if (clicked_button === "/teachers") {
-        navigate("/teachers");
-      }
-    }
-  }, [student, clicked_button]);
 
   useEffect(() => {
     getDegrees();
     getStudyFields();
   }, []);
+
   const handleLocationClick = (e) => {
     e.preventDefault();
     navigator.geolocation.getCurrentPosition(async function (position) {
@@ -208,6 +211,7 @@ export default function Student() {
         console.log(err);
       });
   }
+  //--------------------------------------------------html----------------------------------------------------------------
   return (
     <div>
       <LoginNavbar />
