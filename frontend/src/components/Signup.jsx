@@ -63,7 +63,12 @@ export default function Signin() {
     <div className="signin-layout">
       <div className="signin-left-display">
         <img className="signin-img" src={img6} alt="" />
-        <p className="signup-text">Already a member? Sign in</p>
+        <p className="signup-text">
+          Already a member?{" "}
+          <a href="/Signin" className="register-btn">
+            Sign in
+          </a>
+        </p>
       </div>
       <form className="signin-right-display" onSubmit={submitHandler}>
         <p className="signin-welcome">Welcome to Lets Study</p>
