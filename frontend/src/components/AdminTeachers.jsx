@@ -4,9 +4,13 @@ import "../index.css";
 import AdminNavbar from "./AdminNavbar";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
+import toast from "react-hot-toast";
 
 export default function AdminTeachers() {
+  let access_token = localStorage.getItem("access_token");
+
   const [data, setData] = useState(null);
+  const [name, setName] = useState(null);
   const [degrees, setDegrees] = useState(null);
   const [studyfields, setStudyfields] = useState(null);
   const [degree_id, setDegreeId] = useState(null);
@@ -31,22 +35,25 @@ export default function AdminTeachers() {
   const togglePopup2 = () => {
     setIsOpen2(!isOpen2);
   };
-
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/admin/teachers`)
-      .then((res) => {
-        //console.log("staus = > ", res.status);
-        if (res.status + "" === "200") {
-          setData(res.data.teachers);
-        }
-        throw res;
+      .get(`http://127.0.0.1:8000/api/user/user-profile`, {
+        headers: { Authorization: `Bearer ${access_token}` },
       })
-
-      .catch((err) => {
-        //console.log(err);
-      });
-
+      .then(
+        (res) => {
+          setName(res.data.name);
+        },
+        [access_token]
+      );
+  });
+  useEffect(() => {
+    axios.get(`http://127.0.0.1:8000/api/admin/teachers`).then((res) => {
+      if (res.status + "" === "200") {
+        setData(res.data.teachers);
+      }
+      throw res;
+    });
     //getting all degrees
     axios
       .get(`http://127.0.0.1:8000/api/admin/degrees`)
@@ -196,6 +203,7 @@ export default function AdminTeachers() {
       <div className="admin-table">
         <table>
           <tr>
+            <th>Name</th>
             <th>id</th>
             <th>user_id</th>
             <th>rate_number</th>
@@ -207,9 +215,9 @@ export default function AdminTeachers() {
           </tr>
           {data &&
             data.map((i, index) => {
-              //console.log(i);
               return (
                 <tr>
+                  <td>{name}</td>
                   <td>{i.id}</td>
                   <td>{i.user_id}</td>
                   <td>{i.rate_number}</td>
@@ -217,7 +225,9 @@ export default function AdminTeachers() {
                   <td>{i.latitude}</td>
                   <td>{i.degrees_id}</td>
                   <td>{i.study_fields_id}</td>
-                  <td>{i.image_link}</td>
+                  <td className="admin-teacher-img">
+                    <img src={i.image_link} />
+                  </td>
                 </tr>
               );
             })}
