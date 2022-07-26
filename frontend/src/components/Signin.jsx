@@ -1,20 +1,31 @@
-import React, { useState } from "react";
 import axios from "axios";
 import img6 from "../images/Online Reading.png";
 import SignupButton from "./SignupButton";
 import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 export default function Signup() {
   let navigate = useNavigate();
 
   const [user, setUser] = useState({ email: "", password: "" });
-  const [user_type, setUserType] = useState({ user_type: "" });
+  const [user_typeId, setUserTypeId] = useState(null);
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
   const [user_id, setUserId] = useState(0);
   const submitHandler = (e) => {
     e.preventDefault();
     Login(details);
   };
+  useEffect(() => {
+    if (user_typeId != null) {
+      if (user_typeId === "2") {
+        navigate("/PersonalProfile/" + user_id);
+      } else if (user_typeId === "0") {
+        navigate("/students/" + user_id);
+      } else if (user_typeId === "1") {
+        navigate("/admin");
+      }
+    }
+  }, [user_typeId, user_id]);
   const Login = (details) => {
     axios
       .post(`http://127.0.0.1:8000/api/user/login`, {
@@ -22,28 +33,13 @@ export default function Signup() {
         password: details.password,
       })
       .then((res) => {
-        console.log("user id = ", res.data.user.id);
-        setUserId(res.data.user.user_type_id);
+        //access_token
+        localStorage.setItem("access_token", res.data.access_token);
+        setUserTypeId(res.data.user.user_type_id);
+        setUserId(res.data.user.id);
         setUser({
           email: details.email,
         });
-
-        //get user type using getusertype API
-        axios
-          .post(`http://127.0.0.1:8000/api/user/getUserType`, {
-            id: res.data.user.user_type_id,
-          })
-          .then((res) => {
-            console.log(res.data.user[0].type);
-            if (res.data.user[0].type === "teacher") {
-              console.log("user_id", user_id);
-              navigate("/PersonalProfile/" + res.data.user.id);
-            } else if (res.data.user[0].type === "student") {
-              navigate("/students");
-            } else if (res.data.user[0].type === "admin") {
-              navigate("/admin");
-            }
-          });
       })
       .catch((err) => {
         console.log(err);
