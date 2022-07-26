@@ -45,6 +45,7 @@ export default function SimpleSlider({ studentsarray }) {
                       student_latitude={studentsarray[index].latitude}
                       student_longitude={studentsarray[index].longitude}
                       student_image_link={studentsarray[index].image_link}
+                      student_user_id={studentsarray[index].user_id}
                     />
                   </div>
                 </SwiperSlide>
