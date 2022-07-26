@@ -3,11 +3,19 @@ import "../index.css";
 import logo from "../images/logo/logo.png";
 import account from "../images/Account.png";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginNavbar() {
+  let navigate = useNavigate();
+
+  const [user_id, setUserID] = useState(null);
   const [path, setPath] = useState(0);
   const [name, setName] = useState(0);
   const [image, setImage] = useState(0);
+  //imageClick
+  const imageClick = () => {
+    navigate("/PersonalProfile");
+  };
 
   useEffect(() => {
     //since we have the access token in local storage
@@ -21,7 +29,7 @@ export default function LoginNavbar() {
       .then((res) => {
         setName(res.data.name);
         setPath("/students/" + res.data.id);
-
+        setUserID(res.data.id);
         console.log("here", res.data.id);
         //getting user profile image
         axios
@@ -49,7 +57,14 @@ export default function LoginNavbar() {
           <div className="right-side-components">
             <a href={path}>Study Now</a>
             <p>Welcome {name}</p>
-            {!image ? null : <img src={image} alt="" className="navbar-img" />}
+            {!image ? null : (
+              <img
+                src={image}
+                alt=""
+                className="navbar-img"
+                onClick={imageClick}
+              />
+            )}
           </div>
         </div>
       </div>
