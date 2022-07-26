@@ -47,6 +47,7 @@
   justify-content: column;
   align-items: center;
   margin-right: 80px;
+  gap: 30px;
 }
 .right-side-components img {
   width: 65px;
@@ -652,7 +653,7 @@ svg.star-icon {
   margin-top: 2%;
 }
 .student-profile img {
-  margin-top: -9%;
+  margin-top: -13%;
 }
 .student-profile-img {
   height: 250px;
@@ -1022,7 +1023,9 @@ tr:nth-child(even) {
   height: 250px;
   object-fit: cover;
 }
-
+.navbar-img {
+  border-radius: 55px;
+}
 @media (max-width: 1300px) {
   .navbar {
     width: 95.5%;
