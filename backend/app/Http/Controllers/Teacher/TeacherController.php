@@ -14,6 +14,16 @@ class TeacherController extends Controller
      *
      * @return void
      */
+       public function getTeacherById(Request $request){
+        $teacher = Teacher::orderBy('created_at','desc')->get();
+        $teacher = Teacher::where('user_id', $request->user_id)->get();
+
+            return response()->json([
+                "status" => "Success",
+                "teacher" => $teacher
+            ], 200);
+
+    }
 
     
 
