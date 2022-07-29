@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
+
 import "../index.css";
 import logo from "../images/logo/logo.png";
 import { IconContext } from "react-icons";
@@ -11,6 +12,9 @@ function AdminNavbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
+  useEffect(() => {
+    console.log("sidebar", sidebar);
+  }, [sidebar]);
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
