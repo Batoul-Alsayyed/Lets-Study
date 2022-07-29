@@ -15,7 +15,7 @@ class StudentController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['addStudent','getStudentById','getAllStudents','ifStudent']]);
+        $this->middleware('auth:api', ['except' => ['addStudent','getStudentById','getAllStudents','ifStudent','updateAccountType']]);
     }
     //Adding new student (a student is a user but with extra attributes)
     //Students will  be able to register their own accounts first as a normal user
@@ -83,4 +83,18 @@ class StudentController extends Controller
             "response" => true
         ], 200);
     }
+    //updating student profile type 
+    //payment API
+    //we will just pass user id for the time being 
+    //and when the user fill the form the account type will be updated from 0 to 1 (free-> pro)
+    //because I don't have access to bank payment API
+    public function updateAccountType(Request $request){
+        $User_Update = Student::where("user_id", $request->user_id)->update(["account_type" => "1"]);
+               
+        return response()->json([
+            "status" => "Success",
+            "response" => true
+        ], 200);
+    }
+
 }
