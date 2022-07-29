@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import Card from "../components/Card";
+import Card from "./Card";
 import axios from "axios";
 // Import Swiper styles
 import "swiper/css";
