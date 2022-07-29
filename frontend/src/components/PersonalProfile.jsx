@@ -4,12 +4,12 @@ import "../index.css";
 import axios from "axios";
 
 export default function PersonalProfile() {
-  const [user_id, setUserID] = useState(null);
+  const user_id = localStorage.getItem("user_id");
+  const user_type_id = localStorage.getItem("user_type_id");
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [image, setImage] = useState(null);
   const [date_of_birth, setDateOfBirth] = useState(null);
-  const [user_type_id, setUserType] = useState(null);
   const [studyfield, setStudyField] = useState(null);
   const [studyfield_id, setStudyFieldId] = useState(null);
   const [degree, setDegree] = useState(null);
@@ -17,7 +17,6 @@ export default function PersonalProfile() {
   useEffect(() => {
     //since we have the access token in local storage
     //lets use it to retreive user info
-    // console.log(localStorage.getItem("access_token"));
     let access_token = localStorage.getItem("access_token");
     axios
       .get(`http://127.0.0.1:8000/api/user/user-profile`, {
@@ -27,13 +26,13 @@ export default function PersonalProfile() {
         setName(res.data.name);
         setEmail(res.data.email);
         setDateOfBirth(res.data.date_of_birth);
-        setUserID(res.data.id);
-        setUserType(res.data.user_type_id);
       });
   });
+  const handleAnchorClick = (event) => {
+    localStorage.clear();
+  };
   useEffect(() => {
     //getting user profile image
-    console.log("user_type_id", user_type_id);
     if (user_type_id === "0") {
       axios
         .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
@@ -44,10 +43,12 @@ export default function PersonalProfile() {
           if (res.data.student[0].image_link) {
             setImage(res.data.student[0].image_link);
           }
+          setStudyFieldId(res.data.student[0].study_fields_id);
+          setDegreeId(res.data.student[0].degrees_id);
         });
     } else if (user_type_id === "2") {
       axios
-        .post(`http://127.0.0.1:8000/api/student/getTeacherById`, {
+        .post(`http://127.0.0.1:8000/api/teacher/getTeacherById`, {
           user_id: user_id,
         })
         .then((res) => {
@@ -56,29 +57,34 @@ export default function PersonalProfile() {
             setImage(res.data.teacher[0].image_link);
           }
           setStudyFieldId(res.data.teacher[0].study_fields_id);
+
           setDegreeId(res.data.teacher[0].degrees_id);
         });
     }
   }, [user_type_id, user_id, studyfield_id, degree_id]);
   useEffect(() => {
-    //now calling get degree by id and get study field by id
-    axios
-      .post(`http://127.0.0.1:8000/api/admin/getDegreeById`, {
-        id: degree_id,
-      })
-      .then((res) => {
-        console.log(res.data.degree[0].name);
-        setDegree(res.data.degree[0].name);
-      });
-    //now calling get studyfield by id
-    axios
-      .post(`http://127.0.0.1:8000/api/admin/getStudyFieldById`, {
-        id: studyfield_id,
-      })
-      .then((res) => {
-        console.log(res.data.study_field[0].name);
-        setStudyField(res.data.study_field[0].name);
-      });
+    //if degree id and study field values are set then get their corresponding names
+
+    if (degree_id && studyfield_id) {
+      //now calling get degree by id and get study field by id
+      axios
+        .post(`http://127.0.0.1:8000/api/admin/getDegreeById`, {
+          id: degree_id,
+        })
+        .then((res) => {
+          console.log(res.data.degree[0].name);
+          setDegree(res.data.degree[0].name);
+        });
+      //now calling get studyfield by id
+      axios
+        .post(`http://127.0.0.1:8000/api/admin/getStudyFieldById`, {
+          id: studyfield_id,
+        })
+        .then((res) => {
+          console.log(res.data.study_field[0].name);
+          setStudyField(res.data.study_field[0].name);
+        });
+    }
   }, [studyfield_id, degree_id]);
   return (
     <div>
@@ -86,10 +92,21 @@ export default function PersonalProfile() {
       <div className="user-account">
         <div className="user-profile">
           {!image ? null : <img src={image} className="user-profile-img" />}
+
           <ul className="user-profile-links">
-            <li className="user-profile-link active">Profile</li>
-            <li className="user-profile-link">Messages</li>
-            <li className="user-profile-link">Logout</li>
+            <li className="user-profile-link active">
+              <a href="/PersonalProfile" className="active-link">
+                Profile
+              </a>
+            </li>
+            <li className="user-profile-link">
+              <a href="/chat-rooms2">Messages</a>
+            </li>
+            <li className="user-profile-link">
+              <a href="/home" onClick={handleAnchorClick}>
+                Logout
+              </a>
+            </li>
           </ul>
         </div>
 
