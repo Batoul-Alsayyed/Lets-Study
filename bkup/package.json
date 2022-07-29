@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Batoul-Alsayyed/Lets-Study#readme",
   "dependencies": {
+    "firebase": "^9.9.1",
     "react-icons": "^4.4.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.2.5"
   }
 }
