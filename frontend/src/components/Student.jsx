@@ -10,10 +10,10 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 export default function Student() {
   var access_token = localStorage.getItem("access_token");
-  const [user_id, setUserId] = useState(null);
   const [degrees, setDegrees] = useState(null);
   const [fields, setFields] = useState(null);
   const [clicked_button, setClickedButton] = useState(null);
+  const [account_type, setAccountType] = useState(false);
 
   const [student, setStudent] = useState({
     image_link: "",
@@ -30,20 +30,9 @@ export default function Student() {
   const [isOpen, setIsOpen] = useState(false);
 
   let navigate = useNavigate();
+  const user_id = localStorage.getItem("user_id");
+  const user_type_id = localStorage.getItem("user_type_id");
 
-  //Getting user id using the token
-  useEffect(() => {
-    axios
-      .get(`http://127.0.0.1:8000/api/user/user-profile`, {
-        headers: { Authorization: `Bearer ${access_token}` },
-      })
-      .then(
-        (res) => {
-          setUserId(res.data.id);
-        },
-        [access_token]
-      );
-  });
   useEffect(() => {
     //now checking if all of these values are set=> add a new student to the database with user_id = { id }
     if (
@@ -78,13 +67,6 @@ export default function Student() {
         });
     }
   }, [student, user_id]);
-  // useEffect(() => {
-  //   if (user_id != null && student != null) {
-  //     if (clicked_button === "/students" || clicked_button === "/teachers") {
-  //       navigate(clicked_button);
-  //     }
-  //   }
-  // }, [clicked_button]);
 
   const saveFile = (e) => {
     var s;
@@ -119,7 +101,6 @@ export default function Student() {
   };
   const studyWithTeachers = (e) => {
     console.log("user_id in study with teachers", user_id);
-
     axios
       .post(`http://127.0.0.1:8000/api/student/ifStudent`, {
         user_id: user_id,
@@ -127,7 +108,26 @@ export default function Student() {
       .then((res) => {
         console.log("user id study with teachers", res.data.response);
         if (res.data.response === true) {
-          navigate("/teachers");
+          //now we know that the current user is a student
+          //now we have to check account type; if 0 then its a free account and direct the user to payment page
+          // and if 1 then direct him/her to teachers page
+          axios
+            .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
+              user_id: user_id,
+            })
+            .then((res) => {
+              console.log(res.data.student[0].account_type);
+              console.log(typeof res.data.student[0].account_type);
+              let account_type = res.data.student[0].account_type;
+              if (account_type === "0") {
+                //free memeber
+                navigate("/payment");
+              } else {
+                //pro member
+                navigate("/teachers");
+              }
+            });
+          // navigate("/teachers");
           return;
         }
         //otherwise alert the user
@@ -145,7 +145,6 @@ export default function Student() {
   };
   const submitHandler = async (e) => {
     e.preventDefault();
-
     //submit all user info and add them as a new student to the database
     // first lets get the chosen degree id and study field id using getDegreeByName and getStudyfieldByName
     let temp = { ...student };
@@ -211,7 +210,7 @@ export default function Student() {
         console.log(err);
       });
   }
-  //--------------------------------------------------html----------------------------------------------------------------
+  //--------------------------------------------------jsx----------------------------------------------------------------
   return (
     <div>
       <LoginNavbar />
@@ -226,7 +225,7 @@ export default function Student() {
             value="Complete your profile"
             onClick={togglePopup}
           />
-          <p className="header-text">Start your studying journey!</p>
+          <p className="header-text">Start your study journey!</p>
           <p className="header-sub-text">
             Choose either to study with another student or with a professional
             tutor.
