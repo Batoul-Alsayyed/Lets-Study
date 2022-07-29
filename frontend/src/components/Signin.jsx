@@ -3,6 +3,7 @@ import img6 from "../images/Online Reading.png";
 import SignupButton from "./SignupButton";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -18,10 +19,13 @@ export default function Signup() {
   useEffect(() => {
     if (user_typeId != null) {
       if (user_typeId === "2") {
+        localStorage.setItem("user_type_id", user_typeId);
         navigate("/PersonalProfile");
       } else if (user_typeId === "0") {
-        navigate("/students/" + user_id);
+        localStorage.setItem("user_type_id", user_typeId);
+        navigate("/study");
       } else if (user_typeId === "1") {
+        localStorage.setItem("user_type_id", user_typeId);
         navigate("/admin");
       }
     }
@@ -37,13 +41,15 @@ export default function Signup() {
         localStorage.setItem("access_token", res.data.access_token);
         setUserTypeId(res.data.user.user_type_id);
         setUserId(res.data.user.id);
+        localStorage.setItem("user_id", res.data.user.id);
+        localStorage.setItem("user_type_id", res.data.user.user_type_id);
         setUser({
           email: details.email,
         });
       })
       .catch((err) => {
         console.log(err);
-        alert("Wrong email or password!");
+        toast.error("Wrong email or password");
       });
   };
   return (
