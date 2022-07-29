@@ -31,7 +31,16 @@ import AdminTeachers from "./components/AdminTeachers";
 import AdminUsers from "./components/AdminUsers";
 import AdminDegrees from "./components/AdminDegrees";
 import AdminStudyFields from "./components/AdminStudyFields";
+import ChatRooms from "./components/ChatRooms";
+import ChatRoom from "./components/ChatRoom";
+import AdminNavbar from "./components/AdminNavbar";
 import { Toaster } from "react-hot-toast";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import * as FiIcons from "react-icons/fi";
+import { useState, useRef } from "react";
+import ChatRooms2 from "./components/ChatRooms2";
+import ChatRoom2 from "./components/ChatRoom2";
 function App() {
   return (
     <div>
@@ -47,7 +56,7 @@ function App() {
           <Route path="/Signin" element={<Signup />}></Route>
           <Route path="/Signup" element={<Signin />}></Route>
           <Route path="/students" element={<Students />}></Route>
-          <Route path="/students/:id" element={<Student />}></Route>
+          <Route path="/study" element={<Student />}></Route>
           <Route path="/login-navbar" element={<LoginNavbar />}></Route>
           <Route path="/popup" element={<Popup />}></Route>
           <Route path="/map" element={<MapComponent />}></Route>
@@ -60,6 +69,11 @@ function App() {
           <Route path="/admin-teachers" element={<AdminTeachers />}></Route>
           <Route path="/admin-users" element={<AdminUsers />}></Route>
           <Route path="/admin-degrees" element={<AdminDegrees />}></Route>
+          <Route path="/chat-rooms" element={<ChatRooms />}></Route>
+          <Route path="/chat-room" element={<ChatRoom />}></Route>
+          <Route path="/chat-rooms2" element={<ChatRooms2 />}></Route>
+          <Route path="/chat-room2/:id" element={<ChatRoom2 />}></Route>
+          <Route path="/admin-navbar" element={<AdminNavbar />}></Route>
           <Route
             path="/admin-studyfields"
             element={<AdminStudyFields />}
