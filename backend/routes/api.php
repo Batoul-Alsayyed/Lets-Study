@@ -68,8 +68,12 @@ Route::group([
     Route::post('/getStudyFieldById', [AdminController::class, 'getStudyFieldById']);  
     Route::post('/getDegreeById', [AdminController::class, 'getDegreeById']);  
     Route::post('/ifStudent', [StudentController::class, 'ifStudent']);
-    Route::post('/getTeacherById', [TeacherController::class, 'getTeacherById']);
-
+    Route::get('/updateAccountType', [StudentController::class, 'updateAccountType']);
     
 });
-
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'teacher'
+], function ($router) {
+    Route::post('/getTeacherById', [TeacherController::class, 'getTeacherById']);
+});
