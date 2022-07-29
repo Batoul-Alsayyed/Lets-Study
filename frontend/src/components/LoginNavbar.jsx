@@ -6,12 +6,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginNavbar() {
+  let access_token = localStorage.getItem("access_token");
+  let user_id = localStorage.getItem("user_id");
   let navigate = useNavigate();
 
-  const [user_id, setUserID] = useState(null);
-  const [path, setPath] = useState(0);
-  const [name, setName] = useState(0);
-  const [image, setImage] = useState(0);
+  const [path, setPath] = useState(null);
+  const [name, setName] = useState(null);
+  const [image, setImage] = useState(null);
+  const [user_type_id, setUserTypeId] = useState(null);
   //imageClick
   const imageClick = () => {
     navigate("/PersonalProfile");
@@ -20,8 +22,7 @@ export default function LoginNavbar() {
   useEffect(() => {
     //since we have the access token in local storage
     //lets use it to retreive user info
-    // console.log(localStorage.getItem("access_token"));
-    let access_token = localStorage.getItem("access_token");
+    console.log("access token", access_token);
     axios
       .get(`http://127.0.0.1:8000/api/user/user-profile`, {
         headers: { Authorization: `Bearer ${access_token}` },
@@ -29,21 +30,30 @@ export default function LoginNavbar() {
       .then((res) => {
         setName(res.data.name);
         setPath("/students/" + res.data.id);
-        setUserID(res.data.id);
+        setUserTypeId(res.data.user_type_id);
         console.log("here", res.data.id);
-        //getting user profile image
-        axios
-          .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
-            user_id: res.data.id,
-          })
-          .then((res) => {
-            console.log("here", res.data.student);
-            if (res.data.student[0].image_link) {
+
+        if (res.data.user_type_id === "0") {
+          axios
+            .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
+              user_id: user_id,
+            })
+            .then((res) => {
               setImage(res.data.student[0].image_link);
-            }
-          });
+            });
+        } else if (user_type_id === "2") {
+          axios
+            .post(`http://127.0.0.1:8000/api/teacher/getTeacherById`, {
+              user_id: user_id,
+            })
+            .then((res) => {
+              console.log("hereeeeeeeeeeeeeeee", res.data.teacher);
+              console.log("", res.data.teacher[0].image_link);
+              setImage(res.data.teacher[0].image_link);
+            });
+        }
       });
-  });
+  }, []);
   return (
     <div className="navbar">
       <div className="navbar-container">
@@ -55,7 +65,9 @@ export default function LoginNavbar() {
         </div>
         <div className="right-side">
           <div className="right-side-components">
-            <a href={path}>Study Now</a>
+            <li>
+              <a href="/study">Study Now</a>
+            </li>
             <p>Welcome {name}</p>
             {!image ? null : (
               <img
