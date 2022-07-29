@@ -774,6 +774,10 @@ svg.star-icon {
   text-align: center;
   color: #186485;
 }
+.user-profile-link > a {
+  text-decoration: none;
+  color: #186485;
+}
 .admin-teacher-img > img {
   width: 130px;
 }
@@ -785,10 +789,18 @@ svg.star-icon {
   background-color: #186485;
   color: white;
 }
-.user-profile-links li:hover {
+/*.user-profile-links li:hover {
   background-color: #186485;
   color: white;
+} */
+.user-profile-links li a.active-link {
+  color: white;
 }
+.user-profile-links li a:hover {
+  color: white;
+  background: #186485;
+}
+
 .payment {
   margin-top: 12%;
 }
@@ -878,7 +890,12 @@ svg.star-icon {
   margin-bottom: 30%;
   margin-top: 7.1%;
 }
-
+.navbar li {
+  list-style: none;
+}
+.navbar li:hover {
+  border-bottom: 1px solid white;
+}
 span {
   margin-left: 20px;
 }
@@ -1046,11 +1063,12 @@ tr:nth-child(even) {
   object-fit: cover;
 }
 .navbar-img {
-  border-radius: 55px;
+  border-radius: 50%;
+  height: 60px;
 }
 @media (max-width: 1300px) {
   .navbar {
-    width: 95.5%;
+    width: 96.5%;
   }
   .header-right-side-components img {
     width: 290px;
@@ -1099,7 +1117,7 @@ tr:nth-child(even) {
 /*For ipad air*/
 @media (max-width: 900px) {
   .navbar {
-    width: 91%;
+    width: 94.5%;
   }
   .header-container {
     margin: 30px;
@@ -1175,6 +1193,12 @@ tr:nth-child(even) {
   .navbar {
     letter-spacing: 2px;
     font-size: small;
+  }
+  .right-side-components {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 80px;
+    gap: 30px;
   }
   .left-side-components img {
     width: 40px;
