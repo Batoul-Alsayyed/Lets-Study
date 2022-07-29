@@ -14,6 +14,9 @@ class TeacherController extends Controller
      *
      * @return void
      */
+        public function __construct() {
+        $this->middleware('auth:api', ['except' => ['getTeacherById']]);
+    }
        public function getTeacherById(Request $request){
         $teacher = Teacher::orderBy('created_at','desc')->get();
         $teacher = Teacher::where('user_id', $request->user_id)->get();
