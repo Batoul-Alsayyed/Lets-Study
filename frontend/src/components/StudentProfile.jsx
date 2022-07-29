@@ -1,18 +1,36 @@
 import React, { useState, useEffect } from "react";
 import RatePopup from "./RatePopup";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import LoginNavbar from "../components/LoginNavbar";
-import profile from "../images/Frame 4.png";
 import { RiStarFill } from "react-icons/ri";
 import { BsChatQuote } from "react-icons/bs";
 import axios from "axios";
+import "firebase/compat/firestore";
+import firebase from "firebase/compat/app";
+import toast from "react-hot-toast";
+firebase.initializeApp({
+  apiKey: "AIzaSyCFnJM6fGXJjchK1FV90BsHgXY-U8GG-RM",
+  authDomain: "letsstudy.firebaseapp.com",
+  projectId: "letsstudy",
+  storageBucket: "letsstudy.appspot.com",
+  messagingSenderId: "335899989868",
+  appId: "1:335899989868:web:0da6aff72825a9b31e4549",
+  measurementId: "G-5PQ22Q46RT",
+});
+const firestore = firebase.firestore();
 
 export default function StudentProfile() {
+  let navigate = useNavigate();
+  let user_id = localStorage.getItem("user_id");
   const [rating, setRating] = useState(false);
-
+  const [clicked, setClicked] = useState(false);
+  const [has_room, setHasRoom] = useState(false);
+  const [done, setDoneSearch] = useState(false);
+  let partner_id = useParams().id;
+  // console.log("partner id", partner_id);
   const ratingChanged = (newRating) => {
-    console.log("new rating", newRating);
+    //console.log("new rating", newRating);
     setRating(newRating);
   };
   const [isOpen, setIsOpen] = useState(false);
@@ -29,10 +47,64 @@ export default function StudentProfile() {
   });
 
   let { id } = useParams();
-  console.log({ id }.id);
+  // console.log({ id }.id);
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
+  function chatWith() {
+    setClicked(true);
+    // alert("clicked");
+    //now we have to check if there is a room between the current user and the targeted user\
+    const messagesRef = firestore
+      .collection("chats")
+      .where("participants", "array-contains", String(user_id)) //getting all user chats
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log("chat participant1=>", doc.data().participants[0]);
+          console.log("chat particpant 2=>", doc.data().participants[1]);
+          if (
+            // if the user has a chat with the clicked user then get chat id of this chat and call chatroom2 with chat id as a param
+            doc.data().participants[0] === partner_id ||
+            doc.data().participants[1] === partner_id
+          ) {
+            console.log("The user has a chat with ", partner_id);
+            console.log("Chat id=> ", doc.id);
+            setHasRoom(true);
+            let url = "/chat-room2/" + doc.id;
+            navigate(url);
+          }
+        });
+        setDoneSearch(true);
+      });
+  }
+  useEffect(() => {
+    console.log("done looping", done);
+    if (done) {
+      console.log("has room=>", has_room);
+      console.log("clicked=>", clicked);
+      if (clicked && !has_room) {
+        console.log("The user has no chats with the clicked user ");
+        //now we are sure the user has no chats with the clicked user =>
+        //so we have to create a new room then navigate to this chat room
+        const chats = firestore.collection("chats");
+        //add a new chat room where participants are the current user and the clicked user
+
+        chats
+          .add({
+            participants: [user_id, partner_id],
+          })
+          .then((doc) => {
+            console.log("doc id, ", doc.id);
+            let url = "/chat-room2/" + doc.id;
+            navigate(url);
+          });
+
+        // let url = "/chat-room2/" + doc.id;
+        // navigate(url);
+      }
+    }
+  }, [done]);
   const rateClicked = (e) => {
     e.preventDefault();
     togglePopup();
@@ -51,24 +123,26 @@ export default function StudentProfile() {
             user_id: { id }.id,
           })
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
+            toast.success("Rating added successfully");
           });
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        toast.error("Error occured please try again");
       });
     togglePopup();
   };
   function getName() {
-    console.log();
+    // console.log();
 
     axios
       .post(`http://127.0.0.1:8000/api/user/getUserById`, {
         id: { id }.id,
       })
       .then((res) => {
-        console.log(res.data.user);
+        //  console.log(res.data.user);
         setUser({
           ...user,
           name: res.data.user[0].name,
@@ -77,18 +151,18 @@ export default function StudentProfile() {
         });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }
   function getInfo() {
-    console.log();
+    // console.log();
 
     axios
       .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
         user_id: { id }.id,
       })
       .then((res) => {
-        console.log("student=>", res.data.student[0].image_link);
+        // console.log("student=>", res.data.student[0].image_link);
         setInfo({
           ...info,
           image_link: res.data.student[0].image_link,
@@ -96,20 +170,20 @@ export default function StudentProfile() {
         });
       })
       .catch((err) => {
-        console.log(err);
+        //   console.log(err);
       });
   }
   function getAge() {
     if (user.date_of_birth) {
-      console.log(user.date_of_birth);
+      //   console.log(user.date_of_birth);
       var currentDate = new Date();
-      console.log(currentDate);
+      // console.log(currentDate);
       var currentYear = currentDate.getFullYear();
-      console.log(currentYear);
+      // console.log(currentYear);
       const year_born = user.date_of_birth.split("-")[0];
-      console.log("year born ", year_born);
+      // console.log("year born ", year_born);
       var age = currentYear - year_born;
-      console.log("age: ", age);
+      // console.log("age: ", age);
       setUser({ ...user, age: age });
     }
   }
@@ -167,7 +241,7 @@ export default function StudentProfile() {
           </div>
           <div>
             Email: <span className="user-email">{user.email}</span>{" "}
-            <BsChatQuote />
+            <BsChatQuote onClick={chatWith} />
           </div>
         </div>
         <div className="student-profile-content">
