@@ -116,12 +116,12 @@ export default function AdminTeachers() {
           study_fields_id: study_field_id,
         })
         .then((res) => {
-          alert("Teacher added successfully");
+          toast.success("Teacher added successfully");
           console.log(res);
           togglePopup();
         })
         .catch((err) => {
-          alert("Error occured", err);
+          toast.error("Error occured", err);
           console.log(err);
           console.log(teacher);
           console.log(degree_id);
@@ -203,7 +203,6 @@ export default function AdminTeachers() {
       <div className="admin-table">
         <table>
           <tr>
-            <th>Name</th>
             <th>id</th>
             <th>user_id</th>
             <th>rate_number</th>
@@ -217,7 +216,6 @@ export default function AdminTeachers() {
             data.map((i, index) => {
               return (
                 <tr>
-                  <td>{name}</td>
                   <td>{i.id}</td>
                   <td>{i.user_id}</td>
                   <td>{i.rate_number}</td>
