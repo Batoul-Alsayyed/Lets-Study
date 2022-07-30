@@ -201,7 +201,7 @@
 .footer-icons {
   gap: 20px;
   display: flex;
-  margin-left: 110px;
+  justify-content: center;
 }
 .signup-layout {
   display: flex;
