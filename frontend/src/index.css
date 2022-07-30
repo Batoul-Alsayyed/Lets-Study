@@ -270,6 +270,7 @@
   display: flex;
   letter-spacing: 3px;
   font-family: "IM Fell Great Primer SC", serif;
+  gap: 40px;
 }
 .signin-left-display {
   background-color: #186485;
@@ -284,7 +285,7 @@
   width: 350px;
   height: 350px;
   padding-left: 50px;
-  padding-top: 130px;
+  padding-top: 200px;
   padding-right: 80px;
 }
 .signin-right-display {
@@ -490,8 +491,8 @@ svg.star-icon {
 .close-icon3 {
   cursor: pointer;
   position: fixed;
-  right: calc(15% - -170px);
-  top: calc(100vh - 85vh - 40px);
+  right: calc(15% - -190px);
+  top: calc(100vh - 85vh - 35px);
   background: white;
   width: 30px;
   height: 30px;
@@ -841,7 +842,7 @@ svg.star-icon {
   margin-left: 5%;
 }
 .payment-img {
-  width: 250px;
+  width: 290px;
 }
 .navbar-admin {
   height: 80px;
@@ -957,6 +958,7 @@ span {
 }
 .admin-table {
   margin: 65px;
+  margin-left: 280px;
 }
 .adminpanel-container .text {
   font-size: 30px;
@@ -973,13 +975,17 @@ td,
 th {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 5px;
+  color: rgb(88, 86, 86);
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
+.admin-row {
+  display: flex;
+  flex-direction: column;
+}
 .teacher-text {
   text-align: left;
   margin-left: 5%;
@@ -992,8 +998,9 @@ tr:nth-child(even) {
 }
 .admin-buttons {
   display: flex;
-  margin-top: 2%;
+  margin-top: -24px;
   gap: 10px;
+  margin-right: 65px;
   justify-content: end;
 }
 .admin-btn {
@@ -1023,6 +1030,8 @@ tr:nth-child(even) {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
   justify-content: center;
 }
 .teacher-form-item.btn {
@@ -1048,6 +1057,8 @@ tr:nth-child(even) {
 
 .teacher-div-label {
   margin-bottom: 150px;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
 }
 .teacher-div-input {
   border: none;
@@ -1098,6 +1109,16 @@ tr:nth-child(even) {
 .navbar-img {
   border-radius: 50%;
   height: 60px;
+}
+.teacher-text {
+  text-align: left;
+  margin-left: 21%;
+  margin-top: 9%;
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+  color: gray;
+  font-weight: 900;
 }
 @media (max-width: 1300px) {
   .header-left-side-components .start-p {
@@ -1196,6 +1217,9 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 1050px) {
+  .signin-layout {
+    gap: 5px;
+  }
   .header-left-side-components img {
     width: 350px;
   }
@@ -1243,6 +1267,15 @@ tr:nth-child(even) {
 }
 /*For ipad air*/
 @media (max-width: 900px) {
+  .signin-right-display {
+    margin-left: 68px;
+  }
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 1px;
+  }
   .signup-right-display {
     margin-left: 110px;
   }
@@ -1314,13 +1347,14 @@ tr:nth-child(even) {
   .students-section div {
     font-size: 15px;
   }
-  .teacher-text {
-    text-align: left;
-    margin-top: 5%;
-    font-size: 15px;
-  }
 }
 @media (max-width: 812px) {
+  .signin-right-display {
+    margin-left: 48px;
+  }
+  .payment-img {
+    width: 250px;
+  }
   .signup-right-display {
     margin-left: 80px;
   }
@@ -1432,6 +1466,13 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 780px) {
+  .signup-btn {
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 12px;
+    font-size: 12px;
+  }
   .header-left-side-components {
     margin-top: 30px;
     margin-left: 3px;
@@ -1482,6 +1523,13 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 700px) {
+  .signup-btn {
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 12px;
+    font-size: 12px;
+  }
   .signup-layout {
     flex-direction: column;
   }
@@ -1597,6 +1645,13 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 650px) {
+  .signup-btn {
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 12px;
+    font-size: 12px;
+  }
   .navbar-container {
     gap: 105px;
   }
@@ -1674,6 +1729,16 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 580px) {
+  .signin-img {
+    width: 350px;
+    height: 350px;
+    padding-left: 20px;
+    padding-top: 200px;
+    padding-right: 15px;
+  }
+  .payment-img {
+    width: 150px;
+  }
   .header-container {
     margin: 40px;
   }
@@ -1725,6 +1790,14 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 520px) {
+  .signin-right-display {
+    margin-left: 8px;
+  }
+  .signup-btn {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
   .p-style {
     font-size: 10px;
     width: 170px;
@@ -1774,6 +1847,10 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 500px) {
+  .signup-btn {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
   .signup-welcome {
     font-size: 22px;
     margin-right: 10px;
