@@ -77,8 +77,18 @@ export default function AdminStudyFields() {
   return (
     <div className="adminpanel-container">
       <AdminNavbar />
-      <div className="teacher-text">
-        <h1>Study Fields</h1>
+      <div className="admin-row">
+        <div className="teacher-text">
+          <h1>Study Fields</h1>
+        </div>
+        <div className="admin-buttons">
+          <button className="admin-btn" onClick={HandleAddDegree}>
+            Add
+          </button>
+          <button className="admin-btn" onClick={HandleDeleteDegree}>
+            Delete
+          </button>
+        </div>
       </div>
       <div className="admin-table">
         <table>
@@ -96,14 +106,6 @@ export default function AdminStudyFields() {
               );
             })}
         </table>
-        <div className="admin-buttons">
-          <button className="admin-btn" onClick={HandleAddDegree}>
-            Add
-          </button>
-          <button className="admin-btn" onClick={HandleDeleteDegree}>
-            Delete
-          </button>
-        </div>
       </div>
       {isOpen && (
         <StudentPopup

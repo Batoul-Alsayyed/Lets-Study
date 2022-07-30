@@ -197,9 +197,20 @@ export default function AdminTeachers() {
   return (
     <div className="adminpanel-container">
       <AdminNavbar />
-      <div className="teacher-text">
-        <h1>Teachers</h1>
+      <div className="admin-row">
+        <div className="teacher-text">
+          <h1>Teachers</h1>
+        </div>
+        <div className="admin-buttons">
+          <button className="admin-btn" onClick={HandleAddTeacher}>
+            Add
+          </button>
+          <button className="admin-btn" onClick={HandleDeleteTeacher}>
+            Delete
+          </button>
+        </div>
       </div>
+
       <div className="admin-table">
         <table>
           <tr>
@@ -230,14 +241,6 @@ export default function AdminTeachers() {
               );
             })}
         </table>
-        <div className="admin-buttons">
-          <button className="admin-btn" onClick={HandleAddTeacher}>
-            Add
-          </button>
-          <button className="admin-btn" onClick={HandleDeleteTeacher}>
-            Delete
-          </button>
-        </div>
       </div>
       {isOpen && (
         <StudentPopup
