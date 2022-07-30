@@ -96,7 +96,7 @@ export default function Student() {
         togglePopup();
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Error occured");
       });
   };
   const studyWithTeachers = (e) => {

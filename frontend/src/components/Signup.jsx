@@ -4,6 +4,7 @@ import img6 from "../images/Online Reading.png";
 import SignupButton from "./SignupButton";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function Signin() {
   let navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function Signin() {
     // if they are not equal
     //alert the user
     if (details.password !== details.confirmed_password) {
-      alert("The 2 passwords don't match password!");
+      toast.error("The 2 passwords don't match password!");
     }
     //if they are equal then run the API
     else {
