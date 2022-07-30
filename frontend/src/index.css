@@ -150,7 +150,7 @@
 .students-section {
   background-color: #f4f3f3;
   display: flex;
-  padding: 50px;
+  padding: 40px;
   justify-content: center;
 }
 .students-section div {
@@ -1181,7 +1181,7 @@ tr:nth-child(even) {
     width: 340px;
   }
   .header-right-side-components img {
-    width: 250px;
+    width: 320px;
   }
 
   .navbar-container {
@@ -1715,11 +1715,12 @@ tr:nth-child(even) {
 @media (max-width: 400px) {
   .p-style {
     font-size: 8px;
-    width: 170px;
+    width: 140px;
     margin: 0;
   }
   .header-left-side-components img {
     width: 120px;
+    margin-left: 10px;
   }
 
   .right-display {
@@ -1778,6 +1779,16 @@ tr:nth-child(even) {
   }
 }
 @media (max-width: 350px) {
+  .p-style {
+    font-size: 6px;
+    width: 110px;
+    margin: 0;
+  }
+
+  .header-left-side-components {
+    margin-top: 30px;
+    margin-left: 5px;
+  }
   .navbar-container {
     gap: 35px;
   }
@@ -1790,9 +1801,6 @@ tr:nth-child(even) {
   .left-side-components img {
     width: 25px;
   }
-  .right-side {
-    margin: 0;
-  }
   .header-container {
     margin: 38px;
   }
@@ -1804,6 +1812,7 @@ tr:nth-child(even) {
   }
   .header-left-side-components {
     margin-top: 25px;
+    margin-left: 0;
   }
   .header-left-side-components .header-p {
     font-size: 14px;
@@ -1811,6 +1820,12 @@ tr:nth-child(even) {
   .header-left-side-components .start-p {
     font-size: 9px;
     margin-top: 20px;
-    width: 250px;
+    width: 200px;
+  }
+  .header-left-side-components img {
+    margin-left: 0;
+  }
+  .white-btn {
+    margin-top: 2px;
   }
 }
