@@ -9,7 +9,7 @@ import logo from "../images/logo/logo.png";
 import { IconContext } from "react-icons";
 
 function AdminNavbar() {
-  const [sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
 
   useEffect(() => {
