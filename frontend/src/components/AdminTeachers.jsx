@@ -172,14 +172,16 @@ export default function AdminTeachers() {
     e.preventDefault();
     axios
       .post(`http://127.0.0.1:8000/api/admin/teacher`, {
-        id: teacher_id,
+        user_id: teacher_id,
       })
       .then((res) => {
         console.log(res);
+        toast.success("Teacher deleted successfully");
         togglePopup2();
       })
       .catch((err) => {
         togglePopup2();
+        toast.error("Error occured. Please try again");
         console.log(err);
       });
   };
