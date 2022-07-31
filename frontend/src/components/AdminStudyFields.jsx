@@ -3,12 +3,14 @@ import axios from "axios";
 import "../index.css";
 import StudentPopup from "./StudentPopup";
 import AdminNavbar from "./AdminNavbar";
+import toast from "react-hot-toast";
+
 export default function AdminStudyFields() {
   const [data, setData] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  const [degree_id, setDegreeID] = useState(null);
-  const [degree_name, setDegreeName] = useState(null);
+  const [study_field_id, setStudyFieldID] = useState(null);
+  const [study_field_name, setStudyFieldName] = useState(null);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -26,44 +28,40 @@ export default function AdminStudyFields() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(degree_name);
     axios
       .post(`http://127.0.0.1:8000/api/admin/add_studyfield`, {
-        name: degree_name,
+        name: study_field_name,
       })
       .then((res) => {
-        console.log(res);
+        toast.success(study_field_name + " added Successfully");
         togglePopup();
       })
       .catch((err) => {
+        toast.error("Error occured please try again");
         togglePopup();
         console.log(err);
       });
   };
   const submitHandler2 = (e) => {
     e.preventDefault();
-    console.log(degree_name);
     axios
       .post(`http://127.0.0.1:8000/api/admin/study_field`, {
-        id: degree_id,
+        id: study_field_id,
       })
       .then((res) => {
-        console.log(res);
+        toast.success("Study field deleted successfully");
         togglePopup2();
       })
       .catch((err) => {
+        toast.error("Error occured please try agaain");
         togglePopup2();
-        console.log(err);
       });
   };
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/api/admin/fields`)
       .then((res) => {
-        console.log("staus = > ", res.status);
         if (res.status + "" === "200") {
-          console.log("sucesssss");
-          console.log(res.data.study_fields[0].id);
           setData(res.data.study_fields);
         }
         throw res;
@@ -126,7 +124,7 @@ export default function AdminStudyFields() {
                     <input
                       type="text"
                       className="teacher-div-input"
-                      onChange={(e) => setDegreeName(e.target.value)}
+                      onChange={(e) => setStudyFieldName(e.target.value)}
                     />
                   </div>
                   <button
@@ -161,7 +159,7 @@ export default function AdminStudyFields() {
                     <input
                       type="text"
                       className="teacher-div-input"
-                      onChange={(e) => setDegreeID(e.target.value)}
+                      onChange={(e) => setStudyFieldID(e.target.value)}
                     />
                   </div>
                   <button
