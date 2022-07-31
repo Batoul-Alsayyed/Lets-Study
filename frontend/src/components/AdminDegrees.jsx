@@ -3,6 +3,7 @@ import axios from "axios";
 import "../index.css";
 import StudentPopup from "./StudentPopup";
 import AdminNavbar from "./AdminNavbar";
+import toast from "react-hot-toast";
 export default function AdminDegrees() {
   const [data, setData] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,7 @@ export default function AdminDegrees() {
       })
       .then((res) => {
         console.log(res);
+        toast.success(degree_name + " added successfully");
         togglePopup();
       })
       .catch((err) => {
@@ -42,6 +44,22 @@ export default function AdminDegrees() {
   };
   const submitHandler2 = (e) => {
     e.preventDefault();
+
+    console.log(degree_name);
+    axios
+      .post(`http://127.0.0.1:8000/api/admin/degree`, {
+        id: degree_id,
+      })
+      .then((res) => {
+        console.log(res);
+        toast.success("Degree deleted successfully");
+        togglePopup2();
+      })
+      .catch((err) => {
+        togglePopup2();
+        toast.success("Error occured please try again");
+        console.log(err);
+      });
   };
   useEffect(() => {
     axios
@@ -64,8 +82,18 @@ export default function AdminDegrees() {
   return (
     <div className="adminpanel-container">
       <AdminNavbar />
-      <div className="teacher-text">
-        <h1>Degrees</h1>
+      <div className="admin-row">
+        <div className="teacher-text">
+          <h1>Degrees</h1>
+        </div>
+        <div className="admin-buttons">
+          <button className="admin-btn" onClick={HandleAddDegree}>
+            Add
+          </button>
+          <button className="admin-btn" onClick={HandleDeleteDegree}>
+            Delete
+          </button>
+        </div>
       </div>
       <div className="admin-table">
         <table>
@@ -83,14 +111,6 @@ export default function AdminDegrees() {
               );
             })}
         </table>
-        <div className="admin-buttons">
-          <button className="admin-btn" onClick={HandleAddDegree}>
-            Add
-          </button>
-          <button className="admin-btn" onClick={HandleDeleteDegree}>
-            Delete
-          </button>
-        </div>
       </div>
       {isOpen && (
         <StudentPopup
