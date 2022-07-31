@@ -31,9 +31,8 @@ export default function LoginNavbar() {
         setName(res.data.name);
         setPath("/students/" + res.data.id);
         setUserTypeId(res.data.user_type_id);
-        console.log("here", res.data.id);
 
-        if (res.data.user_type_id === "0") {
+        if (res.data.user_type_id === 0) {
           axios
             .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
               user_id: user_id,
@@ -41,7 +40,7 @@ export default function LoginNavbar() {
             .then((res) => {
               setImage(res.data.student[0].image_link);
             });
-        } else if (user_type_id === "2") {
+        } else if (user_type_id === 2) {
           axios
             .post(`http://127.0.0.1:8000/api/teacher/getTeacherById`, {
               user_id: user_id,
