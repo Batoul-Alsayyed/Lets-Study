@@ -24,9 +24,8 @@ export default function Header() {
           <div className="header-left-side-components">
             <p className="header-p">First Online Study Platform</p>
             <p className="start-p">
-              Start your study journey with students
-              <br /> just like you or with a professional
-              <br /> tutor.
+              Start your study journey with students just like you or with a
+              professional tutor.
             </p>
             <div className="buttons-styling">
               <button className="button1" onClick={proOnClick}>
