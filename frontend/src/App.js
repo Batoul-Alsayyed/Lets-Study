@@ -41,6 +41,7 @@ import * as FiIcons from "react-icons/fi";
 import { useState, useRef } from "react";
 import ChatRooms2 from "./components/ChatRooms2";
 import ChatRoom2 from "./components/ChatRoom2";
+import Teachers from "./components/Teachers";
 function App() {
   return (
     <div>
@@ -56,6 +57,7 @@ function App() {
           <Route path="/Signin" element={<Signup />}></Route>
           <Route path="/Signup" element={<Signin />}></Route>
           <Route path="/students" element={<Students />}></Route>
+          <Route path="/teachers" element={<Teachers />}></Route>
           <Route path="/study" element={<Student />}></Route>
           <Route path="/login-navbar" element={<LoginNavbar />}></Route>
           <Route path="/popup" element={<Popup />}></Route>
