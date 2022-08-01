@@ -1,25 +1,27 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { firestore, firebase } from "../Firebase";
 import * as FiIcons from "react-icons/fi";
-
+import { FcUndo } from "react-icons/fc";
 export default function ChatRoom2() {
   const [formValue, setFormValue] = useState("");
   const [chats, setChats] = useState([]);
   var user_id = localStorage.getItem("user_id");
   let chat_id = useParams().id;
   const dummy = useRef();
+  let navigate = useNavigate();
   useEffect(() => {
     if (!chats.length) {
       getChats();
     }
-  }, []);
-  useEffect(() => {
-    if (chats.length) {
-      console.log("chats", chats, "length=", chats.length);
-    }
   }, [chats]);
+
+  const undoClickHandler = (e) => {
+    e.preventDefault();
+    navigate("/chat-rooms2");
+  };
+
   function getChats() {
     console.log("id", chat_id);
     firestore
@@ -30,10 +32,13 @@ export default function ChatRoom2() {
       .limit(25)
       .onSnapshot((snapshot) => {
         const messages = snapshot.docs;
-        // console.log("messages", messages);
+        console.log("messages", messages);
+        setChats([]);
         messages.map((message) => {
           // console.log(message.data());
-          console.log("message", message.data());
+          // console.log("message", message.data());
+          // const cr = message.createdAt.toDate().toString();
+
           setChats((chats) => [
             ...chats,
             {
@@ -56,6 +61,7 @@ export default function ChatRoom2() {
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       sender: user_id,
     });
+    // setChats([]);
     setFormValue("");
     dummy.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -73,7 +79,10 @@ export default function ChatRoom2() {
       <section className="AppChatRoom-section">
         <section className="AppChatRoom-section">
           <main className="AppChatRoom-main">
-            <p className="title-chat">Chat Room</p>
+            <span className="undo-icon" onClick={undoClickHandler}>
+              <FcUndo />
+            </span>
+            <p className="title-chat"> Chat Room</p>
             {chats &&
               chats.map((chat) => {
                 console.log("chat inside ", chat.text);
@@ -85,7 +94,11 @@ export default function ChatRoom2() {
                     </div>
                   );
                 }
-                return <p className="left-display">{chat.text}</p>;
+                return (
+                  <div className="display-left">
+                    <p className="left-display">{chat.text}</p>
+                  </div>
+                );
               })}
             <div ref={dummy}></div>
           </main>
