@@ -14,6 +14,7 @@ export default function LoginNavbar() {
   const [name, setName] = useState(null);
   const [image, setImage] = useState(null);
   const [user_type_id, setUserTypeId] = useState(null);
+  const [isStudent, setIsStudent] = useState(false);
   //imageClick
   const imageClick = () => {
     navigate("/PersonalProfile");
@@ -23,35 +24,38 @@ export default function LoginNavbar() {
     //since we have the access token in local storage
     //lets use it to retreive user info
     console.log("access token", access_token);
-    axios
-      .get(`http://127.0.0.1:8000/api/user/user-profile`, {
-        headers: { Authorization: `Bearer ${access_token}` },
-      })
-      .then((res) => {
-        setName(res.data.name);
-        setPath("/students/" + res.data.id);
-        setUserTypeId(res.data.user_type_id);
+    if (access_token != null) {
+      axios
+        .get(`http://127.0.0.1:8000/api/user/user-profile`, {
+          headers: { Authorization: `Bearer ${access_token}` },
+        })
+        .then((res) => {
+          console.log("res.data.name", res.data.name);
+          setName(res.data.name);
+          setPath("/students/" + res.data.id);
+          setUserTypeId(res.data.user_type_id);
 
-        if (res.data.user_type_id === 0) {
-          axios
-            .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
-              user_id: user_id,
-            })
-            .then((res) => {
-              setImage(res.data.student[0].image_link);
-            });
-        } else if (user_type_id === 2) {
-          axios
-            .post(`http://127.0.0.1:8000/api/teacher/getTeacherById`, {
-              user_id: user_id,
-            })
-            .then((res) => {
-              console.log("hereeeeeeeeeeeeeeee", res.data.teacher);
-              console.log("", res.data.teacher[0].image_link);
-              setImage(res.data.teacher[0].image_link);
-            });
-        }
-      });
+          if (res.data.user_type_id === 0) {
+            setIsStudent(true);
+            axios
+              .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
+                user_id: user_id,
+              })
+              .then((res) => {
+                setImage(res.data.student[0].image_link);
+              });
+          } else {
+            axios
+              .post(`http://127.0.0.1:8000/api/teacher/getTeacherById`, {
+                user_id: user_id,
+              })
+              .then((res) => {
+                console.log(res.data.teacher[0].image_link);
+                setImage(res.data.teacher[0].image_link);
+              });
+          }
+        });
+    }
   }, []);
   return (
     <div className="navbar">
@@ -64,9 +68,22 @@ export default function LoginNavbar() {
         </div>
         <div className="right-side">
           <div className="right-side-components">
-            <li>
-              <a href="/study">Study Now</a>
-            </li>
+            {isStudent && (
+              <li>
+                <a href="/study">Study Now</a>
+              </li>
+            )}
+            {!isStudent && (
+              <>
+                <li>
+                  <a href="/teachers">Teachers</a>
+                </li>
+                <li>
+                  <a href="/students">Students</a>
+                </li>
+              </>
+            )}
+            {/* <li></li> */}
             <p>Welcome {name}</p>
             {!image ? null : (
               <img
