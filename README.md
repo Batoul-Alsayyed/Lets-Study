@@ -78,9 +78,9 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 <img src="./readme/title5.svg"/>
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
-> | Landing | Home/Search |
+> | Landing | Login |
 > | -----------------| -----|
-> | ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Group%203.png) | ![Login](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Component%2032.png) |
 
 <br><br>
 <img src="./readme/title6.svg"/>
