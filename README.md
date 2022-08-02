@@ -54,9 +54,9 @@
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
 > Note that i didn't use any styling library or theme, all from scratch and using pure css modules
-> | Landing | Login |
+> | Landing | Students |
 > | -----------------| -----|
-> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Group%203.png) | ![Login](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Component%2032.png) |
+> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Group%2048.png) | ![Students](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Frame%202.png) |
 
 | Artists results                                                                                | Artist's Albums                                                                               |
 | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
