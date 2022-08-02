@@ -113,14 +113,32 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
-3. Run cd backend
-4. Run composer install
+3. Open a new terminal
+   ```sh
+   cd backend
+   ```
+4. Run
+   ```sh
+   composer install
+   ```
 5. Install [Xampp](https://www.apachefriends.org/)
 6. Open Xampp
 7. Run Apache and MySQL
 8. create a new database called "letsstudy"
-9. Run php artisan migrate
-10. Run php artisan serve
+9. Run
+   ```sh
+   php artisan migrate
+   ```
+10. Run
+
+```sh
+php artisan serve
+```
+
 11. Now open up a new terminal
 12. cd frontend
-13. Run npm start
+13. Run
+
+```sh
+ npm start
+```
