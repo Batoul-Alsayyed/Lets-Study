@@ -58,9 +58,9 @@
 > | -----------------| -----|
 > | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Group%203.png) | ![Students](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Frame%202.png) |
 
-| Artists results                                                                                | Artist's Albums                                                                               |
-| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| ![Artists results](https://github.com/julescript/spotifyndr/blob/master/demo/Artists_Page.jpg) | ![Artist's Albums](https://github.com/julescript/spotifyndr/blob/master/demo/Albums_Page.jpg) |
+| Study                                                                                             | Student Info                                                                                            |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| ![Artists results](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Group%2048.png) | ![Artist's Albums](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Desktop%20-%2010.png) |
 
 <br><br>
 
