@@ -135,8 +135,12 @@ _Below is an example of how you can instruct your audience on installing and set
 php artisan serve
 ```
 
-11. Now open up a new terminal
-12. cd frontend
+11. Now open up a new terminal and run
+
+```sh
+cd frontend
+```
+
 13. Run
 
 ```sh
