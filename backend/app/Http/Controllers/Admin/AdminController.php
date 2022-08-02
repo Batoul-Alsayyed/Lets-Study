@@ -10,6 +10,7 @@ use App\Models\Degree;
 use App\Http\Controllers\Controller;
 use Validator;
 
+
 class AdminController extends Controller{
     //Adding new teacher (a teacher is a user but with extra attributes)
     //Teachers will not be able to register their own accounts 
@@ -152,27 +153,25 @@ class AdminController extends Controller{
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string|min:6',
-            'user_type_id' => 'required|integer',
+            'user_type_id' => 'required',
             'date_of_birth'=> 'required',
-        ]);
-                
+        ]);                
         $validator = Validator::make($request->all(), [
             'image_link'=>'required|string',
             'rate_number'=>'required',
             'longitude'=>'required',
             'latitude'=>'required',
-            'degrees_id'=>'required|integer',
-            'study_fields_id'=>'required|integer',
-
-        ]);
+            'degrees_id'=>'required',
+            'study_fields_id'=>'required',
+         ]);
         if($user_validator->fails()){
             return response()->json($validator->errors()->toJson(), 400);
         }
+
         $user = User::create(array_merge(
                     $user_validator->validated(),
                     ['password' => bcrypt($request->password)]
-                )); 
-        echo $user["id"];
+                ));
         //At this point a new user is been added to the database 
         //so we have to use the id for the newly added user and fill it in user_id attribute in teacher's user_id 
                 
@@ -184,22 +183,22 @@ class AdminController extends Controller{
                     $validator->validated(),
                     ['user_id' => $user["id"]] 
                 ));
-
-
         return response()->json([
-            'message' => 'USer has been successfully added as a teacher and a user successfully added'
-            
+            'message' => 'USer has been successfully added as a teacher and a user successfully added',
         ], 201);
     }
     //deleting teacher by id 
 
     public function deleteTeacherById(Request $request){
-        $t = Teacher::orderBy('created_at','desc')->get();
-        $t = Teacher::where('id', $request->id)->delete();
+        $teacher = Teacher::orderBy('created_at','desc')->get();
+        $teacher = Teacher::where('user_id', $request->user_id)->delete();
         
+        //to make sure the teacher is deleted from users table as well
+        $user = User::orderBy('created_at','desc')->get();
+        $user = User::where('id', $request->user_id)->delete();
+
         return response()->json([
             "status" => "Teacher successfully deleted",
-            "teachers" => $t
         ], 200);
     }
 
