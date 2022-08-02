@@ -27,7 +27,9 @@ export default function USerNavbar() {
       <div className="navbar-container">
         <div className="left-side">
           <div className="left-side-components">
-            <img src={logo} alt="logo" />
+            <a href="/home">
+              <img src={logo} alt="logo" />
+            </a>
             <p>Lets Study</p>
           </div>
         </div>
