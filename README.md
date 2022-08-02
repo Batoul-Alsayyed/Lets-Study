@@ -56,7 +56,7 @@
 > Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 > | Landing | Students |
 > | -----------------| -----|
-> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Group%2048.png) | ![Students](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Frame%202.png) |
+> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Group%203.png) | ![Students](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Frame%202.png) |
 
 | Artists results                                                                                | Artist's Albums                                                                               |
 | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
