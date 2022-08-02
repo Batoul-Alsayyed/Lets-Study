@@ -83,7 +83,11 @@ export default function PaymentForm() {
           }
         />
 
-        <SignupButton type="submit" content={"confirm"}></SignupButton>
+        <SignupButton
+          type="submit"
+          content={"confirm"}
+          className="payment"
+        ></SignupButton>
       </form>
     </div>
   );
