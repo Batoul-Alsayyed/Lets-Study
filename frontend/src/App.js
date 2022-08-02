@@ -31,7 +31,6 @@ import AdminTeachers from "./components/AdminTeachers";
 import AdminUsers from "./components/AdminUsers";
 import AdminDegrees from "./components/AdminDegrees";
 import AdminStudyFields from "./components/AdminStudyFields";
-import ChatRooms from "./components/ChatRooms";
 import ChatRoom from "./components/ChatRoom";
 import AdminNavbar from "./components/AdminNavbar";
 import { Toaster } from "react-hot-toast";
@@ -46,9 +45,6 @@ import React from "react";
 import messaging from "./FirebaseMessaging";
 import Notification from "./components/Notification";
 function App() {
-  // Get registration token. Initially this makes a network call, once retrieved
-  // subsequent calls to getToken will return from cache.
-
   return (
     <div>
       <BrowserRouter>
@@ -77,7 +73,6 @@ function App() {
           <Route path="/admin-teachers" element={<AdminTeachers />}></Route>
           <Route path="/admin-users" element={<AdminUsers />}></Route>
           <Route path="/admin-degrees" element={<AdminDegrees />}></Route>
-          <Route path="/chat-rooms" element={<ChatRooms />}></Route>
           <Route path="/chat-room" element={<ChatRoom />}></Route>
           <Route path="/chat-rooms2" element={<ChatRooms2 />}></Route>
           <Route path="/chat-room2/:id" element={<ChatRoom2 />}></Route>
