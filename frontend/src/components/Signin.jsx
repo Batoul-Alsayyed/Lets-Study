@@ -18,18 +18,19 @@ export default function Signup() {
   };
   useEffect(() => {
     if (user_typeId != null) {
-      if (user_typeId === "2") {
+      if (user_typeId === 2) {
         localStorage.setItem("user_type_id", user_typeId);
         navigate("/PersonalProfile");
-      } else if (user_typeId === "0") {
+      } else if (user_typeId === 0) {
+        console.log("okay");
         localStorage.setItem("user_type_id", user_typeId);
         navigate("/study");
-      } else if (user_typeId === "1") {
+      } else if (user_typeId === 1) {
         localStorage.setItem("user_type_id", user_typeId);
         navigate("/admin");
       }
     }
-  }, [user_typeId, user_id]);
+  }, [user_typeId]);
   const Login = (details) => {
     axios
       .post(`http://127.0.0.1:8000/api/user/login`, {
@@ -63,26 +64,30 @@ export default function Signup() {
           </a>
         </p>
       </div>
-      <form className="signup-right-display" onSubmit={submitHandler}>
-        <p className="signup-welcome">Welcome to Lets Study</p>
-        <label className="signup-label">Email</label>
-        <input
-          className="signup-input"
-          type="text"
-          id="email"
-          onChange={(e) => setDetails({ ...details, email: e.target.value })}
-          value={details.email}
-        />
-        <label className="signup-label">Password</label>
-        <input
-          className="signup-input"
-          type="password"
-          id="password"
-          onChange={(e) => setDetails({ ...details, password: e.target.value })}
-          value={details.password}
-        />
-        <SignupButton type="submit" content={"Sign in"}></SignupButton>
-      </form>
+      <div>
+        <form className="signup-right-display" onSubmit={submitHandler}>
+          <p className="signup-welcome">Welcome to Lets Study</p>
+          <label className="signup-label">Email</label>
+          <input
+            className="signup-input"
+            type="text"
+            id="email"
+            onChange={(e) => setDetails({ ...details, email: e.target.value })}
+            value={details.email}
+          />
+          <label className="signup-label">Password</label>
+          <input
+            className="signup-input"
+            type="password"
+            id="password"
+            onChange={(e) =>
+              setDetails({ ...details, password: e.target.value })
+            }
+            value={details.password}
+          />
+          <SignupButton type="submit" content={"Sign in"}></SignupButton>
+        </form>
+      </div>
     </div>
   );
 }
