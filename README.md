@@ -68,19 +68,23 @@
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
-- This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-  - 🚨 Currently, notifications aren't working on macOS. This is a known issue that we are working to resolve!
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
+- This project uses the [React javascript library](https://reactjs.org/). React is a free source frontend javascript library that is used for building user interfaces based on UI components.
+- For persistent storage (database), the app uses [Laravel](https://laravel.com/) which allows the app to create a custom storage schema and save it to a local database.
+- To send local push notifications, the app uses the [firebase](https://firebase.google.com/?gclid=CjwKCAjwlqOXBhBqEiwA-hhitCphhzPAVql_jB65HPZoS20AsUhTfaUUWT__--BRk05iAhNKsTEzShoC_sgQAvD_BwE&gclsrc=aw.ds) which is a platform developed by Google for creating mobile and web applications.
+- To chat with students or tutors, the app uses firebase platform as well.
+- The app uses [zoom](https://zoom.us/) API for hosting sessions between students and tutors themselves.
 
 <br><br>
 <img src="./readme/title5.svg"/>
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
-> | Landing | Home/Search |
+> | Landing | Students |
 > | -----------------| -----|
-> | ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/landing-page.PNG) | ![Students](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/students.PNG) |
+
+> | Study                                                                              | Student Info                                                                                        |
+> | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+> | ![Study](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Student Info](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/student-profile.PNG) |
 
 <br><br>
 <img src="./readme/title6.svg"/>
