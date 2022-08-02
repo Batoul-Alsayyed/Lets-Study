@@ -126,9 +126,11 @@ _Below is an example of how you can instruct your audience on installing and set
 7. Run Apache and MySQL
 8. create a new database called "letsstudy"
 9. Run
-   ```sh
+
+```sh
    php artisan migrate
-   ```
+```
+
 10. Run
 
 ```sh
