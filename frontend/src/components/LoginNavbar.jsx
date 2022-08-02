@@ -19,6 +19,9 @@ export default function LoginNavbar() {
   const imageClick = () => {
     navigate("/PersonalProfile");
   };
+  const logoClickHandler = () => {
+    navigate("/home");
+  };
 
   useEffect(() => {
     //since we have the access token in local storage
@@ -59,14 +62,16 @@ export default function LoginNavbar() {
   }, []);
   return (
     <div className="navbar">
-      <div className="navbar-container">
-        <div className="left-side">
+      <div className="navbar-container2">
+        <div className="left-side2">
           <div className="left-side-components">
-            <img src={logo} alt="logo" />
+            <a href="">
+              <img src={logo} alt="logo" onClick={logoClickHandler} />
+            </a>
             <p>Lets Study</p>
           </div>
         </div>
-        <div className="right-side">
+        <div className="right-side2">
           <div className="right-side-components">
             {isStudent && (
               <li>
@@ -86,12 +91,14 @@ export default function LoginNavbar() {
             {/* <li></li> */}
             <p>Welcome {name}</p>
             {!image ? null : (
-              <img
-                src={image}
-                alt=""
-                className="navbar-img"
-                onClick={imageClick}
-              />
+              <a href="">
+                <img
+                  src={image}
+                  alt=""
+                  className="navbar-img"
+                  onClick={imageClick}
+                />
+              </a>
             )}
           </div>
         </div>
