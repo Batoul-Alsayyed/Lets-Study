@@ -241,7 +241,9 @@ export default function StudentProfile() {
           </div>
           <div>
             Email: <span className="user-email">{user.email}</span>{" "}
-            <BsChatQuote onClick={chatWith} />
+            <span className="chat-icon">
+              <BsChatQuote onClick={chatWith} />
+            </span>
           </div>
         </div>
         <div className="student-profile-content">
