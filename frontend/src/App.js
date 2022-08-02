@@ -42,7 +42,13 @@ import { useState, useRef } from "react";
 import ChatRooms2 from "./components/ChatRooms2";
 import ChatRoom2 from "./components/ChatRoom2";
 import Teachers from "./components/Teachers";
+import React from "react";
+import messaging from "./FirebaseMessaging";
+import Notification from "./components/Notification";
 function App() {
+  // Get registration token. Initially this makes a network call, once retrieved
+  // subsequent calls to getToken will return from cache.
+
   return (
     <div>
       <BrowserRouter>
@@ -76,6 +82,7 @@ function App() {
           <Route path="/chat-rooms2" element={<ChatRooms2 />}></Route>
           <Route path="/chat-room2/:id" element={<ChatRoom2 />}></Route>
           <Route path="/admin-navbar" element={<AdminNavbar />}></Route>
+          <Route path="/notification" element={<Notification />}></Route>
           <Route
             path="/admin-studyfields"
             element={<AdminStudyFields />}
@@ -85,5 +92,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
