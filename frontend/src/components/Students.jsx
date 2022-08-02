@@ -22,7 +22,7 @@ export default function Students() {
   return (
     <div className="students-page">
       <LoginNavbar />
-      <p className="students-text">Choose a student to study with: </p>
+      <p className="students-text">Choose a student: </p>
       {students && <SimpleSlider studentsarray={students} />}
     </div>
   );
