@@ -11,7 +11,7 @@ export default function BookNow() {
         </div>
       </div>
       <div className="right-side">
-        <div className="right-display">
+        <div className="right-display4">
           <p className="p-style">
             Book a session with either a student or with a professional tutor
           </p>
