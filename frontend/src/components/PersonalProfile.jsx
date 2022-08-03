@@ -87,11 +87,19 @@ export default function PersonalProfile() {
     }
   }, [studyfield_id, degree_id]);
   return (
-    <div>
+    <div className="profile">
       <p className="students-text">Account Settings</p>
+
       <div className="user-account">
         <div className="user-profile">
-          {!image ? null : <img src={image} className="user-profile-img" />}
+          {!image ? null : (
+            <>
+              <img src={image} className="user-profile-img" />{" "}
+              {/* <span className="camera-icon">
+                <FiIcons.FiCamera size={30} />
+              </span> */}
+            </>
+          )}
 
           <ul className="user-profile-links">
             <li className="user-profile-link active">
@@ -109,41 +117,56 @@ export default function PersonalProfile() {
             </li>
           </ul>
         </div>
-
-        <div className="user-settings">
-          <div className="user-info">
-            <div>
+        <form action="">
+          <div className="user-settings">
+            <div className="user-info">
+              {/* <div> */}
               <label className="user-label">Name:</label>
+              {/* </div> */}
+              <input
+                type="text"
+                className="user-input"
+                name={name}
+                placeholder={name}
+              />
             </div>
-            <input type="text" className="user-input" value={name} />
-          </div>
-          <div className="user-info">
-            <div>
+            <div className="user-info">
+              <label className="user-label">Profile Picture:</label>
+              <input
+                type="file"
+                className="user-input user-file-input"
+                accept=".jpg, .jpeg, .png"
+              />
+            </div>
+            <div className="user-info">
+              {/* <div> */}
               <label className="user-label">Email Address:</label>
+              {/* </div> */}
+              <input type="text" className="user-input" value={email} />
             </div>
-            <input type="text" className="user-input" value={email} />
-          </div>
-          <div className="user-info">
-            <div>
+            <div className="user-info">
+              {/* <div> */}
               <label className="user-label">Date of Birth</label>
+              {/* </div> */}
+              <input type="text" className="user-input" value={date_of_birth} />
             </div>
-            <input type="text" className="user-input" value={date_of_birth} />
-          </div>
-          <div className="user-info">
-            <div>
+            <div className="user-info">
+              {/* <div> */}
               <label className="user-label">Study Field</label>
+              {/* </div> */}
+              <input type="text" className="user-input" value={studyfield} />
             </div>
-            <input type="text" className="user-input" value={studyfield} />
-          </div>
-          <div className="user-info">
-            <div>
+            <div className="user-info">
+              {/* <div> */}
               <label className="user-label">Degree</label>
+              {/* </div> */}
+              {!degree ? null : (
+                <input type="text" className="user-input" value={degree} />
+              )}
             </div>
-            {!degree ? null : (
-              <input type="text" className="user-input" value={degree} />
-            )}
+            <button className="edit-profile-btn">Save Changes</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
