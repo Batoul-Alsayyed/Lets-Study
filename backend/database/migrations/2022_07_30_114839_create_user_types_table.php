@@ -18,6 +18,7 @@ class CreateUserTypesTable extends Migration
             $table->string('type');
             $table->timestamps();
         });
+        
     }
 
     /**

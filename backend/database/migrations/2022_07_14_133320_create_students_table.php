@@ -16,30 +16,18 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')
-                  ->references('id')->on('users')
-                  ->onDelete('cascade');  
-
+            $table->foreignId('user_id');
+            
             $table->string('account_type');
             $table->string('image_link');
             $table->decimal('rate_number');
             $table->decimal('longitude');
             $table->decimal('latitude');
-            $table->integer('degrees_id')->unsigned();
+            $table->foreignId('degrees_id');
 
-            $table->foreign('degrees_id')
-                  ->references('id')->on('degrees')
-                  ->onDelete('cascade');
-            
+           
 
-            $table->integer('study_fields_id')->unsigned();
-
-             $table->foreign('study_fields_id')
-                  ->references('id')->on('study_fields')
-                  ->onDelete('cascade');
-            
-
+            $table->foreignId('study_fields_id');
             
             $table->timestamps();
         });
