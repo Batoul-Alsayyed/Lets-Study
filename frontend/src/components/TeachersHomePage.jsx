@@ -1,6 +1,5 @@
 import React from "react";
 import LoginNavbar from "./LoginNavbar";
-import Teachers from "../images/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg";
 import Footer from "./Footer";
 import "../index.css";
 export default function TeachersHomePage() {
