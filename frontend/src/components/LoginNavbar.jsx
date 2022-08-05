@@ -26,14 +26,12 @@ export default function LoginNavbar() {
   useEffect(() => {
     //since we have the access token in local storage
     //lets use it to retreive user info
-    console.log("access token", access_token);
     if (access_token != null) {
       axios
         .get(`http://127.0.0.1:8000/api/user/user-profile`, {
           headers: { Authorization: `Bearer ${access_token}` },
         })
         .then((res) => {
-          console.log("res.data.name", res.data.name);
           setName(res.data.name);
           setPath("/students/" + res.data.id);
           setUserTypeId(res.data.user_type_id);
@@ -53,7 +51,6 @@ export default function LoginNavbar() {
                 user_id: user_id,
               })
               .then((res) => {
-                console.log(res.data.teacher[0].image_link);
                 setImage(res.data.teacher[0].image_link);
               });
           }
