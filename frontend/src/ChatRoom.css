@@ -173,6 +173,7 @@
 }
 .chat-id-div:hover {
   background-color: #82828b;
+  cursor: pointer;
 }
 .contact-name {
   margin-left: 125px;
@@ -274,6 +275,7 @@
   margin-right: 80p;
   font-size: 30px;
   margin-top: -15px;
+  cursor: pointer;
 }
 @media (max-width: 1050px) {
   .title-chat {
