@@ -4,20 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import Card from "./Card";
 import axios from "axios";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "../index.css";
 
 export default function SimpleSlider({ studentsarray }) {
-  // useEffect(() => {
-  //   console.log(window.innerWidth);
-  // }, [window.innerWidth]);
-  useEffect(() => {
-    if (studentsarray) {
-      console.log("students inside simple slider", { studentsarray });
-    }
-  }, []);
+  let user_id = localStorage.getItem("user_id");
 
   return (
     <>
@@ -40,6 +32,7 @@ export default function SimpleSlider({ studentsarray }) {
                 <SwiperSlide key={index}>
                   <div className="cards">
                     <Card
+                      key={index}
                       student={studentsarray[index]}
                       student_rate_number={studentsarray[index].rate_number}
                       student_latitude={studentsarray[index].latitude}
