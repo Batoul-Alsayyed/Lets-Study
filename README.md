@@ -73,7 +73,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 <img src="./readme/title5.svg" id="title5"/>
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
-> | Landing | Teacher Home page |
+> | Landing | Teachers Home page |
 > | -----------------| -----|
 > | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/landing-page.PNG) | ![Teachers Homepage](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers-home-page.PNG) |
 
