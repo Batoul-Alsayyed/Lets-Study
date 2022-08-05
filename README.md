@@ -19,8 +19,7 @@
 
 - As a regular student, I can view all students from all around the world to study with.
 - I can rate other students.
-- I can chat with other students where I get notified each time I receive a message.
-- I can join live zoom meetings with other students.
+- I can chat with other students where I get notified each time I receive a message by email.
 - I can view messages sent from other students and send messages to them as well.
 - I get notified each time another student sends me a message.
 
@@ -29,7 +28,6 @@
 - I can view all tutors and students that are out there.
 - I can rate tutors and other students.
 - I can chat with other tutors and students where I get notified each time I receive a message.
-- I can join live zoom meetings with other students/tutors.
 - I can view messages sent from other students/tutors and send messages to them as well.
 - I get notified each time another student/tutor sends me a message.
 
