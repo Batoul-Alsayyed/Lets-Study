@@ -20,7 +20,7 @@ export default function Card({
     date_of_birth: "",
   });
   const OnClickHandler = () => {
-    navigate("/student/" + student_user_id);
+    navigate("/user/" + student_user_id);
   };
   function getName() {
     axios
