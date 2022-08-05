@@ -93,9 +93,25 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 > | ![Edit profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.PNG) | ![Rate users](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rate-users.PNG) |
 
+> | Chat rooms                                                                                   | Chat room                                                                                  |
+> | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+> | ![Chat rooms](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/chat-rooms.PNG) | ![Chat room](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/chat-room.PNG) |
+
 > | Study page                                                                              | Payment form                                                                                     |
 > | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 > | ![Study page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Payment form](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/payment-form.PNG) |
+
+> | Study page                                                                              | Payment form                                                                                     |
+> | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+> | ![Study page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Payment form](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/payment-form.PNG) |
+
+> | Admin teachers page                                                                                        | Admin students page                                                                                             |
+> | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+> | ![Admin Teachers](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-teachers.PNG) | ![Admin students page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-students.PNG) |
+
+> | Admin degrees page                                                                                            | Admin study fields page                                                                                                |
+> | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+> | ![Admin degrees page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-degrees.PNG) | ![Admin study fields page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-studyfields.PNG) |
 
 <br><br>
 <img src="./readme/title6.svg" id="title6"/>
