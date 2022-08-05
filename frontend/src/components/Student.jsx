@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Popup from "./Popup";
-import LoginNavbar from "./UserNavbar";
+import LoginNavbar from "./LoginNavbar";
 import "../index.css";
 import axios from "axios";
 import MapComponent from "./MapComponent";
