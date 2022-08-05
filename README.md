@@ -101,10 +101,6 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 > | ![Study page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Payment form](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/payment-form.PNG) |
 
-> | Study page                                                                              | Payment form                                                                                     |
-> | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-> | ![Study page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Payment form](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/payment-form.PNG) |
-
 > | Admin teachers page                                                                                        | Admin students page                                                                                             |
 > | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 > | ![Admin Teachers](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-teachers.PNG) | ![Admin students page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-students.PNG) |
