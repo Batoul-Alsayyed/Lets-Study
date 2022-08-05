@@ -55,7 +55,7 @@
 .navbar-container2 {
   display: flex;
   justify-content: center;
-  gap: 390px;
+  gap: 280px;
 }
 .left-side {
   justify-content: left;
@@ -87,7 +87,9 @@
   color: white;
   text-decoration: none;
 }
-
+.right-side-components a:hover {
+  border-bottom: 1px solid white;
+}
 .components {
   display: flex;
 }
@@ -394,9 +396,6 @@
   }
   to {
     color: white;
-  }
-  50% {
-    box-shadow: 10px 20px 30px #186485;
   }
 }
 .cards {
@@ -778,6 +777,11 @@ svg.star-icon {
 }
 .chat-icon {
   cursor: pointer;
+}
+.chat-img {
+  width: 50px;
+  height: 100px;
+  border-radius: 100%;
 }
 .rate-stars .star {
   position: relative;
@@ -1232,6 +1236,68 @@ button {
   background-image: linear-gradient(to left, #186485, white);
   height: 100vh;
 }
+.teachers-header {
+  display: flex;
+  justify-content: space-between;
+}
+.teachers-header {
+  min-height: 70vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./images/trnava-university-sd8uJsf4XM4-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.teachers-page {
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+}
+.t-h {
+  margin-top: 70px;
+  justify-content: center;
+}
+
+.t-h-button {
+  justify-content: center;
+  padding: 20px;
+  width: 250px;
+  margin-left: 350px;
+  letter-spacing: 3px;
+  font-family: "IM Fell Great Primer SC", serif;
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  font-size: large;
+}
+.t-h-button:hover {
+  background-color: #1a83ff;
+}
+.teachers-header-p {
+  margin-top: 50px;
+  font-size: 60px;
+  margin-left: 150px;
+  color: white;
+  font-weight: 900;
+}
+.teachers-header-p1 {
+  font-size: 20px;
+  margin: 50px;
+  color: rgb(224, 216, 216);
+  font-weight: 100;
+}
+.teachers-header-left-side {
+}
+.teachers-img {
+  margin-top: 50px;
+  margin-right: 150px;
+  width: 450px;
+}
+.display-form {
+  display: none;
+}
 @media (max-width: 1300px) {
   .header-left-side-components .start-p {
     font-size: 20px;
@@ -1251,6 +1317,7 @@ button {
   .header-right-side-components img {
     width: 455px;
   }
+
   .header-left-side-components {
     margin-right: -50px;
   }
