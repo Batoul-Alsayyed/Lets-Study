@@ -85,9 +85,13 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 > | ![Login](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/login-page.PNG) | ![Register](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Register-page.PNG) |
 
-> | Student profile      | Tutor profile      |
-> | -------------------- | ------------------ |
-> | ![Student profile]() | ![Tutor profile]() |
+> | Student profile                                                                                        | Tutor profile                                                                                        |
+> | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+> | ![Student profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/student-profile.PNG) | ![Tutor profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teacher-profile.PNG) |
+
+> | Edit profile                                                                                     | Rate Users                                                                                   |
+> | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+> | ![Edit profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.PNG) | ![Rate users](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rate-users.PNG) |
 
 <br><br>
 <img src="./readme/title6.svg" id="title6"/>
