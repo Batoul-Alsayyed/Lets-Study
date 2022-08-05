@@ -42,8 +42,7 @@ import ChatRooms2 from "./components/ChatRooms2";
 import ChatRoom2 from "./components/ChatRoom2";
 import Teachers from "./components/Teachers";
 import React from "react";
-import messaging from "./FirebaseMessaging";
-import Notification from "./components/Notification";
+import TeachersHomePage from "./components/TeachersHomePage";
 function App() {
   return (
     <div>
@@ -77,7 +76,7 @@ function App() {
           <Route path="/chat-rooms2" element={<ChatRooms2 />}></Route>
           <Route path="/chat-room2/:id" element={<ChatRoom2 />}></Route>
           <Route path="/admin-navbar" element={<AdminNavbar />}></Route>
-          <Route path="/notification" element={<Notification />}></Route>
+          <Route path="/thome" element={<TeachersHomePage />}></Route>
           <Route
             path="/admin-studyfields"
             element={<AdminStudyFields />}
