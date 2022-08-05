@@ -30,8 +30,7 @@ Route::group([
     Route::post('/add_rating', [RatingController::class, 'addRating']); 
     Route::post('/updateRateNumberByUserId', [RatingController::class, 'updateRateNumberByUserId']); 
     Route::post('/getUserType', [UserController::class, 'getUserType']); 
-    
-
+    Route::put('/UpdateUserProfile', [UserController::class, 'UpdateUserProfile']); 
 });
 Route::group([
     'middleware' => 'api',

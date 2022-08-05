@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\UserType;
+use App\Models\Student;
+use App\Models\Teacher;
 use App\Http\Controllers\Controller;
 use Validator;
 
@@ -16,7 +18,7 @@ class UserController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register','addUserType','getUserById','getUserType']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register','addUserType','getUserById','getUserType','UpdateUserProfile']]);
     }
     /**
      * Get a JWT via given credentials.
@@ -129,5 +131,23 @@ class UserController extends Controller
                 "user" => $user_type
             ], 200);
 
+    }
+    public function UpdateUserProfile(Request $request){        
+        User::where("id", $request->user_id)->update(["name" => $request->name]);
+        if ($request->user_type == 0){
+            Student::where("user_id", $request->user_id)->update(["degrees_id" => $request->degree_id]);
+            Student::where("user_id", $request->user_id)->update(["study_fields_id" => $request->study_field_id]);
+            $student = Student::where("user_id", $request->user_id)->update(["image_link" => $request->image_link]);   
+        }
+        else if ($request->user_type == 2){
+            //student
+            Teacher::where("user_id", $request->user_id)->update(["degrees_id" => $request->degree_id]);
+            Teacher::where("user_id", $request->user_id)->update(["study_fields_id" => $request->study_field_id]);
+            Teacher::where("user_id", $request->user_id)->update(["image_link" => $request->image_link]);   
+        }
+      
+            return response()->json([
+                "status" => "User info are updated successfully",
+            ], 200);
     }
 }
