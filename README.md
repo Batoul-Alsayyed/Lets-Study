@@ -66,9 +66,8 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 - This project uses the [React javascript library](https://reactjs.org/). React is a free source frontend javascript library that is used for building user interfaces based on UI components.
 - For persistent storage (database), the app uses [Laravel](https://laravel.com/) which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [firebase](https://firebase.google.com/?gclid=CjwKCAjwlqOXBhBqEiwA-hhitCphhzPAVql_jB65HPZoS20AsUhTfaUUWT__--BRk05iAhNKsTEzShoC_sgQAvD_BwE&gclsrc=aw.ds) which is a platform developed by Google for creating mobile and web applications.
-- To chat with students or tutors, the app uses firebase platform as well.
-- The app uses [zoom](https://zoom.us/) API for hosting sessions between students and tutors themselves.
+- To chat with students/tutors, the website uses the [firebase](https://firebase.google.com/?gclid=CjwKCAjwlqOXBhBqEiwA-hhitCphhzPAVql_jB65HPZoS20AsUhTfaUUWT__--BRk05iAhNKsTEzShoC_sgQAvD_BwE&gclsrc=aw.ds) which is a platform developed by Google for creating mobile and web applications.
+- For notifications, the website sends notifications using Emailjs every time a user receives a message.
 
 <br><br>
 <img src="./readme/title5.svg" id="title5"/>
