@@ -405,6 +405,7 @@
   flex-wrap: wrap;
   margin-left: 70px;
   margin-right: 70px;
+  cursor: pointer;
 }
 .card {
   align-items: center;
@@ -606,6 +607,7 @@ svg.star-icon {
   width: 160px;
   margin: 10px;
   padding-bottom: 15px;
+  margin-left: 18px;
 }
 .col-file {
   padding: 15px;
@@ -616,7 +618,7 @@ svg.star-icon {
   margin-top: 10px;
   border: 1px solid black;
   background-color: transparent;
-  margin-right: 15px;
+  margin-right: 0;
   margin-left: 15px;
   height: 53px;
   width: 165px;
