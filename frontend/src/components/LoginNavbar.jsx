@@ -73,10 +73,21 @@ export default function LoginNavbar() {
         </div>
         <div className="right-side2">
           <div className="right-side-components">
-            {isStudent && (
+            {!isStudent && (
               <li>
-                <a href="/study">Study Now</a>
+                <a href="/thome">Home</a>
               </li>
+            )}
+
+            {isStudent && (
+              <>
+                <li>
+                  <a href="/home">Home</a>
+                </li>
+                <li>
+                  <a href="/study">Study Now</a>
+                </li>
+              </>
             )}
             {!isStudent && (
               <>
@@ -88,7 +99,6 @@ export default function LoginNavbar() {
                 </li>
               </>
             )}
-            {/* <li></li> */}
             <p>Welcome {name}</p>
             {!image ? null : (
               <a href="">
