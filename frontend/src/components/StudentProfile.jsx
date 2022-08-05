@@ -156,22 +156,70 @@ export default function StudentProfile() {
   }
   function getInfo() {
     // console.log();
+    // if ( === "0") {
 
     axios
-      .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
+      .post(`http://127.0.0.1:8000/api/student/ifStudent`, {
         user_id: { id }.id,
       })
       .then((res) => {
-        // console.log("student=>", res.data.student[0].image_link);
-        setInfo({
-          ...info,
-          image_link: res.data.student[0].image_link,
-          rate_number: parseInt(res.data.student[0].rate_number),
-        });
-      })
-      .catch((err) => {
-        //   console.log(err);
+        console.log(res.data.response);
+        if (res.data.response === true) {
+          //user is a student
+          axios
+            .post(`http://127.0.0.1:8000/api/student/getStudentById`, {
+              user_id: { id }.id,
+            })
+            .then((res) => {
+              console.log("student=>", res.data.student[0].image_link);
+              setInfo({
+                ...info,
+                image_link: res.data.student[0].image_link,
+                rate_number: parseInt(res.data.student[0].rate_number),
+              });
+              console.log(
+                "res.data.student[0].rate_number",
+                res.data.student[0].rate_number
+              );
+            });
+        } else {
+          //user is a tutor
+          axios
+            .post(`http://127.0.0.1:8000/api/teacher/getTeacherById`, {
+              user_id: { id }.id,
+            })
+            .then((res) => {
+              setInfo({
+                ...info,
+                image_link: res.data.teacher[0].image_link,
+                rate_number: parseInt(res.data.teacher[0].rate_number),
+              });
+              console.log(
+                "res.data.teacher[0].rate_number",
+                res.data.teacher[0].rate_number
+              );
+            });
+        }
       });
+
+    // }
+    // else if ( === "2") {
+    //   axios
+    //     .post(`http://127.0.0.1:8000/api/teacher/getTeacherById`, {
+    //       user_id: { id }.id,
+    //     })
+    //     .then((res) => {
+    //       setInfo({
+    //         ...info,
+    //         image_link: res.data.teacher[0].image_link,
+    //         rate_number: parseInt(res.data.teacher[0].rate_number),
+    //       });
+    //       console.log(
+    //         "res.data.teacher[0].rate_number",
+    //         res.data.teacher[0].rate_number
+    //       );
+    //     });
+    // }
   }
   function getAge() {
     if (user.date_of_birth) {
