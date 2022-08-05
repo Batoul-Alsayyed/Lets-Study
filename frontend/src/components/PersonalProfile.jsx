@@ -221,9 +221,6 @@ export default function PersonalProfile() {
           {!image ? null : (
             <>
               <img src={image} className="user-profile-img" />{" "}
-              {/* <span className="camera-icon">
-                <FiIcons.FiCamera size={30} />
-              </span> */}
             </>
           )}
 
