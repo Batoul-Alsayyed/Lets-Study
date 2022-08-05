@@ -93,6 +93,10 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 > | ![Edit profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.PNG) | ![Rate users](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rate-users.PNG) |
 
+> | Study page                                                                              | Payment form                                                                                     |
+> | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+> | ![Study page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Payment form](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/payment-form.PNG) |
+
 <br><br>
 <img src="./readme/title6.svg" id="title6"/>
 
