@@ -109,6 +109,14 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 > | ![Admin degrees page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-degrees.PNG) | ![Admin study fields page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-studyfields.PNG) |
 
+> | Admin delete degree                                                                                     | Admin delete study field                                                                                          |
+> | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+> | ![Admin degrees page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-degree.PNG) | ![Admin study fields page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-study-field.PNG) |
+
+> | Admin delete teacher                                                                                       | Complete student information                                                                                           |
+> | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+> | ![Admin delete teacher](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-teacher.PNG) | ![Complete student profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/complete-profile-popup.PNG) |
+
 <br><br>
 <img src="./readme/title6.svg" id="title6"/>
 
