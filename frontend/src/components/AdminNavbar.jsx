@@ -36,6 +36,20 @@ function AdminNavbar() {
               </Link>
             </li>
             {SidebarData.map((item, index) => {
+              if (item.title === "Logout") {
+                return (
+                  <li
+                    key={index}
+                    className={item.cName}
+                    onClick={localStorage.clear()}
+                  >
+                    <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              }
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
