@@ -3,13 +3,13 @@
 <div align="center">
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
-> **[PROJECT PHILOSOPHY](https://github.com/julescript/well_app#-project-philosophy) • [WIREFRAMES](https://github.com/julescript/well_app#-wireframes) • [TECH STACK](https://github.com/julescript/well_app#-tech-stack) • [IMPLEMENTATION](https://github.com/julescript/well_app#-impplementation) • [HOW TO RUN?](https://github.com/julescript/well_app#-how-to-run)**
+> **[PROJECT PHILOSOPHY](#title2) • [WIREFRAMES](#title3) • [TECH STACK](#title4) • [IMPLEMENTATION](#title5) • [HOW TO RUN?](#title6)**
 
 </div>
 
 <br><br>
 
-<img src="./readme/title2.svg"/>
+<img src="./readme/title2.svg" id="title2"/>
 
 > The Well website is an online study platform. The website itself is not just any study platform that shows random students and tutors that you can study with; it encourages students to study with different people from all around the world where they can rate their study colleagues and tutors and chat with them to facilitate the communication processs without the need of outside chating apps where they can waste their time.
 
@@ -46,7 +46,7 @@
 - I can add degrees and studyfields or delete them.
   <br><br>
 
-<img src="./readme/title3.svg"/>
+<img src="./readme/title3.svg" id="title3"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
 > Note that i didn't use any styling library or theme, all from scratch and using pure css modules
@@ -60,7 +60,7 @@
 
 <br><br>
 
-<img src="./readme/title4.svg"/>
+<img src="./readme/title4.svg" id="title4"/>
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
@@ -71,7 +71,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 - The app uses [zoom](https://zoom.us/) API for hosting sessions between students and tutors themselves.
 
 <br><br>
-<img src="./readme/title5.svg"/>
+<img src="./readme/title5.svg" id="title5"/>
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 > | Landing | Students |
@@ -83,7 +83,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > | ![Study](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Student Info](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/student-profile.PNG) |
 
 <br><br>
-<img src="./readme/title6.svg"/>
+<img src="./readme/title6.svg" id="title6"/>
 
 > This is an example of how you may give instructions on setting up your project locally.
 > To get a local copy up and running follow these simple example steps.
