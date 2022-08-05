@@ -24,8 +24,6 @@
 - I can view messages sent from other students and send messages to them as well.
 - I get notified each time another student sends me a message.
 
-  <br><br>
-
 ### As a pro student:
 
 - I can view all tutors and students that are out there.
@@ -34,14 +32,12 @@
 - I can join live zoom meetings with other students/tutors.
 - I can view messages sent from other students/tutors and send messages to them as well.
 - I get notified each time another student/tutor sends me a message.
-  <br><br>
 
 ### As a tutor:
 
 - I can view other tutors/students where I can chat with them and rate them.
 - I can view messages sent from teachers/students and send messages to them as well.
 - I get notified each time another student/tutor sends me a message.
-  <br><br>
 
 ### As an admin:
 
