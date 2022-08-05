@@ -64,7 +64,7 @@ function App() {
           <Route path="/popup" element={<Popup />}></Route>
           <Route path="/map" element={<MapComponent />}></Route>
           <Route path="/teacher-profile" element={<TeacherProfile />}></Route>
-          <Route path="/student/:id" element={<StudentProfile />}></Route>
+          <Route path="/user/:id" element={<StudentProfile />}></Route>
           <Route path="/PersonalProfile" element={<PersonalProfile />}></Route>
           <Route path="/payment" element={<PaymentForm />}></Route>
           <Route path="/admin" element={<AdminPanel />}></Route>
