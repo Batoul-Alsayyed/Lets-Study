@@ -1173,6 +1173,9 @@ tr:nth-child(even) {
 .delete {
   margin-top: 100px;
 }
+button {
+  cursor: pointer;
+}
 .swiper {
   width: 90%;
   height: 100%;
