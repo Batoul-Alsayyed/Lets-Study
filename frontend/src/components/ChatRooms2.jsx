@@ -44,10 +44,42 @@ function ChatRooms2() {
                   .then((res) => {
                     const id = res.data.user[0].id;
                     username = res.data.user[0].name;
-                    setChatRooms((chatrooms) => [
-                      ...chatrooms,
-                      { name: username },
-                    ]);
+                    console.log("user type id ", res.data.user[0].user_type_id);
+                    if (res.data.user[0].user_type_id === 0) {
+                      axios
+                        .post(
+                          `http://127.0.0.1:8000/api/student/getStudentById`,
+                          {
+                            user_id: res.data.user[0].id,
+                          }
+                        )
+                        .then((res) => {
+                          setChatRooms((chatrooms) => [
+                            ...chatrooms,
+                            {
+                              name: username,
+                              image: res.data.student[0].image_link,
+                            },
+                          ]);
+                        });
+                    } else {
+                      axios
+                        .post(
+                          `http://127.0.0.1:8000/api/teacher/getTeacherById`,
+                          {
+                            user_id: res.data.user[0].id,
+                          }
+                        )
+                        .then((res) => {
+                          setChatRooms((chatrooms) => [
+                            ...chatrooms,
+                            {
+                              name: username,
+                              image: res.data.teacher[0].image_link,
+                            },
+                          ]);
+                        });
+                    }
                   });
               }
             });
@@ -68,7 +100,6 @@ function ChatRooms2() {
       getChatRooms();
     }
   }, [user_id, access_token]);
-
   return (
     <div className="rooms">
       <LoginNavbar />
@@ -82,14 +113,13 @@ function ChatRooms2() {
                   className="chat-id"
                   onClick={() => NavigateToChatRoom(chat)}
                 >
-                  <div className="chat-id-div">
-                    <img
-                      // src={chatrooms[index]?.image_link}
-                      src={prof}
-                      className="chat-img"
-                    />
-                    <p className="contact-name">{chatrooms[index]?.name}</p>
-                  </div>
+                  {!chatrooms ? null : (
+                    <div className="chat-id-div">
+                      <img src={chatrooms[index]?.image} className="chat-img" />
+
+                      <p className="contact-name">{chatrooms[index]?.name}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
