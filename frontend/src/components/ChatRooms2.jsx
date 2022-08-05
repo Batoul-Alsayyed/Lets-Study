@@ -16,8 +16,9 @@ function ChatRooms2() {
 
   let navigate = useNavigate();
 
-  function NavigateToChatRoom(chat_id) {
+  function NavigateToChatRoom(chat_id, partner_email) {
     let url = "/chat-room2/" + String(chat_id);
+    localStorage.setItem("partner_email", partner_email);
     navigate(url);
   }
   function getChatRooms() {
@@ -44,7 +45,9 @@ function ChatRooms2() {
                   .then((res) => {
                     const id = res.data.user[0].id;
                     username = res.data.user[0].name;
+                    console.log("email", res.data.user[0].email);
                     console.log("user type id ", res.data.user[0].user_type_id);
+                    let email = res.data.user[0].email;
                     if (res.data.user[0].user_type_id === 0) {
                       axios
                         .post(
@@ -59,6 +62,7 @@ function ChatRooms2() {
                             {
                               name: username,
                               image: res.data.student[0].image_link,
+                              email: email,
                             },
                           ]);
                         });
@@ -76,6 +80,7 @@ function ChatRooms2() {
                             {
                               name: username,
                               image: res.data.teacher[0].image_link,
+                              email: email,
                             },
                           ]);
                         });
@@ -111,7 +116,9 @@ function ChatRooms2() {
                 <div
                   key={chat}
                   className="chat-id"
-                  onClick={() => NavigateToChatRoom(chat)}
+                  onClick={() =>
+                    NavigateToChatRoom(chat, chatrooms[index]?.email)
+                  }
                 >
                   {!chatrooms ? null : (
                     <div className="chat-id-div">
