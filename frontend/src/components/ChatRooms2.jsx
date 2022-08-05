@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import LoginNavbar from "./TeacherLoginNavbar";
+import LoginNavbar from "../components/LoginNavbar";
 import { useState, useEffect } from "react";
 import prof from "../images/christopher-campbell-rDEOVtE7vOs-unsplash 1.png";
 import "../index.css";
@@ -20,7 +20,6 @@ function ChatRooms2() {
     let url = "/chat-room2/" + String(chat_id);
     navigate(url);
   }
-
   function getChatRooms() {
     if (user_id) {
       const rooms = []; //rooms will save the user id the user is talking to
@@ -31,21 +30,19 @@ function ChatRooms2() {
         .then((querySnapshot) => {
           const chatIDS = [];
           querySnapshot.forEach((doc) => {
-            // console.log(doc);
-            // console.log("ids=>", `${doc.id} => ${doc.data()}`);
             console.log("participants", doc.data());
-
-            // console.log("data.data=>", doc.data().participants);
+            console.log("id=>", user_id);
             var chatroom = doc.data().participants;
             chatroom.map((user) => {
-              if (user !== String(user_id)) {
+              if (user !== user_id) {
+                // var img;
                 var username;
                 axios
                   .post(`http://127.0.0.1:8000/api/user/getUserById`, {
                     id: user,
                   })
                   .then((res) => {
-                    console.log("res data", res.data.user[0].name);
+                    const id = res.data.user[0].id;
                     username = res.data.user[0].name;
                     setChatRooms((chatrooms) => [
                       ...chatrooms,
@@ -86,8 +83,11 @@ function ChatRooms2() {
                   onClick={() => NavigateToChatRoom(chat)}
                 >
                   <div className="chat-id-div">
-                    <img src={prof} alt="" className="chat-img" />
-                    {/* {chat} */}
+                    <img
+                      // src={chatrooms[index]?.image_link}
+                      src={prof}
+                      className="chat-img"
+                    />
                     <p className="contact-name">{chatrooms[index]?.name}</p>
                   </div>
                 </div>
