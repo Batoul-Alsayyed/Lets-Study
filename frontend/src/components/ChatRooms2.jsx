@@ -36,7 +36,6 @@ function ChatRooms2() {
             var chatroom = doc.data().participants;
             chatroom.map((user) => {
               if (user !== user_id) {
-                // var img;
                 var username;
                 axios
                   .post(`http://127.0.0.1:8000/api/user/getUserById`, {
@@ -66,7 +65,7 @@ function ChatRooms2() {
                             },
                           ]);
                         });
-                    } else {
+                    } else if (res.data.user[0].user_type_id === 2) {
                       axios
                         .post(
                           `http://127.0.0.1:8000/api/teacher/getTeacherById`,
