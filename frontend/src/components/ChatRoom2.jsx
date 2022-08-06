@@ -78,6 +78,7 @@ export default function ChatRoom2() {
       sender: user_id,
     });
     //sending an email to patner containing message content and sender name
+    console.log("partner email", partner_email);
     emailjs
       .sendForm(
         "service_4pgu0ik",

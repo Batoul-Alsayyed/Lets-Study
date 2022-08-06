@@ -96,6 +96,8 @@ export default function StudentProfile() {
           })
           .then((doc) => {
             console.log("doc id, ", doc.id);
+            // localStorage.setItem("partner_email",);
+            console.log("partner email => ", user.email);
             let url = "/chat-room2/" + doc.id;
             navigate(url);
           });
