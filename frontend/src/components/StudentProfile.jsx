@@ -300,7 +300,7 @@ export default function StudentProfile() {
       </div>
       <div className="centered">
         <button className="rate-btn" onClick={rateClicked}>
-          Rate this student
+          Rate {user.name}
         </button>
       </div>
     </div>
