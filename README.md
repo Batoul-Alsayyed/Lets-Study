@@ -71,49 +71,62 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 <img src="./readme/title5.svg" id="title5"/>
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
-> | Landing | Teachers Home page |
-> | -----------------| -----|
-> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/landing-page.PNG) | ![Teachers Homepage](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers-home-page.PNG) |
 
-> | Teachers                                                                                 | Students                                                                                 |
-> | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-> | ![Teachers](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers.PNG) | ![Students](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/students.PNG) |
+> | Landing                                                                                 | Teachers Home page                                                                                       |
+> | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+> | ![Landing ](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Landing.gif) | ![Teachers' pages](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers'%20pages.gif) |
 
-> | Login                                                                                   | Register                                                                                      |
-> | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-> | ![Login](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/login-page.PNG) | ![Register](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Register-page.PNG) |
+> | Student Register                                                                                         | Student complete profile                                                                                                 |
+> | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+> | ![Student Register](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/student-register.gif) | ![Student complete profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/student-complete-profile.gif) |
 
-> | Student profile                                                                                        | Tutor profile                                                                                        |
-> | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-> | ![Student profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/student-profile.PNG) | ![Tutor profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teacher-profile.PNG) |
+> | Join as pro                                                                                  | Join for free                                                                                                                        |
+> | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+> | ![Join as pro](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/joinaspro.gif) | ![Live chat + email notifications](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/livechat%2Bemailnotifications.gif) |
 
-> | Edit profile                                                                                     | Rate Users                                                                                   |
-> | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-> | ![Edit profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.PNG) | ![Rate users](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rate-users.PNG) |
+> | Landing                                                                                                | Teachers Home page                                                                                                     |
+> | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+> | ![Landing Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/landing-page.PNG) | ![Teachers Homepage Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers-home-page.PNG) |
 
-> | Chat rooms                                                                                   | Chat room                                                                                  |
-> | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-> | ![Chat rooms](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/chat-rooms.PNG) | ![Chat room](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/chat-room.PNG) |
+> | Teachers                                                                                            | Students                                                                                            |
+> | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+> | ![Teachers Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers.PNG) | ![Students Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/students.PNG) |
 
-> | Study page                                                                              | Payment form                                                                                     |
-> | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-> | ![Study page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Payment form](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/payment-form.PNG) |
+> | Login                                                                                              | Register                                                                                                 |
+> | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+> | ![Login Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/login-page.PNG) | ![Register Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Register-page.PNG) |
 
-> | Admin teachers page                                                                                        | Admin students page                                                                                             |
-> | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-> | ![Admin Teachers](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-teachers.PNG) | ![Admin students page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-students.PNG) |
+> | Student profile                                                                                                   | Tutor profile                                                                                                   |
+> | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+> | ![Student profile Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/student-profile.PNG) | ![Tutor profile Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teacher-profile.PNG) |
 
-> | Admin degrees page                                                                                            | Admin study fields page                                                                                                |
-> | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-> | ![Admin degrees page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-degrees.PNG) | ![Admin study fields page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-studyfields.PNG) |
+> | Edit profile                                                                                                | Rate Users                                                                                              |
+> | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+> | ![Edit profile Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.PNG) | ![Rate users Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rate-users.PNG) |
 
-> | Admin delete degree                                                                                     | Admin delete study field                                                                                          |
-> | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-> | ![Admin degrees page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-degree.PNG) | ![Admin study fields page](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-study-field.PNG) |
+> | Chat rooms                                                                                              | Chat room                                                                                             |
+> | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+> | ![Chat rooms Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/chat-rooms.PNG) | ![Chat room Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/chat-room.PNG) |
 
-> | Admin delete teacher                                                                                       | Complete student information                                                                                           |
-> | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-> | ![Admin delete teacher](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-teacher.PNG) | ![Complete student profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/complete-profile-popup.PNG) |
+> | Study page                                                                                         | Payment form                                                                                                |
+> | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+> | ![Study page Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/study.PNG) | ![Payment form Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/payment-form.PNG) |
+
+> | Admin teachers page                                                                                                   | Admin students page                                                                                                        |
+> | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+> | ![Admin Teachers Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-teachers.PNG) | ![Admin students page Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-students.PNG) |
+
+> | Admin degrees page                                                                                                       | Admin study fields page                                                                                                           |
+> | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+> | ![Admin degrees page Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-degrees.PNG) | ![Admin study fields page Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-panel-studyfields.PNG) |
+
+> | Admin delete degree                                                                                                | Admin delete study field                                                                                                     |
+> | ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+> | ![Admin degrees page Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-degree.PNG) | ![Admin study fields page Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-study-field.PNG) |
+
+> | Admin delete teacher                                                                                                  | Complete student information                                                                                                      |
+> | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+> | ![Admin delete teacher Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/delete-teacher.PNG) | ![Complete student profile Screenchot](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/complete-profile-popup.PNG) |
 
 <br><br>
 <img src="./readme/title6.svg" id="title6"/>
