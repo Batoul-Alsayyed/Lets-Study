@@ -73,7 +73,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 > | Landing | Teachers Home page |
 > | -----------------| -----|
-> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/landing-page.PNG) | ![Teachers Homepage](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers-home-page.PNG) |
+> | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/Landing.mp4) | ![Teachers Homepage](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers-home-page.PNG) |
 
 > | Teachers                                                                                 | Students                                                                                 |
 > | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
