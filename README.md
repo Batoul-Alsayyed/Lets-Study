@@ -86,7 +86,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 > | Rating                                                                                         | Edit profile                                                                                     |
 > | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-> | ![Rating](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rating-a-teacher.gif) | ![Edit profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.PNG) |
+> | ![Rating](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rating-a-teacher.gif) | ![Edit profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.gif) |
 
 > | Admin panel                                                                                            | Admin panel(Adding a teacher)                                                                                      |
 > | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
