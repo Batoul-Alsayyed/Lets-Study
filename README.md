@@ -84,6 +84,22 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 > | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 > | ![Join as pro](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/joinaspro.gif) | ![Live chat + email notifications](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/livechat%2Bemailnotifications.gif) |
 
+> | Rating                                                                                         | Edit profile                                                                                     |
+> | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+> | ![Rating](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/rating-a-teacher.gif) | ![Edit profile](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/edit-profile.PNG) |
+
+> | Admin panel                                                                                            | Admin panel(Adding a teacher)                                                                                      |
+> | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+> | ![Admin panel](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/adminpanel-overview.gif) | ![Admin panel(Add a teacher)](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/adding-a-teacher.gif) |
+
+> | Admin panel(Deleting a teacher)                                                                                         | Admin panel(Login)                                                                                    |
+> | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+> | ![Admin panel(Delete a teacher)](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/deleting-a-teacher.gif) | ![Admin panel(login)](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/admin-login.gif) |
+
+> | Admin panel(Adding + deleting a degree)                                                                                                | Admin panel(Adding + deleting a studyfield)                                                                                                    |
+> | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+> | ![Admin panel(Adding + deleting a degree)](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/adding%2Bdeletingdegree.gif) | ![Admin panel(Adding + deleting a studyfield)](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/adding%2Bdeletingstudyfield.gif) |
+
 > | Landing Screenchot                                                                          | Teachers Home page Screenchot                                                                               |
 > | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 > | ![Landing](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/landing-page.PNG) | ![Teachers Homepage](https://github.com/Batoul-Alsayyed/Lets-Study/blob/main/readme/teachers-home-page.PNG) |
